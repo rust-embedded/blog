@@ -29,7 +29,9 @@
                 <div class="container {% if config.extra.hyde_sticky %}sidebar-sticky{% endif %}">
                     <div class="sidebar-about">
                         {% block sidebar_about %}
-                            <a href="{{ config.base_url }}"><h1>{{ config.title }}</h1></a>
+                            <a href="{{ config.base_url }}">
+                              <img src="{{ get_url(path="ewg-logo-blue-white-on-transparent.svg", trailing_slash=false) }}">
+                            </a>
                             {% if config.description %}
                             <p class="lead">{{config.description}}</p>
                             {% endif %}
@@ -50,7 +52,7 @@
         <div class="content container">
             {% block content %}
                 <div class="posts">
-                    {% for page in section.pages | reverse %}
+                    {% for page in paginator.pages %}
                       <div class="post">
                         <h1 class="post-title">
                           <a href="{{ page.permalink }}">
@@ -59,8 +61,16 @@
                         </h1>
 
                         <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
+                        {{ page.summary | safe }}
+
+                        <a href="{{ page.permalink }}">
+                          <i>Read More</i>
+                        </a>
                       </div>
                     {% endfor %}
+                {% if paginator.previous %}<a href="{{ paginator.previous }}"><b>< < Back</b>{% endif %}
+                {% if paginator.next and paginator.previous %}|{% endif %}
+                {% if paginator.next %}<a href="{{ paginator.next }}"><b>Next > ></b>{% endif %}
                 </div>
             {% endblock content %}
         </div>
