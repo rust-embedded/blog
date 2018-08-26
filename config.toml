@@ -21,4 +21,7 @@ theme = "hyde"
 generate_rss = true
 
 [extra]
-# Put all your custom variables here
+hyde_links = [
+    {url = "https://rust-lang.org", name = "The Rust Language"},
+    {url = "https://github.com/rust-embedded/wg", name = "Embedded WG"},
+]
