@@ -1,0 +1,28 @@
+# The URL the site will be built for
+base_url = "https://blog.rust-embedded.org"
+
+title = "Rust Embedded Working Group"
+description = """
+Blog of the Embedded Rust Working Group
+"""
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Gutenberg
+highlight_code = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+theme = "hyde"
+
+generate_rss = true
+
+[extra]
+hyde_links = [
+    {url = "https://rust-lang.org", name = "The Rust Language"},
+    {url = "https://github.com/rust-embedded/wg", name = "Embedded WG"},
+    {url = "https://github.com/rust-embedded/blog", name = "The Blog on GitHub"},
+]
