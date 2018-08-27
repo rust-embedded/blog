@@ -1,12 +1,10 @@
 +++
 title = "PSA: Cortex-M Breakage (LLD as the default linker)"
-date = 2018-08-24
+date = 2018-08-28
 draft = false
 in_search_index = true
 template = "page.html"
 +++
-
-> PSA: building binaries and cdylibs for the ARM Cortex-M architecture will break with today's nightly
 
 The default linker for the 4 ARM Cortex-M targets listed below has changed from
 `arm-none-eabi-gcc` to `rust-lld` in the latest nightly.
