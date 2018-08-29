@@ -4,6 +4,7 @@ date = 2018-03-29
 draft = false
 in_search_index = true
 template = "page.html"
+aliases = ["2018-03-29/"]
 +++
 
 This is the second bi-weekly newsletter of the [Embedded WG] where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
