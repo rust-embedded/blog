@@ -16,6 +16,8 @@ main() {
            --tag $tag \
            --target x86_64-unknown-linux-gnu \
            --to ~/.local/bin
+
+    pip install linkchecker --user
 }
 
 main
