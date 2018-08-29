@@ -4,6 +4,7 @@ date = 2018-03-15
 draft = false
 in_search_index = true
 template = "page.html"
+aliases = ["2018-03-15/"]
 +++
 
 This is the first newsletter of the [Embedded WG]! We will be releasing this newsletter on a bi-weekly basis, and we are looking to highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
