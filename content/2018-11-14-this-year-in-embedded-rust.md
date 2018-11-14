@@ -1,5 +1,5 @@
 +++
-title = "This year in embedded Rust"
+title = "This Year in Embedded Rust"
 date = 2018-11-14
 draft = false
 in_search_index = true
@@ -12,6 +12,12 @@ edition release we reflect on our progress and share our achievements with you
 in this post.
 
 [Embedded WG]: https://github.com/rust-embedded/wg
+
+Discuss on [users.rust-lang.org], [on twitter], or [on reddit]!
+
+[users.rust-lang.org]: https://users.rust-lang.org/t/the-embedded-wg-this-year-in-embedded-rust/22263
+[on twitter]: https://twitter.com/rustembedded/status/1062664608538918913
+[on reddit]: https://www.reddit.com/r/rust/comments/9wz716/the_embedded_wg_this_year_in_embedded_rust/
 
 <!-- more -->
 
