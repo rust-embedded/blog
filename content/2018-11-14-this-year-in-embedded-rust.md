@@ -13,6 +13,8 @@ in this post.
 
 [Embedded WG]: https://github.com/rust-embedded/wg
 
+<!-- more -->
+
 ## Embedded Rust on stable
 
 Stability -- AKA "my crate should not break when moving to a newer toolchain" --
