@@ -6,12 +6,12 @@ in_search_index = true
 template = "page.html"
 +++
 
-This year the [embedded WG] set out to build the solid foundation that the
+This year the [Embedded WG] set out to build the solid foundation that the
 embedded Rust ecosystem requires to thrive. As we approach the date of the 2018
 edition release we reflect on our progress and share our achievements with you
 in this post.
 
-[embedded WG]: https://github.com/rust-embedded/wg
+[Embedded WG]: https://github.com/rust-embedded/wg
 
 ## Embedded Rust on stable
 
@@ -40,11 +40,11 @@ documentation that relies on unstable features for a long period of time has
 been an uphill battle so newcomers have often run into outdated docs.
 
 But now that stable embedded Rust is here we have put together an authoritative
-resource for getting started with embedded Rust: [the embedded Rust book]. We
+resource for getting started with embedded Rust: [The Embedded Rust Book]. We
 have put a lot of effort in making the first experience as frictionless as
 possible with the help of [templates] and [tooling].
 
-[the embedded Rust book]: https://docs.rust-embedded.org/book
+[The Embedded Rust Book]: https://docs.rust-embedded.org/book
 [templates]: https://github.com/rust-embedded/cortex-m-quickstart
 [tooling]: https://github.com/rust-embedded/cargo-binutils
 
@@ -55,7 +55,7 @@ experience into patterns and tips that we are adding to this book.
 
 ## Resources for everyone
 
-The embedded Rust book is aimed at people that have some experience with
+The Embedded Rust Book is aimed at people that have some experience with
 embedded development, but we recognize that Rust has great potential for
 becoming people's first choice for getting their feet wet with embedded
 development so we have updated and will continue to work on resources, like [the
@@ -128,4 +128,4 @@ ARM Cortex-R, MSP430 and RISCV. We'll continue to work on getting these
 targets on parity with the ARM Cortex-M target during the next year.
 
 Here's to a 2019 with *more* embedded Rust success stories (yes, "more"; wait
-for the upcoming revamped rust-lang website ;-). Happy embedded hacking!
+for the upcoming revamped rust-lang website ;-)). Happy embedded hacking!
