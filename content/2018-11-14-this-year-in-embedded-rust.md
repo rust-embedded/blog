@@ -127,5 +127,14 @@ laid the groundwork for supporting other targets like bare metal ARM Cortex-A,
 ARM Cortex-R, MSP430 and RISCV. We'll continue to work on getting these
 targets on parity with the ARM Cortex-M target during the next year.
 
+Finally, we'd love to hear what **you** would like to see happen in the embedded
+space in 2019. We are collecting a ["wishlist"] of things the embedded community
+would like to see get done, fixed and / or stabilized in 2019. Need some API in
+core to be stabilized? Would like to get some Cargo bug / papercut fixed? Let us
+know and we'll look into making it happen! We'll use this data to set out an
+embedded Rust roadmap for 2019.
+
+["wishlist"]: https://github.com/rust-embedded/wg/issues/256
+
 Here's to a 2019 with *more* embedded Rust success stories (yes, "more"; wait
 for the upcoming revamped rust-lang website ;-)). Happy embedded hacking!
