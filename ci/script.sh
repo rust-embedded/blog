@@ -1,7 +1,7 @@
 set -euxo pipefail
 
 main() {
-    gutenberg build
+    zola build
 
     linkchecker public
 }
