@@ -12,11 +12,13 @@ This is the sixteenth newsletter of the [Embedded WG] where we highlight new pro
 
 [Embedded WG]: https://github.com/rust-embedded/wg
 
-Discuss on [users.rust-lang.org], [on twitter], or [on reddit]!
+<!-- TODO uncomment -->
 
-[users.rust-lang.org]: https://example.org/#TODO
-[on twitter]: https://example.org/#TODO
-[on reddit]: https://example.org/#TODO
+<!-- Discuss on [users.rust-lang.org], [on twitter], or [on reddit]! -->
+
+<!-- [users.rust-lang.org]: https://example.org/#TODO -->
+<!-- [on twitter]: https://example.org/#TODO -->
+<!-- [on reddit]: https://example.org/#TODO -->
 
 If you want to mention something in [the next newsletter], send us a pull request!
 
