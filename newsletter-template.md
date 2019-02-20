@@ -20,6 +20,8 @@ This is the sixteenth newsletter of the [Embedded WG] where we highlight new pro
 <!-- [on twitter]: https://example.org/#TODO -->
 <!-- [on reddit]: https://example.org/#TODO -->
 
+<!-- more -->
+
 If you want to mention something in [the next newsletter], send us a pull request!
 
 [the next newsletter]: https://github.com/rust-embedded/blog/edit/master/content/2019-03-20-newsletter-17.md
