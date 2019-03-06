@@ -1,6 +1,6 @@
 +++
-title = "The Embedded Working Group Newsletter - 16"
-date = 2019-03-06
+title = "The Embedded Working Group Newsletter - $TODO"
+date = 20??-$TODO
 draft = true
 in_search_index = false
 template = "page.html"
@@ -8,7 +8,7 @@ template = "page.html"
 
 <!-- TODO before release set `draft` to `false` and `in_search_index` to `true` -->
 
-This is the sixteenth newsletter of the [Embedded WG] where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+This is the ${TODO}th newsletter of the [Embedded WG] where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
 
 [Embedded WG]: https://github.com/rust-embedded/wg
 
@@ -24,7 +24,7 @@ This is the sixteenth newsletter of the [Embedded WG] where we highlight new pro
 
 If you want to mention something in [the next newsletter], send us a pull request!
 
-[the next newsletter]: https://github.com/rust-embedded/blog/edit/master/content/2019-03-20-newsletter-17.md
+[the next newsletter]: https://github.com/rust-embedded/blog/edit/master/content/${TODO}.md
 
 ## Highlights
 
@@ -42,24 +42,22 @@ If you have an embedded project or blog post you would like to have featured in 
 
 ## `embedded-hal` Ecosystem Crates
 
-<hr>
-
 As part of the [Weekly Driver Initiative], crates that are part of the `embedded-hal` ecosystem are now tracked in the [Awesome Embedded Rust] repository. Here is a current snapshot of what is available there:
 
-<!-- TODO update these numbers before release -->
+<!-- TODO fill in the numbers before release -->
 
-| Type                      | Status    | Count | Diff |
-| :---                      | :-----    | :---- | :--- |
-| [Device Crates]           | released  | 16    | 0    |
-| [HAL Impl Crates]         | released  | 13    | 0    |
-| [Board Support Crates]    | released  | 11    | 0    |
-| [Driver Crates Released]  | released  | 16    | +1   |
-| [Driver Crates WIP]       | WIP       | 46    | +6   |
-| [no-std crates]           | released  | 17    | +3   |
+| Type                       | Status    | Count | Diff |
+| :---                       | :-----    | :---- | :--- |
+| [Peripheral Access Crates] | released  | ??    | +?   |
+| [HAL Impl Crates]          | released  | ??    | +?   |
+| [Board Support Crates]     | released  | ??    | +?   |
+| [Driver Crates Released]   | released  | ??    | +?   |
+| [Driver Crates WIP]        | WIP       | ??    | +?   |
+| [no-std crates]            | released  | ??    | +?   |
 
 [Awesome Embedded Rust]: https://github.com/rust-embedded/awesome-embedded-rust
 [Weekly Driver Initiative]: https://github.com/rust-embedded/wg/issues/39
-[Device Crates]: https://github.com/rust-embedded/awesome-embedded-rust#device-crates
+[Peripheral Access Crates]: https://github.com/rust-embedded/awesome-embedded-rust#peripheral-access-crates
 [HAL Impl Crates]: https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates
 [Board Support Crates]: https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates
 [Driver Crates Released]: https://github.com/rust-embedded/awesome-embedded-rust#driver-crates
