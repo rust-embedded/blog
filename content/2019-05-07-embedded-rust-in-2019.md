@@ -26,28 +26,6 @@ Our weekly meetings will likely relax a bit, and will generally change focus to 
 
 At the end of April, Mozilla announced that they would be shutting down `irc.mozilla.org`. The Rust project as a whole will generally be moving on to other platforms such as Discord and Zulip.
 
-The Embedded Working Group is actually one of the few (if not only) working groups that still primarily rely on IRC. We have a few hundred people who idle in the room, and tend to have fairly active discussions there, including our weekly status meetings. We have discussed moving to other platforms previously, but have been unable to get any sort of consensus on what to move to instead.
+The Embedded Working Group is actually one of the few (if not only) working groups that still primarily rely on IRC. We have a few hundred people who idle in the room, and tend to have fairly active discussions there, including our weekly status meetings. We have discussed moving to other platforms previously, but have been unable to get any sort of consensus on what to move to instead. Those discussions lead to a fruitful evaluation of alternatives and led to a pre-selection of suitable services.
 
-We rediscussed this in person, attempting to make a choice between a number of platforms. In particular, we looked at the following:
-
-* Zulip
-* Discord
-* Matrix
-* Gitter
-* Slack
-* Microsoft Teams
-* Freenode IRC
-
-Based on this experience, and not wanting to split up the community, we will plan to move to Freenode IRC in approximately 6 weeks, or around 2019-06-18. This time has been chosen to allow enough time to get the word out, but also to be gone before the final date of the IRC server.
-
-**However**, we would welcome the submissions of RFCs that would propose a different choice. If you are interested in seeing a different chat being used for communication, please follow [our RFC process](https://github.com/rust-embedded/wg#rfcs) to suggest another one. RFCs proposing the use of another chat should aim to gain consensus among the community, and should attempt to address the following concerns:
-
-* Accessibility
-* Cost of running the service
-* Maintenance burden of running the service
-* Full history available (free or paid)
-* Mobile clients available
-* Public to read
-* Effort required to post (creating an account, etc.)
-
-Although not all items can be covered by all services, the RFCs should discuss these pros and cons.
+To move things forward [RFC 0351 Chat Vote](https://github.com/rust-embedded/wg/blob/master/rfcs/0351-chat-vote.md) has been proposed and accepted by the WG which was subsequently implemented by opening [voting issue](https://github.com/rust-embedded/wg/issues/357) to poll the public opinion on this matter. Anyone with a GitHub account is invited to cast vote(s) until **23:59 CEST on Sunday, 2019-06-23**, the detailed rules are explained in the issue and fair discussion is very welcome.
