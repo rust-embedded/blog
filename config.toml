@@ -26,4 +26,5 @@ hyde_links = [
     {url = "https://rust-lang.org", name = "The Rust Language"},
     {url = "https://github.com/rust-embedded/wg", name = "Embedded WG"},
     {url = "https://github.com/rust-embedded/blog", name = "The Blog on GitHub"},
+    {url = "https://rust-embedded.github.io/blog/rss.xml", name = "RSS Feed"},
 ]
