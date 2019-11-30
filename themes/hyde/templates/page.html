@@ -1,5 +1,14 @@
 {% extends "index.html" %}
 
+<!-- Twitter Card Support - Blog Post Override -->
+{% block twitter_meta %}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="{{ page.title }}" />
+  <meta name="twitter:description" content="{{ page.summary | safe }}" />
+  <meta name="twitter:image" content="{{ get_url(path="ewg-logo-blue-white-on-transparent.svg", trailing_slash=false) }}" />
+{%endblock twitter_meta %}
+
 {% block content %}
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>

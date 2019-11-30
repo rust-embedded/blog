@@ -7,6 +7,15 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
+      <!-- Twitter Card Support -->
+      {% block twitter_meta %}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@rustembedded" />
+        <meta name="twitter:title" content="Rust Embedded" />
+        <meta name="twitter:description" content="The Rust Embedded Working Group" />
+        <meta name="twitter:image" content="{{ get_url(path="ewg-logo-blue-white-on-transparent.svg", trailing_slash=false) }}" />
+      {%endblock twitter_meta %}
+
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
       <!-- CSS -->
