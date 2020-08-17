@@ -18,7 +18,7 @@ main() {
            --to ~/.local/bin
 
     pip install linkchecker --user
-    pip3 install python-dateutil --user
+    python3 -m pip install install python-dateutil --user
 }
 
 main
