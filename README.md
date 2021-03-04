@@ -1,6 +1,6 @@
 # The Embedded Rust Working Group Blog
 
-Content for [the Rust Embedded WG blog](https://rust-embedded.github.io/blog/).
+Content for [the Rust Embedded WG blog](https://blog.rust-embedded.org/).
 
 This blog is a collaborative effort publishing news about embedded development with the Rust programming language.
 

@@ -1,6 +1,5 @@
 # The URL the site will be built for
-# base_url = "https://blog.rust-embedded.org"
-base_url = "https://rust-embedded.github.io/blog"
+base_url = "https://blog.rust-embedded.org"
 
 title = "Rust Embedded Working Group"
 description = """
@@ -26,5 +25,5 @@ hyde_links = [
     {url = "https://rust-lang.org", name = "The Rust Language"},
     {url = "https://github.com/rust-embedded/wg", name = "Embedded WG"},
     {url = "https://github.com/rust-embedded/blog", name = "The Blog on GitHub"},
-    {url = "https://rust-embedded.github.io/blog/rss.xml", name = "RSS Feed"},
+    {url = "https://blog.rust-embedded.org/rss.xml", name = "RSS Feed"},
 ]
