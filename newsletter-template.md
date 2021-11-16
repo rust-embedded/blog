@@ -25,9 +25,7 @@ This is the ${TODO}th newsletter of the [Embedded WG] where we highlight new pro
 
 If you want to mention something in [the next newsletter], send us a pull request!
 
-<!-- TODO before release add the next template! -->
-
-[the next newsletter]: https://github.com/rust-embedded/blog/edit/master/content/${TODO}.md
+[the next newsletter]: https://github.com/rust-embedded/blog/edit/master/content/newsletter-next.md
 
 ## Highlights
 
