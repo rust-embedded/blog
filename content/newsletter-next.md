@@ -42,6 +42,9 @@ If you have an embedded project or blog post you would like to have featured in 
 - [svd2rust](https://crates.io/crates/svd2rust) released v0.20.0.
 - The new version of the [Discovery book](https://docs.rust-embedded.org/discovery)
   targeting the micro:bit development board was released.
+- [embedded-hal] 1.0.0-alpha.6 released, with a number of new features and
+    changes as we work towards the final 1.0 release. Most notably,
+    CAN (Controller Area Network) traits were added.
 
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
@@ -57,7 +60,8 @@ you would like for yourself.
 <!--
 TODO: Put all links for content here.
 -->
-[embedded-foo 1.0.0 released]: https://example.com/blog/...
+
+[embedded-hal]: https://crates.io/crates/embedded-hal
 
 ## `embedded-hal` Ecosystem Crates
 
