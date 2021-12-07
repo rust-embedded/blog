@@ -56,6 +56,9 @@ go here include:
 If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to add it to [the next newsletter], we would love to show it off!
 
 - TODO(remove, this is an example) Crate embedded-foo has released version 1.0.0!
+- [svd2rust](https://crates.io/crates/svd2rust) released v0.20.0.
+- The new version of the [Discovery book](https://docs.rust-embedded.org/discovery)
+  targeting the micro:bit development board was released.
 
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
