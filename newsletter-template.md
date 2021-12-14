@@ -8,25 +8,6 @@ template = "page.html"
 
 <!-- TODO before release set `draft` to `false` and `in_search_index` to `true` -->
 
-This is the ${TODO}th newsletter of the [Embedded WG] where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
-
-[Embedded WG]: https://github.com/rust-embedded/wg
-
-<!-- TODO uncomment -->
-
-<!-- Discuss on [#rust-embedded:matrix.org], [users.rust-lang.org], [on twitter], or [on reddit]! -->
-
-<!-- [#rust-embedded:matrix.org]: https://matrix.to/#/#rust-embedded:matrix.org -->
-<!-- [users.rust-lang.org]: https://example.org/#TODO -->
-<!-- [on twitter]: https://example.org/#TODO -->
-<!-- [on reddit]: https://example.org/#TODO -->
-
-<!-- more -->
-
-If you want to mention something in [the next newsletter], send us a pull request!
-
-[the next newsletter]: https://github.com/rust-embedded/blog/edit/master/content/newsletter-next.md
-
 ## Highlights
 
 <!--
@@ -41,6 +22,8 @@ TODO Add news related to embedded Rust that are not about new crates releases he
 - TODO(remove, this is an example) "const generics" has landed in nightly!
 
 - TODO(remove, this is an example) the Rust compiler has gained cross compilation support for the Xtensa architecture!
+
+<!-- more -->
 
 ## Embedded Projects
 
@@ -79,3 +62,22 @@ As part of the [Weekly Driver Initiative], crates that are part of the `embedded
 
 [Awesome Embedded Rust]: https://github.com/rust-embedded/awesome-embedded-rust
 [Weekly Driver Initiative]: https://github.com/rust-embedded/wg/issues/39
+
+## Get Involved
+
+This [Embedded WG] blog is where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+
+[Embedded WG]: https://github.com/rust-embedded/wg
+
+<!-- TODO uncomment -->
+
+<!-- Discuss on [#rust-embedded:matrix.org], [users.rust-lang.org], [on twitter], or [on reddit]! -->
+
+<!-- [#rust-embedded:matrix.org]: https://matrix.to/#/#rust-embedded:matrix.org -->
+<!-- [users.rust-lang.org]: https://example.org/#TODO -->
+<!-- [on twitter]: https://example.org/#TODO -->
+<!-- [on reddit]: https://example.org/#TODO -->
+
+If you want to mention something in [the next newsletter], send us a pull request!
+
+[the next newsletter]: https://github.com/rust-embedded/blog/edit/master/content/newsletter-next.md
