@@ -45,7 +45,11 @@ If you have an embedded project or blog post you would like to have featured in 
 - [embedded-hal] 1.0.0-alpha.6 released, with a number of new features and
     changes as we work towards the final 1.0 release. Most notably,
     CAN (Controller Area Network) traits were added.
-
+- New Rust Embedded ecosystem for the Vorago VA108xx family of devices:
+    [va108xx](https://egit.irs.uni-stuttgart.de/rust/va108xx) PAC,
+    [va108xx-hal](https://egit.irs.uni-stuttgart.de/rust/va108xx-hal) HAL
+    and [vorago-reb1](https://egit.irs.uni-stuttgart.de/rust/vorago-reb1) BSP
+    with [blogpost](https://robamu.github.io/post/rust-ecosystem/)
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
 <!--
