@@ -50,6 +50,8 @@ If you have an embedded project or blog post you would like to have featured in 
     [va108xx-hal](https://egit.irs.uni-stuttgart.de/rust/va108xx-hal) HAL
     and [vorago-reb1](https://egit.irs.uni-stuttgart.de/rust/vorago-reb1) BSP
     with [blogpost](https://robamu.github.io/post/rust-ecosystem/)
+- New [device driver crate](https://egit.irs.uni-stuttgart.de/rust/max116xx-10bit) for the MAX116xx
+    10-bit ADC devices
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
 <!--
