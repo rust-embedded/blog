@@ -51,7 +51,7 @@ If you have an embedded project or blog post you would like to have featured in 
     and [vorago-reb1](https://egit.irs.uni-stuttgart.de/rust/vorago-reb1) BSP
     with [blogpost](https://robamu.github.io/post/rust-ecosystem/)
 - New [device driver crate](https://egit.irs.uni-stuttgart.de/rust/max116xx-10bit) for the MAX116xx
-    10-bit ADC devices
+    10-bit ADC devices with [blogpost](https://robamu.github.io/post/max11619-driver-rust/)
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
 <!--
