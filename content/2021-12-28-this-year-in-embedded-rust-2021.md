@@ -1,12 +1,10 @@
 +++
 title = "This Year in Embedded Rust: 2021"
-date = 2021-12-31
+date = 2021-12-28
 draft = false
 in_search_index = true
 template = "page.html"
 +++
-
-# This Year in Embedded Rust: 2021 Edition
 
 As 2021 draws to a close, we thought we'd take a look back at what's happened
 over the last year in Embedded Rust, both within the working group and in the
