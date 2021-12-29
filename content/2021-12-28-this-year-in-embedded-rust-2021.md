@@ -1,15 +1,18 @@
 +++
-title = "The Embedded Working Group Newsletter - 31"
+title = "This Year in Embedded Rust: 2021"
 date = 2021-12-31
-draft = true
-in_search_index = false
+draft = false
+in_search_index = true
 template = "page.html"
 +++
 
+# This Year in Embedded Rust: 2021 Edition
 
-# This Year in Embedded Rust!
+As 2021 draws to a close, we thought we'd take a look back at what's happened
+over the last year in Embedded Rust, both within the working group and in the
+larger community.
 
-As 2021 draws to a close, we thought we'd take a look back at the year, and a look ahead to what lies in store for Embedded Rust in 2022.
+<!-- more -->
 
 ## Meetings
 

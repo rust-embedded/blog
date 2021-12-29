@@ -1,5 +1,5 @@
 +++
-title = "The Embedded Working Group Newsletter - 32"
+title = "The Embedded Working Group Newsletter - 31"
 date = 2021-01-31
 draft = true
 in_search_index = false
