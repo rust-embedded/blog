@@ -61,7 +61,7 @@ While not officially part of the Embedded Working Group, the following projects 
 * The debug and programming library and tools from [probe-rs](https://probe.rs) ([GitHub](https://github.com/probe-rs), [Matrix](https://matrix.to/#/#probe-rs:matrix.org)) released v0.11 and v0.12 of their library and tools including [cargo-embed](https://github.com/probe-rs/cargo-embed).
 * The [Knurling](https://knurling.ferrous-systems.com/) project ([GitHub](https://github.com/knurling-rs)) has had several releases of their tools such as [probe-run](https://github.com/knurling-rs/probe-run).
 * The [smoltcp](https://github.com/smoltcp-rs/smoltcp) embedded TCP/IP stack released v0.7 and v0.8, with many improvements including to the DHCP client and adding IEEE 802.15.4 support.
-* [embeded-graphics](https://github.com/embedded-graphics) ([Matrix](https://matrix.to/#/#rust-embedded-graphics:matrix.org)), a graphics library for embedded applications, had a major new v0.7 release (see the [migration notes](https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.6-0.7.md)).
+* [embedded-graphics](https://github.com/embedded-graphics) ([Matrix](https://matrix.to/#/#rust-embedded-graphics:matrix.org)), a graphics library for embedded applications, had a major new v0.7 release (see the [migration notes](https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.6-0.7.md)).
 * The [Hubris](https://oxidecomputer.github.io/hubris/) RTOS and its companion debugger Humility, by [Oxide Computer](https://oxide.computer/), had their first release.
 
 ## Our Repositories
