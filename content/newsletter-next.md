@@ -52,6 +52,12 @@ If you have an embedded project or blog post you would like to have featured in 
     with [blogpost](https://robamu.github.io/post/rust-ecosystem/)
 - New [device driver crate](https://egit.irs.uni-stuttgart.de/rust/max116xx-10bit) for the MAX116xx
     10-bit ADC devices with [blogpost](https://robamu.github.io/post/max11619-driver-rust/)
+- The RIOT operating system now [has upstream support for Rust applications](https://doc.riot-os.org/using-rust.html).
+
+  This encompasses support in the build system,
+  high-level [wrappers](https://crates.io/crates/riot-wrappers) that make the OS's C mechanisms safe and idiomatic to use,
+  and [additional examples](https://gitlab.com/etonomy/riot-examples) maintained externally.
+  The wrappers implement high-level traits (e.g. from [embedded-hal](https://crates.io/crates/embedded-hal), [embedded-nal](https://crates.io/crates/embedded-nal) and [mutex-traits](https://crates.io/crates/mutex-traits)) where practical.
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
 <!--
