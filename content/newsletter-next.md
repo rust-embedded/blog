@@ -58,6 +58,7 @@ If you have an embedded project or blog post you would like to have featured in 
   high-level [wrappers](https://crates.io/crates/riot-wrappers) that make the OS's C mechanisms safe and idiomatic to use,
   and [additional examples](https://gitlab.com/etonomy/riot-examples) maintained externally.
   The wrappers implement high-level traits (e.g. from [embedded-hal](https://crates.io/crates/embedded-hal), [embedded-nal](https://crates.io/crates/embedded-nal) and [mutex-traits](https://crates.io/crates/mutex-traits)) where practical.
+- A [blog post by Tweede Golf](https://tweedegolf.nl/en/blog/65/async-rust-vs-rtos-showdown) about comparing Embassy with FreeRTOS.
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
 <!--
