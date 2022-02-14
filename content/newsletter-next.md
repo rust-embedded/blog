@@ -42,9 +42,14 @@ If you have an embedded project or blog post you would like to have featured in 
 - [svd2rust](https://crates.io/crates/svd2rust) released v0.20.0.
 - The new version of the [Discovery book](https://docs.rust-embedded.org/discovery)
   targeting the micro:bit development board was released.
-- [embedded-hal] 1.0.0-alpha.6 released, with a number of new features and
+- [embedded-hal] 1.0.0-alpha.6 and 1.0.0-alpha.7 released, with a number of new features and
     changes as we work towards the final 1.0 release. Most notably,
-    CAN (Controller Area Network) traits were added.
+    CAN (Controller Area Network) traits were added and some traits
+    with unconstrained associated types were removed.
+- [embedded-hal] 0.2.7 released, including CAN (Controller Area Network) traits which were backported.
+- [embedded-dma] 0.2.0 released, including const generics support and resolves some confusion around `'static`.
+- A project to develop asynchronous versions of the `embedded-hal` traits has been started.
+  See the current [roadmap](https://github.com/rust-embedded/embedded-hal/issues/356) and please join the effort!
 - New Rust Embedded ecosystem for the radiation-hardened Vorago VA108xx family of devices:
     [va108xx](https://egit.irs.uni-stuttgart.de/rust/va108xx) PAC,
     [va108xx-hal](https://egit.irs.uni-stuttgart.de/rust/va108xx-hal) HAL
@@ -59,6 +64,9 @@ If you have an embedded project or blog post you would like to have featured in 
   and [additional examples](https://gitlab.com/etonomy/riot-examples) maintained externally.
   The wrappers implement high-level traits (e.g. from [embedded-hal](https://crates.io/crates/embedded-hal), [embedded-nal](https://crates.io/crates/embedded-nal) and [mutex-traits](https://crates.io/crates/mutex-traits)) where practical.
 - A [blog post by Tweede Golf](https://tweedegolf.nl/en/blog/65/async-rust-vs-rtos-showdown) about comparing Embassy with FreeRTOS.
+- [eeprom24x] I2C EEPROM driver 0.5.0 released, adding support for STM M24C01 and M24C02 devices as well as implementing the [`embedded-storage`](https://github.com/rust-embedded-community/embedded-storage) traits.
+- [measurements] 0.10.4 and 0.11.0 released, most notably adding support for humidity and density.
+
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
 <!--
@@ -75,6 +83,9 @@ TODO: Put all links for content here.
 -->
 
 [embedded-hal]: https://crates.io/crates/embedded-hal
+[embedded-dma]: https://crates.io/crates/embedded-dma
+[eeprom24x]: https://crates.io/crates/eeprom24x
+[measurements]: https://crates.io/crates/measurements
 
 ## `embedded-hal` Ecosystem Crates
 
