@@ -50,6 +50,7 @@ If you have an embedded project or blog post you would like to have featured in 
 - [embedded-dma] 0.2.0 released, including const generics support and resolves some confusion around `'static`.
 - A project to develop asynchronous versions of the `embedded-hal` traits has been started.
   See the current [roadmap](https://github.com/rust-embedded/embedded-hal/issues/356) and please join the effort!
+- [linux-embedded-hal] 0.4.0-alpha.2 released updating `embedded-hal` to version 1.0.0-alpha.7.
 - New Rust Embedded ecosystem for the radiation-hardened Vorago VA108xx family of devices:
     [va108xx](https://egit.irs.uni-stuttgart.de/rust/va108xx) PAC,
     [va108xx-hal](https://egit.irs.uni-stuttgart.de/rust/va108xx-hal) HAL
@@ -83,6 +84,7 @@ TODO: Put all links for content here.
 -->
 
 [embedded-hal]: https://crates.io/crates/embedded-hal
+[linux-embedded-hal]: https://crates.io/crates/linux-embedded-hal
 [embedded-dma]: https://crates.io/crates/embedded-dma
 [eeprom24x]: https://crates.io/crates/eeprom24x
 [measurements]: https://crates.io/crates/measurements
