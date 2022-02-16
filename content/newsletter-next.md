@@ -23,6 +23,10 @@ TODO Add news related to embedded Rust that are not about new crates releases he
 
 - TODO(remove, this is an example) the Rust compiler has gained cross compilation support for the Xtensa architecture!
 
+- AdaCore and Ferrous Systems have joined forces to support Rust in safety- and mission-critical environments.
+  - [Announcement from AdaCore](https://blog.adacore.com/adacore-and-ferrous-systems-joining-forces-to-support-rust)
+  - [Announcement from Ferrous Systems](https://ferrous-systems.com/blog/ferrous-systems-adacore-joining-forces/)
+
 <!-- more -->
 
 ## Embedded Projects
