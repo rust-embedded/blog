@@ -71,6 +71,7 @@ If you have an embedded project or blog post you would like to have featured in 
 - A [blog post by Tweede Golf](https://tweedegolf.nl/en/blog/65/async-rust-vs-rtos-showdown) about comparing Embassy with FreeRTOS.
 - [eeprom24x] I2C EEPROM driver 0.5.0 released, adding support for STM M24C01 and M24C02 devices as well as implementing the [`embedded-storage`](https://github.com/rust-embedded-community/embedded-storage) traits.
 - [measurements] 0.10.4 and 0.11.0 released, most notably adding support for humidity and density.
+- [9names] released a platform-agnostic [driver for Wii Extension Controllers][wii-ext] and published a [blog post][wii-ext-post]. This driver supports Nunchuk controllers as well as the many variants of the Classic Controller (Original/Pro/NES/SNES).
 
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
@@ -82,6 +83,7 @@ you would like for yourself.
 -->
 [someusername]: https://github.com/...
 [@sometwittername]: https://twitter.com/...
+[9names]: https://github.com/9names
 
 <!--
 TODO: Put all links for content here.
@@ -92,6 +94,8 @@ TODO: Put all links for content here.
 [embedded-dma]: https://crates.io/crates/embedded-dma
 [eeprom24x]: https://crates.io/crates/eeprom24x
 [measurements]: https://crates.io/crates/measurements
+[wii-ext]: https://crates.io/crates/wii-ext
+[wii-ext-post]: https://9names.github.io/driver/embedded/rust/2022/02/14/wii-ext-rs.html
 
 ## `embedded-hal` Ecosystem Crates
 
