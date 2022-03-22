@@ -72,6 +72,7 @@ If you have an embedded project or blog post you would like to have featured in 
 - [eeprom24x] I2C EEPROM driver 0.5.0 released, adding support for STM M24C01 and M24C02 devices as well as implementing the [`embedded-storage`](https://github.com/rust-embedded-community/embedded-storage) traits.
 - [measurements] 0.10.4 and 0.11.0 released, most notably adding support for humidity and density.
 - [9names] released a platform-agnostic [driver for Wii Extension Controllers][wii-ext] and published a [blog post][wii-ext-post]. This driver supports Nunchuk controllers as well as the many variants of the Classic Controller (Original/Pro/NES/SNES).
+- Drogue Device now features an [async Bluetooth Mesh stack](https://blog.drogue.io/bluetooth-mesh/).
 
 <!-- LINK SECTION FOR HIGHLIGHTS AND EMBEDDED PROJECTS -->
 
