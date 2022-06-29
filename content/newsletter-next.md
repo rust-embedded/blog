@@ -20,8 +20,12 @@ TODO Add news related to embedded Rust that are not about new crates releases he
 -->
 
 - TODO(remove, this is an example) "const generics" has landed in nightly!
-
 - TODO(remove, this is an example) the Rust compiler has gained cross compilation support for the Xtensa architecture!
+
+* Drogue IoT article series on firmware updates:
+  * [Part 1 - Bootloader](https://blog.drogue.io/firmware-updates-part-1/)
+  * [Part 2 - Protocols](https://blog.drogue.io/firmware-updates-part-2/)
+
 
 <!-- more -->
 
@@ -35,6 +39,10 @@ go here include:
     * New releases of existing crates
     * Embedded Application releases
 -->
+
+* [reqwless](https://crates.io/crates/reqwless) - an async HTTP client using embedded-io traits.
+* [ector](https://crates.io/crates/ector) - no-alloc actor framework for embedded devices based on embassy.
+* [embedded-update](https://crates.io/crates/embedded-update) - a pluggable firmware update protocol for embedded devices.
 
 If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to add it to [the next newsletter], we would love to show it off!
 
