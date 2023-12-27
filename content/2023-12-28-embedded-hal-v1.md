@@ -18,7 +18,7 @@ modifying them. It's a central piece of the Embedded Rust ecosystem, ensuring in
 
 The 1.0 release has been in the works since 2020. Now that it's out, we consider all
 traits in it to be *stable*. The plan is to extend `embedded-hal` with more traits in future 1.x releases,
-not doing more breaking changes (i.e. there are no plans for a a 2.0 release). This will provide a stable
+not doing more breaking changes (i.e. there are no plans for a 2.0 release). This will provide a stable
 base for building HALs and drivers.
 
 So, what's new in `embedded-hal` 1.0?
