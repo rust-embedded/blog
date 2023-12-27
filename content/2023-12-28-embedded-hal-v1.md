@@ -61,6 +61,13 @@ and map errors that don't fit in these categories to the `Other` kind.
 
 All error types are also required to implement `Debug`, so `.unwrap()` and similar are now always available in generic drivers.
 
+## embedded-io
+
+The `embedded-hal` project also hosts the `embedded-io` crates. They provide traits for byte-oriented I/O streams. Since serial
+ports (UART) are essentially byte streams, the serial-specific traits in `embedded-hal` have been removed in favor of `embedded-io`.
+
+`embedded-io` has not reached 1.0 yet, but we expect that to happen in 2024.
+
 ## Thanks
 
 Thanks to the HAL team ([@therealprof](https://github.com/therealprof), [@ryankurte](https://github.com/ryankurte), [@eldruin](https://github.com/eldruin), [@dirbaio](https://github.com/Dirbaio), [@MabezDev](https://github.com/MabezDev)), and to everyone who helped with testing, feedback and contributions for making `embedded-hal` 1.0 possible.
