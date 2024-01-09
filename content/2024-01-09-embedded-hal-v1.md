@@ -25,6 +25,8 @@ So, what's new in `embedded-hal` 1.0?
 
 <!-- more -->
 
+![Ferris soldering embedded stuff](../embedded-ferris-soldering.png)
+
 ## Focus on drivers
 
 Previous versions of `embedded-hal` had a dual goal of standardizing HAL APIs for end users, and allowing writing generic drivers. 
