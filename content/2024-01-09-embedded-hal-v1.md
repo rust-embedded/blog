@@ -1,6 +1,6 @@
 +++
 title = "embedded-hal v1.0 now released!"
-date = 2023-12-28
+date = 2024-01-09
 draft = false
 in_search_index = true
 template = "page.html"
@@ -37,7 +37,7 @@ them back in the future, with a better design. See the [migration guide](https:/
 
 ## Async
 
-A new addition is the `embedded-hal-async` crate, containing async versions of the traits. With today's Rust 1.75 release,
+A new addition is the `embedded-hal-async` crate, containing async versions of the traits. With the Rust 1.75 release,
 async traits are available on Rust stable. They can be used without heap allocations or dynamic
 dispatch (unlike previous macro-based polyfills like the `async-trait` crate), so they are a great fit for bare-metal embedded usage.
 
