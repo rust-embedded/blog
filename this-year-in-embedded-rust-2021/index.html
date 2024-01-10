@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="This Year in Embedded Rust: 2021" />
+  <meta name="twitter:description" content="As 2021 draws to a close, we thought we&#x27;d take a look back at what&#x27;s happened
+over the last year in Embedded Rust, both within the working group and in the
+larger community.
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">This Year in Embedded Rust: 2021</h1>
+  <span class="post-date">2021-12-28</span>
+  <p>As 2021 draws to a close, we thought we'd take a look back at what's happened
+over the last year in Embedded Rust, both within the working group and in the
+larger community.</p>
+<span id="continue-reading"></span><h2 id="meetings">Meetings</h2>
+<p>We continued our weekly Rust Embedded Working Group meetings on <a href="https://blog.rust-embedded.org/this-year-in-embedded-rust-2021/#rust-embedded:matrix.org">our Matrix channel</a>. They take place at 8pm Berlin time every Tuesday, and are open to the public. You can find all the <a href="https://github.com/rust-embedded/wg/tree/master/minutes">minutes on Github</a>.</p>
+<h2 id="newsletters">Newsletters</h2>
+<p>The <a href="https://blog.rust-embedded.org/">blog</a> saw five new newsletters posted, keeping everyone up to date with what's hot in Embedded Rust. Make sure you bookmark or subscribe with your favourite RSS reader so you never miss an update! Please do also keep your contributions coming, as we love hearing about what everyone gets up to in Embedded Rust outside of the official Rust Embedded Working Group projects.</p>
+<h2 id="platform-support">Platform Support</h2>
+<p>Outside of the working group, platform support communities provide vendor-specific support for particular microcontrollers and development boards.</p>
+<p>2021 saw a brand-new microcontroller vendor hit the scene - Raspberry Pi! Their debut RP2040 microcontroller has two Cortex-M0 cores, and certainly made us all think about how we can try to make our software safe to use on multi-core systems. A new <a href="https://github.com/rp-rs">rp-rs</a> community sprang up and continues to make good progress supporting all areas of the RP2040 with good quality examples.</p>
+<p>This year also saw Espressif officially adopt Rust and <a href="https://mabez.dev/blog/posts/esp-rust-espressif/">they hired @mabez</a> from the <a href="https://github.com/esp-rs">esp-rs</a> community to help out!</p>
+<p>Other platform support communities continued to develop this year:</p>
+<ul>
+<li><a href="https://github.com/atsamd-rs">atsamd-rs</a> for Atmel ARM SAM-D and SAM-E microcontrollers (<a href="https://matrix.to/#/#atsamd-rs_community:gitter.im">Matrix chat</a>)</li>
+<li><a href="https://github.com/avr-rust">avr-rust</a> for Atmel AVR microcontrollers (<a href="https://matrix.to/#/#avr-rust_Lobby:gitter.im">Matrix chat</a>)</li>
+<li><a href="https://github.com/esp-rs">esp-rs</a> for Espressif ESP8266 and ESP32 Wi-Fi chips (<a href="https://matrix.to/#/#esp-rs:matrix.org">Matrix chat</a>)</li>
+<li><a href="https://github.com/imxrt-rs">imxrt-rs</a> for NXP ARM iMX.RT microcontrollers</li>
+<li><a href="https://github.com/lpc55">lpc55</a> for NXP ARM LPC55xx microcontrollers (<a href="https://matrix.to/#/#lpc55:matrix.org">Matrix chat</a>)</li>
+<li><a href="https://github.com/nrf-rs">nrf-rs</a> for Nordic ARM nRF51, 52 and 9160 Bluetooth/LTE devices (<a href="https://matrix.to/#/#nrf-rs:matrix.org">Matrix chat</a>)</li>
+<li><a href="https://github.com/riscv-rust">riscv-rust</a> for all kinds of RISC-V devices</li>
+<li><a href="https://github.com/rp-rs">rp-rs</a> for Raspberry Pi's RP2040 microcontroller (<a href="https://matrix.to/#/#rp-rs:matrix.org">Matrix chat</a>)</li>
+<li><a href="https://github.com/stm32-rs">stm32-rs</a> for all of ST Micro's 32-bit ARM microcontrollers (<a href="https://matrix.to/#/#stm32-rs:matrix.org">Matrix chat</a>)</li>
+</ul>
+<p>If you're a platform support community not on the list please get in touch, we'd love to hear from you!</p>
+<h2 id="other-embedded-projects">Other Embedded Projects</h2>
+<p>While not officially part of the Embedded Working Group, the following projects all continued to develop over 2021:</p>
+<ul>
+<li>The concurrency framework <a href="https://rtic.rs">RTIC</a> (<a href="https://github.com/rtic-rs">GitHub</a>, <a href="https://matrix.to/#/#rtic:matrix.org">Matrix</a>) hit version 1.0!</li>
+<li>The async framework <a href="https://embassy.dev">Embassy</a> (<a href="https://github.com/embassy-rs">GitHub</a>, <a href="https://matrix.to/#/#embassy-rs:matrix.org">Matrix</a>) has been under heavy development and now supports STM32, nRF and RP2040 platforms.</li>
+<li>The debug and programming library and tools from <a href="https://probe.rs">probe-rs</a> (<a href="https://github.com/probe-rs">GitHub</a>, <a href="https://matrix.to/#/#probe-rs:matrix.org">Matrix</a>) released v0.11 and v0.12 of their library and tools including <a href="https://github.com/probe-rs/cargo-embed">cargo-embed</a>.</li>
+<li>The <a href="https://knurling.ferrous-systems.com/">Knurling</a> project (<a href="https://github.com/knurling-rs">GitHub</a>) has had several releases of their tools such as <a href="https://github.com/knurling-rs/probe-run">probe-run</a>.</li>
+<li>The <a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a> embedded TCP/IP stack released v0.7 and v0.8, with many improvements including to the DHCP client and adding IEEE 802.15.4 support.</li>
+<li><a href="https://github.com/embedded-graphics">embedded-graphics</a> (<a href="https://matrix.to/#/#rust-embedded-graphics:matrix.org">Matrix</a>), a graphics library for embedded applications, had a major new v0.7 release (see the <a href="https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.6-0.7.md">migration notes</a>).</li>
+<li>The <a href="https://oxidecomputer.github.io/hubris/">Hubris</a> RTOS and its companion debugger Humility, by <a href="https://oxide.computer/">Oxide Computer</a>, had their first release.</li>
+</ul>
+<h2 id="our-repositories">Our Repositories</h2>
+<p>We continued to work on and maintain a number of key Embedded Rust repositories. The following repos all had commits during 2021:</p>
+<ul>
+<li><a href="https://github.com/rust-embedded/embedded-hal">embedded-hal</a>: The Embedded Hardware Abstraction Layer is a set of traits for describing common peripherals in a hardware-independent way. It continues its march towards 1.0 status, with a series of 1.0-alpha releases. It should hit 1.0 milestone some time in 2022! 120 commits over 27 files this year.</li>
+<li><a href="https://github.com/rust-embedded/discovery">discovery</a>: This book on Discovering Embedded Programming using Rust had a re-write this year - it's now based around the BBC micro:Bit! 251 commits over 187 files this year.</li>
+<li><a href="https://github.com/rust-embedded/book">book</a>: Our guide to all things Embedded Rust continues to be updated and improved, with 39 commits this year.</li>
+<li><a href="https://github.com/rust-embedded/embedonomicon">embedonomicon</a>: Our guide to all the low-down details on how to bring-up a new <code>#[no_std]</code> platform with Rust saw 15 commits this year.</li>
+<li><a href="https://github.com/rust-embedded/svd2rust">svd2rust</a>: This tool generates our 'Peripheral Access Crates' from a <a href="https://www.keil.com/pack/doc/CMSIS/SVD/html/index.html">System View Description</a> file of the chip provided by the manufacturer. 122 commits over 17 files this year.</li>
+<li><a href="https://github.com/rust-embedded/svd">svd</a>: The core libraries used by svd2rust and other tools to manipulate SVD files had 103 commits over 39 files this year.</li>
+<li><a href="https://github.com/rust-embedded/awesome-embedded-rust">awesome-embedded-rust</a>: Our list of the very best in Embedded Rust keeps growing with 97 commits this year.</li>
+<li><a href="https://github.com/rust-embedded/cortex-m">cortex-m</a>, <a href="https://github.com/rust-embedded/cortex-m-rt">cortex-m-rt</a>, and <a href="https://github.com/rust-embedded/cortex-m-quickstart">cortex-m-quickstart</a>: Our platform support crates for the Arm Cortex-M architecture saw continued development, with 93 and 54 commits respectively, and a new v0.7 of cortex-m-rt released this year.</li>
+<li><a href="https://github.com/rust-embedded/cortex-a">cortex-a</a>: Our platform support crate for the Arm Cortex-A architecture saw 25 commits this year.</li>
+<li><a href="https://github.com/rust-embedded/riscv">riscv</a> and <a href="https://github.com/rust-embedded/riscv-rt">riscv-rt</a>: Our platform support crates for the RISC-V architecture saw 74 and 12 commits respectively this year, with a v0.7 release of riscv.</li>
+<li><a href="https://github.com/rust-embedded/msp430">msp430</a> and <a href="https://github.com/rust-embedded/msp430">msp430-rt</a>: Our platform support crates for the MSP430 architecture.</li>
+<li><a href="https://github.com/rust-embedded/gpio-cdev">gpio-cdev</a>, <a href="https://github.com/rust-embedded/rust-spidev">rust-spidev</a>, <a href="https://github.com/rust-embedded/rust-sysfs-gpio">rust-sysfs-gpio</a>, <a href="https://github.com/rust-embedded/rust-i2cdev">rust-i2cdev</a>, and <a href="https://github.com/rust-embedded/linux-embedded-hal">linux-embedded-hal</a>: Support for embedded Linux continued with 177 commits across these projects.</li>
+<li><a href="https://github.com/rust-embedded/r0">r0</a> was a cross-platform initialisation library, but we deprecated it this year to move such initialisation into platform-specific libraries such as cortex-m-rt.</li>
+</ul>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

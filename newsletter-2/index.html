@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 2" />
+  <meta name="twitter:description" content="This is the second bi-weekly newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 2</h1>
+  <span class="post-date">2018-03-29</span>
+  <p>This is the second bi-weekly newsletter of the <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/72">the next newsletter</a>, make sure to leave a comment on the issue.</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li><a href="https://github.com/dbrgn">dbrgn</a> has kicked off an investigation on how to <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/70">mock embedded-hal</a> to make testing sensors easier</li>
+<li><a href="https://github.com/Emilgardis">emilgardis</a> and <a href="https://github.com/ryankurte">ryankurte</a> are busy <a href="https://github.com/japaric/svd/issues/46">refactoring</a> the <a href="https://github.com/japaric/svd">svd-parser</a> crate</li>
+<li><a href="https://github.com/japaric">japaric</a>, <a href="https://github.com/hannobraun">hannobraun</a>, and <a href="https://github.com/jamesmunns">jamesmunns</a> from the <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a> attended the 2018 Rust All Hands in Berlin, working on our goal to make <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/42">stable embedded rust development</a> possible in 2018. See the bottom of this post for more details!</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to mention it on the tracking issue for <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/72">the next newsletter</a>, we would love to show it off!</p>
+<h3 id="embedded-hal-drivers"><code>embedded-hal</code> drivers</h3>
+<p>This is a list of recently released drivers that are part of the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/39">Weekly Driver Initiative</a>. There are currently 5 Released Drivers, 14 WIP Drivers, and lots of TODOs!</p>
+<ul>
+<li><a href="https://github.com/danielgallagher0">danielgallagher0</a> has released their <a href="https://medium.com/@pdanielgallagher/hts221-humidity-and-temperature-sensor-88056ea9e5fa">hts221</a> humidity and temperature sensor driver</li>
+<li><a href="https://github.com/MrBuddyCasino">MrBuddyCasino</a> has released their I2C based <a href="https://crates.io/crates/mcp9808">mcp9808</a> temperature sensor driver</li>
+<li><a href="https://github.com/ilya-epifanov">Ilya Epifanov</a> has released their I2C based <a href="https://github.com/ilya-epifanov/si5351">si5351</a> CMOS clock generator driver, check out the <a href="https://docs.rs/si5351/0.1.5/si5351/">si5351 docs</a> for more info</li>
+<li><a href="https://github.com/RandomInsano">Edwin Amsler</a> is working on their <a href="https://github.com/RandomInsano/axp209-rs">axp209</a> PMIC driver</li>
+<li><a href="https://github.com/dbrgn">dbrgn</a> is working on their Sensirion <a href="https://github.com/dbrgn/sgp30-rs">sgp30</a> low-power gas sensor driver</li>
+<li><a href="https://github.com/pcein">pcein</a> has started work on their <a href="https://github.com/pcein/pcd8544">pcd8544</a> for SPI based LCD controllers used in displays like the Nokia 5110</li>
+<li><a href="https://github.com/nordmoen">nordmoen</a> is working on their driver for the <a href="https://github.com/nordmoen/hc-sr04">hc-sr04</a> ultrasonic distance sensor</li>
+</ul>
+<h3 id="embedded-hal-board-chip-support-crates"><code>embedded-hal</code> Board/Chip Support Crates</h3>
+<ul>
+<li><a href="https://github.com/DoumanAsh">DoumanAsh</a> has started work on their <a href="https://github.com/DoumanAsh/stm32l4x6_hal">stm32l4x6-hal</a> chip support crate</li>
+</ul>
+<h2 id="thanks">Thanks</h2>
+<ul>
+<li>Thanks to all of the Rust Team and Working Group members who took time at the All Hands to tackle some important Embedded Issues</li>
+<li>Thanks to <a href="https://github.com/alexcrichton">Alex Chrichton</a> who pushed a fix to a <a href="https://github.com/rust-lang/rust/pull/49316">linker issue</a> mentioned in our <a href="https://github.com/rust-lang-nursery/embedded-wg/blob/master/newsletters/2018-03-15.md">last newsletter</a></li>
+</ul>
+<h2 id="help-wanted">Help Wanted</h2>
+<ul>
+<li><a href="https://github.com/SimonSapin">Simon Sapin</a> posted some working code for the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/39#issuecomment-375262785">DS3234</a> SPI RTC, and is looking for someone to turn it into a maintained crate!</li>
+</ul>
+<p>If you have an embedded project that could use contributors or maintainers, leave a comment for <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/72">the next newsletter</a>!</p>
+<h1 id="special-feature-the-embedded-wg-at-the-2018-rust-all-hands">Special Feature: The Embedded WG at the 2018 Rust All Hands</h1>
+<p>This week 15 or so Rust teams/working groups met for the Rust All Hands event in Berlin. Some members of the embedded WG were present and we had a chance to talk to the compiler, core and infra teams.</p>
+<p>These are the highlights of our talks.</p>
+<h2 id="embedded-rust-on-stable">Embedded Rust on stable</h2>
+<p>We had previously identified 3 unstable features / issues that tie embedded development to the nightly channel in https://github.com/japaric/stable-embedded-rust. We talked to the other Rust teams about the possibility of addressing these issues in time for the 2018 edition release and the conclusion was that they thought that the timeline was possible. These are the 3 unstable features we are referring to:</p>
+<h3 id="unstable-feature-1-xargo">Unstable Feature #1: <code>xargo</code></h3>
+<p>We'll ship a rust-std component (pre-compiled <code>core</code>+<code>compiler-builtins</code>) for the <code>thumb*</code> and <code>msp430</code> targets. This removes the need for <code>xargo</code> so people will be able to do something like the following to cross compile to ARM Cortex-M:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#bf616a;">rustup</span><span style="color:#c0c5ce;"> target add thumb7m-none-eabi
+</span><span style="color:#bf616a;">cargo</span><span style="color:#c0c5ce;"> build</span><span style="color:#bf616a;"> --target</span><span style="color:#c0c5ce;"> thumbv7m-none-eabi
+</span></code></pre>
+<p><strong>Tracking issue</strong>: <a href="https://github.com/rust-lang/rust/issues/49382">rust-lang/rust#49382</a>.</p>
+<h3 id="unstable-feature-2-compiler-builtins">Unstable Feature #2: <code>compiler-builtins</code></h3>
+<p><code>extern crate compiler_builtins</code> is unstable to directly use. The fix we have decided on is to inject that as part of the prelude you get from <code>#![no_std]</code>.</p>
+<p>So, today <code>#![no_std]</code> expands to something like this:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-rust" data-lang="rust"><span style="color:#c0c5ce;">#![</span><span style="color:#bf616a;">no_std</span><span style="color:#c0c5ce;">]
+</span><span style="color:#b48ead;">extern crate</span><span style="color:#c0c5ce;"> core;
+</span></code></pre>
+<p>With our change the expansion will run like this:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-rust" data-lang="rust"><span style="color:#c0c5ce;">#![</span><span style="color:#bf616a;">no_std</span><span style="color:#c0c5ce;">]
+</span><span style="color:#b48ead;">extern crate</span><span style="color:#c0c5ce;"> core;
+
+</span><span style="color:#65737e;">// but this doesn&#39;t #![feature(compiler_builtins_lib)]
+</span><span style="color:#b48ead;">extern crate</span><span style="color:#c0c5ce;"> compiler_builtins;
+</span></code></pre>
+<p>In the future we might want to merge <code>compiler-builtins</code> into <code>core</code> but that requires more effort and can still be done if we do the <code>#![no_std]</code> prelude approach right now.</p>
+<p><strong>Tracking issue:</strong> <a href="https://github.com/rust-lang/rust/issues/49380">rust-lang/rust#49380</a></p>
+<h3 id="unstable-feature-3-panic-fmt">Unstable Feature #3: <code>panic_fmt</code></h3>
+<p>There's an accepted RFC (#2070) for a stable mechanism to select the behavior of <code>panic!</code> in <code>no_std</code> context, and there's a know issue where the arguments of <code>panic_fmt</code> are kept in the binary even when they are unused by the <code>panic_fmt</code> implementation (cf. <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/41">rust-lang/embedded-wg#41</a>).</p>
+<p>The main concern here was whether we'll be able to fix the binary size problem with the accepted design or if we'll need some new design. The compiler team thinks that this can be fixed with the existing design using MIR only rlibs but it's unlikely this will get fixed in time for the edition release. <a href="https://github.com/nagisa">nagisa</a> will likely propose an alternate solution that involves having Cargo select the panic provider crate.</p>
+<h2 id="non-critical-unstable-features">Non critical unstable features</h2>
+<p>There are some other unstable features that don't prevent you from doing embedded development, however they come up often when doing no-std development. We had a chat with people on the compiler team about them.</p>
+<h3 id="unstable-feature-4-const-fn">Unstable Feature #4: <code>const fn</code></h3>
+<p>This feature has been proposed for stabilization (cf. <a href="https://github.com/rust-lang/rust/issues/24111#issuecomment-376649804">rust-lang/rust#24111</a>).</p>
+<h3 id="unstable-feature-5-asm">Unstable Feature #5: <code>asm!</code></h3>
+<p><strong>Background</strong>: Some assembly operations can be implemented as external assembly files that are then called into using FFI; other ops though do need to be inlined into the function from which they are called to prevent losing semantics. Using external assembly file can be done on the stable channel. The second type of operation requires the unstable <code>asm!</code> macro.</p>
+<p>The compiler team is not 100% sure on whether they want to stabilize inline assembly for the edition release. The embedded WG has proposed an alternative proposal: expose <em>some</em> assembly operations that need to be inlined as &quot;Rust intrinsics&quot; -- in a similar fashion to how SIMD is being implemented; these intrinsics would be in the <code>core::asm::$ARCH</code> module and they could either be implemented by lowering to a LLVM intrinsic or using inline assembly. For example:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-rust" data-lang="rust"><span style="color:#b48ead;">pub mod </span><span style="color:#c0c5ce;">asm {
+    </span><span style="color:#b48ead;">pub mod </span><span style="color:#c0c5ce;">arm {
+        #[</span><span style="color:#bf616a;">inline</span><span style="color:#c0c5ce;">(always)]
+        </span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">cpsid</span><span style="color:#c0c5ce;">() {
+            </span><span style="color:#b48ead;">unsafe </span><span style="color:#c0c5ce;">{
+                asm!(&quot;</span><span style="color:#a3be8c;">cpsid i</span><span style="color:#c0c5ce;">&quot; ::: &quot;</span><span style="color:#a3be8c;">memory</span><span style="color:#c0c5ce;">&quot; : &quot;</span><span style="color:#a3be8c;">volatile</span><span style="color:#c0c5ce;">&quot;);
+            }
+        }
+    }
+}
+</span></code></pre>
+<p>These would be stable APIs with an unstable implementation. If LLVM assembler syntax changes, the implementations of these functions would have to be updated.</p>
+<p>The embedded WG will submit an RFC proposing the <code>asm</code> module and that will include a list of assembly operations that (a) are common and (b) need to be inlined for different architectures.</p>
+<h3 id="unstable-feature-6-used">Unstable Feature #6: <code>#[used]</code></h3>
+<p>This experimental feature has been in the compiler for a while and it's required in some scenarios when using LTO to prevent the compiler from dead-stripping some function / <code>static</code> that needs to be in the final binary.</p>
+<p>We'll try to get it stabilized by the edition release but it's not a high priority feature.</p>
+<h2 id="stability-of-the-embedded-targets">Stability of the Embedded Targets</h2>
+<p>We don't only want to make embedded Rust possible on stable; we also want to make sure the embedded targets don't regress. So we are going to add tests to rust-lang/rust CI to make sure regression block PRs from landing.</p>
+<p>That effectively will make some of the embedded targets into the tier 1 platform. The core team is fine with adding the <code>thumb*</code> targets (ARM Cortex-M) to tier 1. Less maintained, still in development and not fully mature targets like AVR, MSP430 and RISCV will become tier 2 -- they'll be tested but won't block PRs and rust-std binaries will be produced but it's not guaranteed there will be binaries available for all nightly / beta / stable releases.</p>
+<p>We'll open an issue to discuss with the infra team the exact tests we want to add and track progress on that, but have already told them about the kind of tests we want to add and they thought those kind of tests are possible to implement. The kind of tests we discussed were:</p>
+<ul>
+<li>It compiles and links</li>
+<li>Runs the cross compiled binary in QEMU doesn't crash and exits with exit code 0.</li>
+<li>Tracking the binary size of a program compiled with <code>-Os</code> / <code>-Oz</code> and notify someone or fail the build if the size changes by +/- 5-10% or something.</li>
+</ul>
+<h2 id="llvm-backends-that-are-not-yet-in-rustc">LLVM backends that are not yet in rustc</h2>
+<p>There are two embedded LLVM backends that have not yet been enabled in rustc for different reasons: AVR and RISCV.</p>
+<p>In the case of AVR the main reason is that some LLVM codegen bugs prevent you from building core for AVR. These bugs are related to 128-bit integers and formatting floats. The libs team discussed this some time ago and they decided they are fine with landing arch specific <code>#[cfg]</code> attributes to remove 128-bit integers and other things like float APIs.</p>
+<p>In the case of RISCV the LLVM backend is currently under active development and our current version of LLVM doesn't fully support RISCV. We would have to backport several patches to make RISCV work on our LLVM version. The core team feels OK with backporting those patches as long as they have already landed in upstream LLVM, and are not still under review.</p>
+<h2 id="tooling">Tooling</h2>
+<p>Getting tooling for e.g. binary inspection (e.g. <code>objdump</code>) can be hard on some platforms (e.g. Windows) specially for architecture which currently are not too widely used (e.g. RISCV). We can improve the situation here by shipping llvm tools with the Rust toolchain -- with one set of those tools you can inspect all the architectures that Rust supports. These are the thoughts of the core / infra team regarding this:</p>
+<ul>
+<li>We put these tools in the sysroot and have them always shipped with the Rust toolchain so no <code>rustup component add</code> required -- this is already the case with <code>lld</code>. It might not be possible to provide these tools on all platforms but it's very likely they'll be available on tier 1 platforms.</li>
+<li>We do <em>not</em> add these tools to the user <code>$PATH</code>. Instead some Cargo subcommand will be created by the embedded WG (e.g. <code>cargo objdump</code>) and that subcommand will look for <code>llvm-objdump</code> in the  sysroot and do the right thing.</li>
+<li>We make no guarantees about the semantics and interface of these tools being preserved over time (e.g. CLI changes, user facing output format changes, etc.).</li>
+</ul>
+<h3 id="the-embedded-rust-book">The Embedded Rust Book</h3>
+<p>We decided on an initial audience for the embedded book; we will be targeting people that know some embedded stuff <em>and</em> some Rust. The main reason for this is that if someone knows one and not the
+other then they can go and read existing Rust documentation or the Discovery book and then read the embedded book. For more details check <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/56">rust-lang-nursery/embedded-wg#56</a>.</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

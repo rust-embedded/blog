@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 3" />
+  <meta name="twitter:description" content="This is the third bi-weekly newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 3</h1>
+  <span class="post-date">2018-04-14</span>
+  <p>This is the third bi-weekly newsletter of the <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/84">the next newsletter</a>, make sure to leave a comment on the issue.</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>Crates for the Embedded Rust Ecosystem are now being tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository</li>
+<li>Progress has been made as part of the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/42">Embedded Rust on Stable</a> initiative, including:
+<ul>
+<li><code>extern crate compiler_builtins</code> is <a href="https://users.rust-lang.org/t/psa-breaking-change-extern-crate-compiler-builtins-is-now-included-in-no-std-crates/16704">now included in the no_std prelude</a></li>
+<li><a href="https://users.rust-lang.org/t/psa-you-no-longer-need-xargo-to-do-arm-cortex-m-development/16703">xargo no longer needed</a> for ARM Cortex-M development</li>
+</ul>
+</li>
+<li>We also made some progress on simplifying the embedded development setup: You can now link Embedded Rust programs <a href="https://users.rust-lang.org/t/cortex-m-rt-v0-4-0-now-you-can-link-arm-cortex-m-programs-using-lld/16751">using lld</a></li>
+<li><a href="https://github.com/ithinuel">Wilfried</a> kicked off a blog series about <a href="http://ithinuel.me/embedded-rust-why/">using embedded rust</a></li>
+<li><a href="https://github.com/andre-richter">Andre Richter</a> is writing a tutorial for using Rust to write <a href="https://github.com/andre-richter/rust-raspi3-tutorial">bare metal Raspberry Pi 3</a> applications</li>
+<li>The Embedonomicon and the Embedded Rust Books are <a href="https://github.com/rust-lang-nursery/embedded-wg/pull/78">now kept</a> in the <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a> repository, and pull requests are welcome!</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to mention it on the tracking issue for <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/84">the next newsletter</a>, we would love to show it off!</p>
+<ul>
+<li><a href="https://github.com/japaric">japaric</a> released an initial version of <a href="https://github.com/japaric/cargo-binutils">cargo-binutils</a>, which will allow you to use LLVM's binutils (like <code>nm</code>, <code>size</code>, <code>objcopy</code>, etc.) in the format <code>cargo objcopy</code> (once <a href="https://github.com/rust-lang/rust/issues/49584">issue 49584</a> has landed)</li>
+<li><a href="https://github.com/myeisha">myeisha</a> released the first version of their <a href="https://crates.io/crates/thumb2-stack-size">thumb2-stack-size</a> tool, which helps determine the maximum stack size used in embedded code</li>
+</ul>
+<h3 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h3>
+<p>As part of the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#device-crates">Device Crates</a></td><td align="left">released</td><td align="left">13</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">10</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">7</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">26</td></tr>
+</tbody></table>
+<h2 id="help-wanted">Help Wanted</h2>
+<ul>
+<li>We need help working on <a href="https://github.com/rust-lang/rust/issues/44489#issuecomment-381324623">RFC2070</a>, stabilizing usage of custom Panic behavior. <a href="https://github.com/nagisa">nagisa</a> is willing to mentor!</li>
+<li>If you use inline assembly in your Embedded Rust programs, help us capture what assembly operations are <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/63#issue-305114817">used most often</a> so we can stabilize them as intrinsics</li>
+</ul>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

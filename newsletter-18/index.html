@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 18" />
+  <meta name="twitter:description" content="This is the eighteenth newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+
+
+
+
+
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 18</h1>
+  <span class="post-date">2019-07-02</span>
+  <p>This is the eighteenth newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<!-- TODO uncomment -->
+<!-- Discuss on [users.rust-lang.org], [on twitter], or [on reddit]! -->
+<!-- [users.rust-lang.org]: https://example.org/#TODO -->
+<!-- [on twitter]: https://example.org/#TODO -->
+<!-- [on reddit]: https://example.org/#TODO -->
+<span id="continue-reading"></span><!-- If you want to mention something in [the next newsletter], send us a pull request! -->
+<!-- [the next newsletter]: https://github.com/rust-embedded/blog/edit/master/content/${TODO}.md -->
+<h2 id="the-winner-of-the-chat-vote-matrix">The winner of the Chat Vote: Matrix</h2>
+<p>About a month ago, due to Mozilla's plans to discontinue Mozilla IRC, we released <a href="https://github.com/rust-embedded/wg/blob/master/rfcs/0351-chat-vote.md">RFC 0351: Chat Vote</a> and started a <a href="https://github.com/rust-embedded/wg/issues/357">public vote</a> on which chat platform to use for the Rust Embedded Working Group in the future.</p>
+<p>The winner of that vote was <strong>Matrix</strong>, with 160 votes, followed by IRC with 103 votes and Discord with 74 votes. As Matrix has won by more than 3 votes, it will become the new official chat platform for Rust Embedded! The name of our new channel is <a href="https://matrix.to/#/#rust-embedded:matrix.org"><code>#rust-embedded:matrix.org</code></a>, and you can join it right now using a client like <a href="https://about.riot.im/">Riot</a>.</p>
+<p>We will be trialling the new Matrix channel for the next two weeks, using it as our primary and official communication channel. After the trial period, we will evaluate any issues that came up during it, and decide how to proceed. More details about the organization of the channel can be found in the <a href="https://github.com/rust-embedded/wg/blob/matrix/ops/matrix.md">operational notes</a>.</p>
+<p>Since IRC ended in second place, and it's our current platform, we'll also be establishing a bridge between the Matrix channel and IRC during the trial. This way, users have the option to continue using IRC if they so desire.</p>
+<p>To avoid the administrative overhead of having to switch bridged channels later, we will soon bridge directly to the <code>#rust-embedded</code> channel on Freenode, <em>not</em> to the Mozilla IRC channel. The bridge will be activated once we've worked out the Freenode channel registration.</p>
+<p>While Matrix is a federated protocol, we are not planning on running our own infrastructure for now - instead, we will be using the <code>matrix.org</code> IRC bridge, and users are free to register on <code>matrix.org</code> or any other homeserver of their choosing. If this turns out to be a problem during the trial period, we may reconsider this decision.</p>
+<p>We're also looking into a static log viewer, that would allow us to publish search-engine-indexable channel logs for public reading, similar to the public logs that we currently have. This may require us to self-host a static log generator such as <a href="https://github.com/matrix-org/matrix-static">matrix-static</a>. Suggestions for other solutions are welcome!</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>
+<p>We've had a bunch of Embedded Rust related events over the past couple of months. EWG member @thejpster was at ACCU 2019 (the Association of C and C++ Users Annual Conference), in Bristol, UK, on 12 April, delivering a talk on Embeddded Rust and the Monotron. Jonathan was then speaking at the Centre for Computing History in Cambridge, UK on 18 April, followed by hosting Oxidize at the end of April! Next up, Monotron is visiting Rust Conf in Portland, USA in late August. Don't forget, if you've been giving or attending Embedded Rust talks, drop us a line for the next newsletter!</p>
+</li>
+<li>
+<p><a href="https://rust-embedded.github.io/showcase/">The embedded showcase</a> gained 3 new entries! We are still looking for cool embedded projects to serve that can serve as examples of what can be done in Rust. Don't hesitate to <a href="https://github.com/rust-embedded/showcase#submit-your-project">submit yours</a>!</p>
+</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<ul>
+<li>
+<p><a href="https://github.com/laanwj">@laanwj</a>, <a href="https://github.com/Disasm">@Disasm</a> and <a href="https://github.com/burrbull">@burrbull</a> are working on <a href="https://github.com/riscv-rust/k210-crates">Rust support for the Kendryte K210 RISC-V chips</a>.</p>
+</li>
+<li>
+<p><a href="https://github.com/Disasm">@Disasm</a> and <a href="https://github.com/almindor">@almindor</a> updated <a href="https://github.com/riscv-rust/riscv-rust-quickstart">riscv-rust-quickstart</a>: now you can run Rust on the HiFive1 Rev B board.</p>
+</li>
+<li>
+<p><a href="https://github.com/Disasm">@Disasm</a> released <a href="https://crates.io/crates/stm32-usbd">stm32-usbd</a>: a fork of <a href="https://github.com/mvirkkunen/stm32f103xx-usb">stm32f103xx-usb</a> adopted for multiple STM32 device families.</p>
+</li>
+</ul>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<!-- TODO fill in the numbers before release -->
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th><th align="left">Diff</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#peripheral-access-crates">Peripheral Access Crates</a></td><td align="left">released</td><td align="left">22</td><td align="left">+4</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">25</td><td align="left">+6</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates">Board Support Crates</a></td><td align="left">released</td><td align="left">18</td><td align="left">+5</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">25</td><td align="left">+4</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">67</td><td align="left">+4</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#no-std-crates">no-std crates</a></td><td align="left">released</td><td align="left">26</td><td align="left">+1</td></tr>
+</tbody></table>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

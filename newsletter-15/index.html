@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 15" />
+  <meta name="twitter:description" content="This is the fifteenth newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+Discuss on users.rust-lang.org, on twitter, or on reddit!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 15</h1>
+  <span class="post-date">2019-02-20</span>
+  <p>This is the fifteenth newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>Discuss on <a href="https://users.rust-lang.org/t/the-embedded-working-group-newsletter-15/25481">users.rust-lang.org</a>, <a href="https://twitter.com/rustembedded/status/1098218372469268480">on twitter</a>, or <a href="https://www.reddit.com/r/rust/comments/asohul/embedded_wg_newsletter_15_ewg_all_hands_the/">on reddit</a>!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-embedded/blog/edit/master/content/2019-03-06-newsletter-16.md">the next newsletter</a>, send us a pull request!</p>
+<h2 id="embedded-at-rust-all-hands-2019">Embedded at Rust All Hands 2019</h2>
+<p>Some members of the Embedded Working Group attended the Rust All Hands two weeks ago. There they had the chance to discuss the needs of the embedded community (as identified in <a href="https://github.com/rust-embedded/wg/issues/256">this survey</a>) with the different Rust teams and other WGs. Here's a summary of what was discussed:</p>
+<ul>
+<li>&quot;const generics&quot;</li>
+</ul>
+<p>The ability to parameterize over values, for example you could use this feature to write a fixed capacity <code>Vec</code>: <code>struct Vec&lt;T, const N: usize&gt; { buffer: [T; N], len: usize }</code>. There are a few compiler refactors going on that are required to land this in nightly so the status is &quot;WIP&quot;. We'll have future meetings with the compiler team to try to identify and prioritize the parts of the feature that embedded developers need.</p>
+<ul>
+<li><code>const fn</code> with trait bounds on stable.</li>
+</ul>
+<p>For example, <code>impl&lt;T&gt; Struct&lt;T&gt; where T: Trait { pub const fn new() -&gt; Self { .. } }</code>. A lengthy <a href="https://github.com/rust-rfcs/const-eval/pull/8">pre-RFC discussion</a> has concluded and a <a href="https://github.com/rust-lang/rfcs/pull/2632">proper RFC has been proposed</a>.</p>
+<ul>
+<li><code>core::mem::MaybeUninit</code> on stable.</li>
+</ul>
+<p>The plan is to stabilize a <a href="https://github.com/rust-lang/rust/issues/53491#issuecomment-463753719">minimal, uncontroversial subset of the API</a> to make this available on stable ASAP.</p>
+<ul>
+<li><code>std::io</code> in <code>core</code> / <code>alloc</code>.</li>
+</ul>
+<p>It's not possible to move <code>std::io::{Read,Write}</code> into <code>alloc</code> or <code>core</code> because the API depends on OS specific bits (e.g. <code>last_os_error</code>). An option may be to add a new set of <code>Read</code> / <code>Write</code> traits to <code>core</code>, maybe with associated error types, and then try to bridge these to <code>std::io::{Read,Write}</code> using blanket implementations / super traits, but this needs more research.</p>
+<ul>
+<li>fix <a href="https://github.com/rust-lang/cargo/issues/5730">rust-lang/cargo#5730</a></li>
+</ul>
+<p>This bug breaks <code>no_std</code> builds that use build scripts unless the authors of the build dependencies are aware of the issue and actively work around it. The Cargo team is well aware of the problem. Unfortunately, it's hard to fix and the fix will likely be opt-in because it changes the current semantics.</p>
+<ul>
+<li>Stabilize RFC 2282 - <a href="https://github.com/rust-lang/rust/issues/48683">&quot;Cargo profile dependencies&quot;</a></li>
+</ul>
+<p>This feature lets you optimize dependencies when using the <code>dev</code> profile; useful to keep <code>dev</code> binaries small enough to fit in Flash without sacrificing all debuggability. A new <a href="https://github.com/rust-lang/cargo/pull/6577"><code>build</code> profile</a> will be added to cover the configuration of proc macros, build scripts, compiler plugins and their dependencies. The new profile solves the remaining unresolved question around RFC 2282.</p>
+<ul>
+<li>Stabilize <code>core::arch::arm</code></li>
+</ul>
+<p>This module contains functions for instructions like <code>wfi</code> and <code>nop</code>, and SIMD instructions; stabilizing this removes the pressure for stable inline assembly (<code>asm!</code>). A member of the libs team is interested in this and will help us push it towards the finish line. <a href="https://github.com/rust-lang-nursery/stdsimd/pull/557">A PR in this space</a> has recently landed.</p>
+<ul>
+<li>Asserts in <code>const fn</code> context become compiler errors.</li>
+</ul>
+<p>We understood that there are still several design / implementation issues that need to be discussed before this is stabilized, but in the meantime you can use the perma-unstable <code>-Z unleash-the-miri-inside-of-you</code> flag to do all sort of stuff in const context.</p>
+<ul>
+<li>std-aware Cargo.</li>
+</ul>
+<p><a href="https://github.com/jamesmunns">@jamesmunns</a> has written a <a href="https://github.com/jamesmunns/rfcs/pull/1">pre-rfc</a> for an incremental implementation of this feature based on our discussions with people from the libs and Cargo teams and the WASM WG.</p>
+<ul>
+<li>Improve searching for <code>no_std</code> crates on crates.io.</li>
+</ul>
+<p>The backend supports searching within a category (like the <code>no_std</code> category) but there's no UI for it right now. This and fixing a bug where searches only return items found until a exact match was found (instead of returning all relevant matches) are in the crates.io team TODO list.</p>
+<ul>
+<li>Fix: infinite loops (e.g. <code>loop {}</code>) are lowered to an abort instruction.</li>
+</ul>
+<p>Ideally, this should be fixed in LLVM proper but it's hard to fix. It's possible to fix this in rustc but the fix is likely to regress the performance of <code>loop</code>s. The compiler team will follow up with two unstable flags to evaluate the (performance) impact of fixing this. The first flag applies the fix to only <code>loop</code>s in return position of divergent function and the second flag applies the fix to all <code>loop</code>s.</p>
+<ul>
+<li>Math support in core</li>
+</ul>
+<p>That is <code>0f32.sin()</code> should &quot;Just Work&quot; in <code>no_std</code> crates. There are a few questions about how to best implement this without degrading performance of applications that link to <code>std</code> (we want those to use the arch optimized routines in e.g. glibc's libm instead of the generic Rust implementation) and we need a champion to do the research.</p>
+<ul>
+<li>Cargo build hooks</li>
+</ul>
+<p>This refers to the ability to run custom code after <code>cargo build</code>. We covered use cases, their requirements and discussed the trade-offs of a more general Cargo tasks (e.g. <code>cargo $task</code>) mechanism vs a more targeted post-build script (e.g. <code>post-build.rs</code>) mechanism. Expect more news (a (pre-)RFC) from the WASM WG on this front.</p>
+<ul>
+<li>Slimmer <code>core::fmt</code>.</li>
+</ul>
+<p>The current implementation of <code>core::fmt</code> uses trait objects and function pointers to make all uses of <code>core::fmt</code> fast to compile but this makes <code>core::fmt</code> impossible to inline which makes <code>no_std</code> programs that use formatting large in (binary) size. It might be possible to leverage std-aware Cargo to fix this: we could add a Cargo feature to <code>core</code> to replace the current implementation with one that's fully inlineable but as featureful as the current one -- this should produce smaller binaries.</p>
+<p>For a bit more of detail you can check the <a href="https://github.com/rust-embedded/wg/blob/master/minutes/2019-02-12.irc.log">logs</a> and <a href="https://github.com/rust-embedded/wg/blob/master/minutes/2019-02-12.md#notes-from-rust-all-hands">minutes</a> from two meetings ago; they include our notes from the All Hands</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>The Embedded WG has started receiving <a href="https://github.com/rust-embedded/showcase#submit-your-project">submissions</a> for <a href="https://github.com/rust-embedded/showcase">the embedded showcase</a>! We are looking for cool embedded Rust projects with visuals (pictures or videos) that can serve as examples of what can be done in Rust.</li>
+</ul>
+<ul>
+<li>The <a href="https://github.com/stm32-rs">stm32-rs</a> organization has emerged to collate work on STM32 crates.</li>
+</ul>
+<ul>
+<li>Similarly, the <a href="https://github.com/lpc-rs">lpc-rs</a> organization has emerged to work on LPC microcontrollers by NXP.</li>
+</ul>
+<ul>
+<li>Also, the <a href="https://github.com/nrf-rs">nrf-rs</a> organization has emerged to focus on the nRF family of microcontrollers by Nordic Semiconductors.</li>
+</ul>
+<ul>
+<li><a href="https://github.com/adamgreig">@adamgreig</a> has released an experimental PAC (Peripheral Access Crate) alternative for STM32 microcontrollers: <a href="https://github.com/adamgreig/stm32ral">stm32ral</a> that compiles in about 3 seconds. (PACs are known for compile times in the order of hundreds of seconds.)</li>
+</ul>
+<ul>
+<li>As of <code>nightly-2019-02-05</code> the <a href="https://docs.rust-embedded.org/book/index.html">embedded Rust Book</a> is included as part of the docs shipped with the Rust toolchain! <a href="https://doc.rust-lang.org/nightly/#embedded-systems">This is the online version</a>.</li>
+</ul>
+<ul>
+<li>The Rust compiler now has <a href="https://github.com/rust-lang/rust/pull/58406">cross compilation support for 64-bit RISCV</a>. Install the bare metal targets with <code>rustup target</code> (see <code>rustup target list</code>).</li>
+</ul>
+<ul>
+<li>The Rust compiler also gained <a href="https://github.com/rust-lang/rust/pull/56769">compilation support for x86_64 UEFI</a> in the form of the <code>x86_64-unknown-uefi</code> target.</li>
+</ul>
+<ul>
+<li>Formatting numbers with <code>core::fmt</code> has <a href="https://github.com/rust-lang/rust/pull/58272">become slimmer</a>. Some users have reported binary size reductions of up to 26% (800B) in ARMv6-M binaries.</li>
+</ul>
+<ul>
+<li>The <a href="https://github.com/copterust/">copterust org</a> has <a href="https://github.com/rust-embedded/awesome-embedded-rust/pull/142">shared a bunch of driver crates</a> for interfacing sensors commonly found in flight controllers (drones).</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to add it to <a href="https://github.com/rust-embedded/blog/edit/master/content/2019-03-06-newsletter-16.md">the next newsletter</a>, we would love to show it off!</p>
+<ul>
+<li>Version v0.4.1 of <a href="https://crates.io/crates/cortex-m-rtfm">Real Time For the Masses</a> (RTFM), a concurrency framework for building real time systems, has been released! This version <a href="https://github.com/japaric/cortex-m-rtfm/pull/140">fixes a soundness hole</a> and includes a <a href="https://japaric.github.io/cortex-m-rtfm/book/ru/index.html">Russian translation</a> of the RTFM book.</li>
+</ul>
+<ul>
+<li><a href="https://github.com/jamwaffles">@jamwaffles</a> has <a href="https://mobile.twitter.com/jam_waffles/status/1095784282189189121">published</a> a driver crate for the SH1106, an OLED display, and an <a href="https://wapl.es/electronics/rust/2019/02/13/sh1106-driver.html">introduction blog post</a> for their crate.</li>
+</ul>
+<ul>
+<li><a href="https://github.com/thejpster">@thejpster</a> has <a href="https://www.reddit.com/r/rust/comments/ascvls/introducing_embeddedsdmmc_a_purerust_no_std_sd/">released</a> <a href="https://crates.io/crates/embedded-sdmmc"><code>embedded-sdmmc</code></a>, a pure-Rust #[no_std] SD card and FAT16/FAT32 library</li>
+</ul>
+<ul>
+<li><a href="https://github.com/hannobraun">@hannobraun</a> has published two crates: <a href="https://crates.io/crates/ieee802154"><code>ieee802154</code></a>, a partial implementation of the IEEE 802.15.4 standard, and <a href="https://crates.io/crates/dw1000"><code>dw1000</code></a>, an embedded-hal driver for the Decawave DW1000 wireless transceiver chip.</li>
+</ul>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th><th align="left">Diff</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#device-crates">Device Crates</a></td><td align="left">released</td><td align="left">16</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">15</td><td align="left">+2</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates">Board Support Crates</a></td><td align="left">released</td><td align="left">13</td><td align="left">+2</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">19</td><td align="left">+3</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">59</td><td align="left">+13</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#no-std-crates">no-std crates</a></td><td align="left">released</td><td align="left">23</td><td align="left">+6</td></tr>
+</tbody></table>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

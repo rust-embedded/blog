@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="This Year in Embedded Rust" />
+  <meta name="twitter:description" content="This year the Embedded WG set out to build the solid foundation that the
+embedded Rust ecosystem requires to thrive. As we approach the date of the 2018
+edition release we reflect on our progress and share our achievements with you
+in this post.
+Discuss on users.rust-lang.org, on twitter, or on reddit!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">This Year in Embedded Rust</h1>
+  <span class="post-date">2018-11-14</span>
+  <p>This year the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> set out to build the solid foundation that the
+embedded Rust ecosystem requires to thrive. As we approach the date of the 2018
+edition release we reflect on our progress and share our achievements with you
+in this post.</p>
+<p>Discuss on <a href="https://users.rust-lang.org/t/the-embedded-wg-this-year-in-embedded-rust/22263">users.rust-lang.org</a>, <a href="https://twitter.com/rustembedded/status/1062664608538918913">on twitter</a>, or <a href="https://www.reddit.com/r/rust/comments/9wz716/the_embedded_wg_this_year_in_embedded_rust/">on reddit</a>!</p>
+<span id="continue-reading"></span><h2 id="embedded-rust-on-stable">Embedded Rust on stable</h2>
+<p>Stability -- AKA &quot;my crate should not break when moving to a newer toolchain&quot; --
+was the single most requested feature by the embedded community during the 2018
+roadmap planning phase.</p>
+<p>Embedded development has been tied to the nightly
+channel since its very beginning, and the people that have been doing embedded
+development for a while have endured many breaking changes. Thankfully, those
+days are over: Rust 1.30 marks the first stable release where you can build
+fully working embedded programs without relying on unstable features.</p>
+<p>Furthermore, we now have some <a href="https://github.com/rust-lang/rust/pull/53996">unit</a> <a href="https://github.com/rust-lang/rust/pull/53190">tests</a> that check embedded code in the
+compiler test suite so unintentional breakage will be caught before it makes its
+way into the nightly channel.</p>
+<h2 id="a-smooth-starting-point">A smooth starting point</h2>
+<p>&quot;How do I get started with embedded Rust?&quot; has been a common question on IRC for
+a long time. It has not been an easy question to answer, though: maintaining
+documentation that relies on unstable features for a long period of time has
+been an uphill battle so newcomers have often run into outdated docs.</p>
+<p>But now that stable embedded Rust is here we have put together an authoritative
+resource for getting started with embedded Rust: <a href="https://docs.rust-embedded.org/book">The Embedded Rust Book</a>. We
+have put a lot of effort in making the first experience as frictionless as
+possible with the help of <a href="https://github.com/rust-embedded/cortex-m-quickstart">templates</a> and <a href="https://github.com/rust-embedded/cargo-binutils">tooling</a>.</p>
+<p>The embedded Rust book is not just a getting started guide; it's also meant
+to be the document that teaches you how to effectively use the language to write
+correct embedded software. We are currently amassing all our hard earned
+experience into patterns and tips that we are adding to this book.</p>
+<h2 id="resources-for-everyone">Resources for everyone</h2>
+<p>The Embedded Rust Book is aimed at people that have some experience with
+embedded development, but we recognize that Rust has great potential for
+becoming people's first choice for getting their feet wet with embedded
+development so we have updated and will continue to work on resources, like <a href="https://docs.rust-embedded.org/discovery">the
+Discovery book</a>, that are aimed at that demographic.</p>
+<p>We also recognize that the target audience for embedded Rust has different
+levels of expertise with embedded systems and a varied set of interests
+so we are also building advances resources like <a href="https://docs.rust-embedded.org/embedonomicon">the embedonomicon</a>
+and collecting more targeted resources, like crates, in the
+<a href="https://github.com/rust-embedded/awesome-embedded-rust">awesome-embedded-rust</a> list. You can find these and other of our resources in
+our <a href="https://docs.rust-embedded.org">docs webpage</a>.</p>
+<h2 id="an-organized-community-effort">An organized community effort</h2>
+<p>All this has been accomplished with the hard work of many volunteers, both <a href="https://github.com/rust-embedded/wg#organization">WG
+members</a> and other community members. The WG members, in particular, are
+committed to maintaining the <a href="https://github.com/rust-embedded/wg#projects-1">core crates</a> and <a href="https://github.com/rust-embedded/wg#projects-8">documentation</a> that the
+ecosystem relies on. All these resources have been taken under the umbrella of
+the <a href="https://github.com/rust-embedded">rust-embedded</a> organization.</p>
+<h2 id="wg-teams">WG teams</h2>
+<p>The embedded space is huge: there are several architectures used in
+this space, many application areas, and embedded developers work with different
+sets of constraints: real-time constraints, memory constraints, energy / power
+constraints, etc.</p>
+<p>For this reason we have been creating and growing specialized teams within the
+WG by adding members with different areas of expertise. This ensures that we
+have different perspectives when making API design decisions in core crates and
+when communicating the needs of the embedded community to the other Rust teams.
+Having specialized teams also means that the crates developed by the org can be
+assigned to the people with the right technical background.</p>
+<h2 id="on-the-upcoming-2018-edition">On the upcoming 2018 edition</h2>
+<p>In this last sprint towards the 2018 edition we are focusing our efforts in
+our <a href="https://docs.rust-embedded.org">documentation</a>!</p>
+<p>You can help us by proofreading our docs, reporting errors, giving feedback on
+the existing content, requesting new topics and writing about topics that have
+not yet been covered. Every little bit of help is greatly appreciated!</p>
+<p>One important note: our documentation makes use of the 2018 edition which
+requires you to use the beta channel until 1.31 is released in early December.
+We suggest that you use the beta channel until then to get the best experience.</p>
+<h2 id="beyond-2018">Beyond 2018</h2>
+<p>Our work doesn't stop the day Rust 1.31 comes out; the 2018 edition is just the
+starting line of embedded Rust. As we continue to learn how to effectively use
+Rust for embedded development we'll continue to refine and expand our
+documentation as well as the core crates we maintain and develop.</p>
+<p>Also, at this point in time ARM Cortex-M is our most mature target architecture
+and the majority of crates on crates.io target this architecture, but we have
+laid the groundwork for supporting other targets like bare metal ARM Cortex-A,
+ARM Cortex-R, MSP430 and RISCV. We'll continue to work on getting these
+targets on parity with the ARM Cortex-M target during the next year.</p>
+<p>Finally, we'd love to hear what <strong>you</strong> would like to see happen in the embedded
+space in 2019. We are collecting a <a href="https://github.com/rust-embedded/wg/issues/256">&quot;wishlist&quot;</a> of things the embedded community
+would like to see get done, fixed and / or stabilized in 2019. Need some API in
+core to be stabilized? Would like to get some Cargo bug / papercut fixed? Let us
+know and we'll look into making it happen! We'll use this data to set out an
+embedded Rust roadmap for 2019.</p>
+<p>Here's to a 2019 with <em>more</em> embedded Rust success stories (yes, &quot;more&quot;; wait
+for the upcoming revamped rust-lang website ;-)). Happy embedded hacking!</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

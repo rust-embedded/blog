@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 31" />
+  <meta name="twitter:description" content="Highlights
+
+AdaCore and Ferrous Systems have joined forces to support Rust in safety- and mission-critical environments.
+
+Announcement from AdaCore
+Announcement from Ferrous Systems
+
+
+AUTOSAR announces new Working Group for Programming Language Rust in Automotive Software context.
+
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 31</h1>
+  <span class="post-date">2022-03-22</span>
+  <h2 id="highlights">Highlights</h2>
+<ul>
+<li>AdaCore and Ferrous Systems have joined forces to support Rust in safety- and mission-critical environments.
+<ul>
+<li><a href="https://blog.adacore.com/adacore-and-ferrous-systems-joining-forces-to-support-rust">Announcement from AdaCore</a></li>
+<li><a href="https://ferrous-systems.com/blog/ferrous-systems-adacore-joining-forces/">Announcement from Ferrous Systems</a></li>
+</ul>
+</li>
+<li>AUTOSAR announces <a href="https://www.autosar.org/news-events/details/autosar-announces-new-working-group-for-programming-language-rust-in-automotive-software-context-202/">new Working Group for Programming Language Rust in Automotive Software context</a>.</li>
+</ul>
+<span id="continue-reading"></span><h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to add it to <a href="https://github.com/rust-embedded/blog/edit/master/content/newsletter-next.md">the next newsletter</a>, we would love to show it off!</p>
+<ul>
+<li>
+<p><a href="https://crates.io/crates/svd2rust">svd2rust</a> released v0.20.0.</p>
+</li>
+<li>
+<p>The new version of the <a href="https://docs.rust-embedded.org/discovery">Discovery book</a>
+targeting the micro:bit development board was released.</p>
+</li>
+<li>
+<p><a href="https://crates.io/crates/embedded-hal">embedded-hal</a> 1.0.0-alpha.6 and 1.0.0-alpha.7 released, with a number of new features and
+changes as we work towards the final 1.0 release. Most notably,
+CAN (Controller Area Network) traits were added and some traits
+with unconstrained associated types were removed.</p>
+</li>
+<li>
+<p><a href="https://crates.io/crates/embedded-hal">embedded-hal</a> 0.2.7 released, including CAN (Controller Area Network) traits which were backported.</p>
+</li>
+<li>
+<p><a href="https://crates.io/crates/embedded-dma">embedded-dma</a> 0.2.0 released, including const generics support and resolves some confusion around <code>'static</code>.</p>
+</li>
+<li>
+<p>A project to develop asynchronous versions of the <code>embedded-hal</code> traits has been started.
+See the current <a href="https://github.com/rust-embedded/embedded-hal/issues/356">roadmap</a> and please join the effort!</p>
+</li>
+<li>
+<p><a href="https://crates.io/crates/linux-embedded-hal">linux-embedded-hal</a> 0.4.0-alpha.2 released updating <code>embedded-hal</code> to version 1.0.0-alpha.7.</p>
+</li>
+<li>
+<p>New Rust Embedded ecosystem for the radiation-hardened Vorago VA108xx family of devices:
+<a href="https://egit.irs.uni-stuttgart.de/rust/va108xx">va108xx</a> PAC,
+<a href="https://egit.irs.uni-stuttgart.de/rust/va108xx-hal">va108xx-hal</a> HAL
+and <a href="https://egit.irs.uni-stuttgart.de/rust/vorago-reb1">vorago-reb1</a> BSP
+with <a href="https://robamu.github.io/post/rust-ecosystem/">blogpost</a></p>
+</li>
+<li>
+<p>New <a href="https://egit.irs.uni-stuttgart.de/rust/max116xx-10bit">device driver crate</a> for the MAX116xx
+10-bit ADC devices with <a href="https://robamu.github.io/post/max11619-driver-rust/">blogpost</a></p>
+</li>
+<li>
+<p>The RIOT operating system now <a href="https://doc.riot-os.org/using-rust.html">has upstream support for Rust applications</a>.</p>
+<p>This encompasses support in the build system,
+high-level <a href="https://crates.io/crates/riot-wrappers">wrappers</a> that make the OS's C mechanisms safe and idiomatic to use,
+and <a href="https://gitlab.com/etonomy/riot-examples">additional examples</a> maintained externally.
+The wrappers implement high-level traits (e.g. from <a href="https://crates.io/crates/embedded-hal">embedded-hal</a>, <a href="https://crates.io/crates/embedded-nal">embedded-nal</a> and <a href="https://crates.io/crates/mutex-traits">mutex-traits</a>) where practical.</p>
+</li>
+<li>
+<p>A <a href="https://tweedegolf.nl/en/blog/65/async-rust-vs-rtos-showdown">blog post by Tweede Golf</a> about comparing Embassy with FreeRTOS.</p>
+</li>
+<li>
+<p><a href="https://crates.io/crates/eeprom24x">eeprom24x</a> I2C EEPROM driver 0.5.0 released, adding support for STM M24C01 and M24C02 devices as well as implementing the <a href="https://github.com/rust-embedded-community/embedded-storage"><code>embedded-storage</code></a> traits.</p>
+</li>
+<li>
+<p><a href="https://crates.io/crates/measurements">measurements</a> 0.10.4 and 0.11.0 released, most notably adding support for humidity and density.</p>
+</li>
+<li>
+<p><a href="https://github.com/9names">9names</a> released a platform-agnostic <a href="https://crates.io/crates/wii-ext">driver for Wii Extension Controllers</a> and published a <a href="https://9names.github.io/driver/embedded/rust/2022/02/14/wii-ext-rs.html">blog post</a>. This driver supports Nunchuk controllers as well as the many variants of the Classic Controller (Original/Pro/NES/SNES).</p>
+</li>
+<li>
+<p>Drogue Device now features an <a href="https://blog.drogue.io/bluetooth-mesh/">async Bluetooth Mesh stack</a>.</p>
+</li>
+</ul>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository.</p>
+<h2 id="get-involved">Get Involved</h2>
+<p>This <a href="https://github.com/rust-embedded/wg">Embedded WG</a> blog is where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>Discuss on <a href="https://matrix.to/#/#rust-embedded:matrix.org">#rust-embedded:matrix.org</a>!</p>
+<p>If you want to mention something in <a href="https://github.com/rust-embedded/blog/edit/master/content/newsletter-next.md">the next newsletter</a>, send us a pull request!</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

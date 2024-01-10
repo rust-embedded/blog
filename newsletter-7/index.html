@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 7" />
+  <meta name="twitter:description" content="This is the seventh newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 7</h1>
+  <span class="post-date">2018-07-15</span>
+  <p>This is the seventh newsletter of the <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/121">the next newsletter</a>, make sure to leave a comment on the issue.</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>We have launched the <a href="https://twitter.com/rustembedded">Embedded WG Twitter</a>! We'll be publishing things like our newsletter here, so go ahead and follow to stay up to date. If you have something you're working on and want to share, feel free to @ us so we can retweet it!</li>
+<li>Work started on <a href="https://github.com/japaric/libm">porting</a> MUSL's <code>libm</code> (for math functions like <code>sin</code>, <code>cos</code>, etc.) has started, and already has <a href="https://github.com/japaric/libm/issues?q=is%3Aopen+is%3Aissue+milestone%3Awasm">26 of 32 functions</a> ported! This crate will hopefully be included in the <code>core</code> of Rust, so it can be used by <code>no_std</code> targets such as embedded or wasm.</li>
+<li>The Atomic*.{load,store} API is <a href="https://github.com/rust-lang/rust/pull/51953">now available</a> for the thumbv6m and msp430 targets.</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to mention it on the tracking issue for <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/121">the next newsletter</a>, we would love to show it off!</p>
+<ul>
+<li>This week we have two Multirotor Flight Controller projects starting in Rust! They are both based on the <a href="https://github.com/japaric/stm32f30x-hal">stm32f3</a> family of chips from STMicro.
+<ul>
+<li><a href="https://github.com/korken89">Emil Fresk</a> posted <a href="https://twitter.com/korken89/status/1016975023930830848">on Twitter</a> about his project <a href="https://github.com/korken89/trustflight_firmware">TrustFlight</a>, which is an open source, Rust based software library for controlling the <a href="https://github.com/korken89/trustflight_hardware">TrustFlight HW</a> he designed.</li>
+<li><a href="https://github.com/JoshMcguigan">Josh Mcguigan</a> announced in his <a href="https://www.joshmcguigan.com/blog/betafpv-drone-flight-controller-hello-rust/">Blog Post</a> that he is planning to develop a firmware package for the <a href="https://betafpv.com/products/beta75-bnf-tiny-whoop-quadcopter">BetaFPV F3</a>, which is an off the shelf flight controller</li>
+</ul>
+</li>
+<li>We also have two projects aiming to make use of Rust on the Raspberry Pi a little easier:
+<ul>
+<li><a href="https://gitlab.com/AGausmann">Adam Gausmann</a> shared his <a href="https://gitlab.com/AGausmann/rustberry">Rustberry</a> project <a href="https://www.reddit.com/r/rust/comments/8x1ayd/calling_all_raspberry_pi_owners_rustberry_010_has/">on Reddit</a>, which includes register maps and an I/O library for the Raspberry Pi</li>
+<li><a href="https://github.com/rahul-thakoor">Rahul Thakoor</a> shared his <a href="https://github.com/rahul-thakoor/rust_gpiozero">rust_gpiozero</a> crate <a href="https://medium.com/@rahulthakoor/physical-computing-with-rust-on-raspberry-pi-a7b6f34261a6">on Medium</a>, which is based on the Python library of similar name. He has also started writing <a href="https://rahul-thakoor.github.io/physical-computing-rust/">a series of tutorials</a> for developers new to working with physical hardware.</li>
+</ul>
+</li>
+</ul>
+<h3 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h3>
+<p>As part of the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th><th align="left">Diff</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#device-crates">Device Crates</a></td><td align="left">released</td><td align="left">14</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">11</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates">Board Support Crates</a></td><td align="left">released</td><td align="left">6</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">9</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">30</td><td align="left">0</td></tr>
+</tbody></table>
+<h2 id="help-wanted">Help Wanted</h2>
+<ul>
+<li>Help contribute to development of <a href="https://github.com/japaric/libm">Rust's libm</a> to get math functions built in to <code>core</code> for <code>no_std</code> targets!</li>
+</ul>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

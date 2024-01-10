@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 17" />
+  <meta name="twitter:description" content="This is the seventeenth newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+Discuss on users.rust-lang.org, on twitter, or on reddit!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 17</h1>
+  <span class="post-date">2019-03-22</span>
+  <p>This is the seventeenth newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>Discuss on <a href="https://users.rust-lang.org/t/the-embedded-working-group-newsletter-17/26551">users.rust-lang.org</a>, <a href="https://twitter.com/rustembedded/status/1109141455510097922">on twitter</a>, or <a href="https://www.reddit.com/r/rust/comments/b47pl7/embedded_wg_newsletter_17_the_embedded_rust/">on reddit</a>!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-embedded/blog/edit/master/content/2019-04-05.md">the next newsletter</a>, send us a pull request!</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>The <a href="https://rust-embedded.github.io/showcase/">embedded showcase</a> gained its first entry! The <a href="https://github.com/TeXitoi/rusty-clock">rusty clock</a> project, an alarm clock that features pressure, temperature and humidity on an e-paper display and 5 programmable alarms. We are still looking for cool embedded projects to serve that can serve as examples of what can be done in Rust. Don't hesitate to <a href="https://github.com/rust-embedded/showcase#submit-your-project">submit</a> yours!</li>
+<li><a href="https://oxidizeconf.com">OxidizeConf</a>, the first embedded Rust conference, has announced speakers! Check out <a href="https://oxidizeconf.com/schedule/">the lineup here</a>!</li>
+<li><a href="https://twitter.com/antvangelder">Antoine van Gelder</a> wrote about using Peripheral Access Crates to <a href="https://flowdsp.io/blog/stm32f3-01-interrupts/">program interrupts</a> on the STM32F3 Discovery board</li>
+<li><a href="https://github.com/jamesmunns">James Munns</a> gave a talk at Rust Berlin about what happens <a href="https://www.youtube.com/watch?v=RIHVoNDxNuk">before <code>main()</code></a> in embedded Rust projects</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<ul>
+<li>
+<p><a href="https://github.com/jjkt">@jjkt</a> is working on <a href="https://github.com/jjkt/zmu"><code>zmu</code></a>, an emulator for microcontroller based systems. Zmu is work in progress but can already emulate substantial parts of Cortex M - based MCUs core architecture features.</p>
+</li>
+<li>
+<p><a href="https://github.com/japaric">@japaric</a> <a href="https://twitter.com/japaricious/status/1105368938018267136">released</a> <a href="https://github.com/japaric/cargo-call-stack/blob/master/CHANGELOG.md#v012---2019-03-12">v0.1.2</a> of <a href="https://crates.io/crates/cargo-call-stack/0.1.2"><code>cargo-call-stack</code></a>, a static stack usage analyzer, and published a <a href="https://blog.japaric.io/stack-analysis/">blog post</a> with details about its implementation.</p>
+</li>
+<li>
+<p><a href="https://twitter.com/wezm">Wesley Moore</a> wrote <a href="https://www.wezm.net/technical/2019/03/sensortag-embedded-rust-coding-retreat/">a blog post</a> about getting Rust running on the TI SensorTag, see the <a href="https://git.sr.ht/%7Ewezm/sensortag">project on sourcehut</a>!</p>
+</li>
+<li>
+<p><a href="https://github.com/tarcieri">@tarcieri</a> <a href="https://twitter.com/bascule/status/1105455019959058433">released</a> a board support crate for the <a href="https://github.com/rust-embedded/wg/issues/286">Adafruit NeoTrellis M4</a> along with a platform-independent driver for its <a href="https://github.com/atsamd-rs/atsamd/pull/47">adxl343</a> accelerometer and support for using the accelerometer to detect the <a href="https://github.com/atsamd-rs/atsamd/pull/48">device's orientation</a>.</p>
+</li>
+</ul>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to add it to <a href="https://github.com/rust-embedded/blog/edit/master/content/2019-04-05.md">the next newsletter</a>, we would love to show it off!</p>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<!-- TODO fill in the numbers before release -->
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th><th align="left">Diff</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#peripheral-access-crates">Peripheral Access Crates</a></td><td align="left">released</td><td align="left">18</td><td align="left">~</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">19</td><td align="left">~</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates">Board Support Crates</a></td><td align="left">released</td><td align="left">13</td><td align="left">~</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">21</td><td align="left">+1</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">63</td><td align="left">+2</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#no-std-crates">no-std crates</a></td><td align="left">released</td><td align="left">25</td><td align="left">+1</td></tr>
+</tbody></table>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

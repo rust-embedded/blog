@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 1" />
+  <meta name="twitter:description" content="This is the first newsletter of the Embedded WG! We will be releasing this newsletter on a bi-weekly basis, and we are looking to highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 1</h1>
+  <span class="post-date">2018-03-15</span>
+  <p>This is the first newsletter of the <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a>! We will be releasing this newsletter on a bi-weekly basis, and we are looking to highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/65">the next newsletter</a>, make sure to leave a comment on the issue!</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li><a href="https://github.com/helena-project/tock">Tock-OS</a> has released the <a href="https://www.tockos.org/blog/2018/talking-tock-35/">1.0 of their kernel</a>, gotten the Rust Userspace library back in order, and are working on a <a href="https://www.tockos.org/blog/2018/talking-tock-36/">new register interface</a></li>
+<li><a href="https://github.com/Emilgardis">Emilgardis</a>, <a href="https://github.com/jamesmunns">jamesmunns</a> and <a href="https://github.com/ryankurte">ryankurte</a> have become collaborators of the <a href="https://github.com/japaric/svd">svd</a> and <a href="https://github.com/japaric/svd2rust">svd2rust</a> projects.</li>
+<li><a href="https://github.com/hannobraun">hannobraun</a>, <a href="https://github.com/ilya-epifanov">ilya-epifanov</a>, <a href="https://github.com/thejpster">thejpster</a>, <a href="https://github.com/therealprof">therealprof</a> have become collaborators of the <a href="https://github.com/japaric/embedded-hal">embedded-hal</a> project.</li>
+<li><a href="https://github.com/dvc94ch">dvc94ch</a> has created the <a href="https://github.com/riscv-rust">riscv-rust</a> organization for all your embedded RISCV needs!</li>
+<li><a href="https://github.com/dylanmckay">dylanmckay</a> has begun <a href="https://github.com/avr-rust/rust/pull/91">rebasing</a> the avr-rust/rust fork onto a recent rust-lang/rust version, bringing in LLVM 6.0 support.</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to mention it on the tracking issue for <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/65">the next newsletter</a>, we would love to show it off!</p>
+<h3 id="embedded-hal-drivers"><code>embedded-hal</code> drivers</h3>
+<p>This is a list of recently released drivers that are part of the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/39">Weekly Driver Initiative</a>. There are currently 5 Released Drivers, 14 WIP Drivers, and lots of TODOs!</p>
+<ul>
+<li><a href="https://github.com/pcein">pcein</a> has <a href="http://pramode.in/2018/02/24/an-introduction-to-writing-embedded-hal-based-drivers-in-rust/">released</a> the third weekly driver for the <a href="https://crates.io/crates/adc-mcp3008"><code>adc-mcp3008</code></a>, an 8-channel 10-bit ADC.</li>
+<li><a href="https://github.com/japaric">japaric</a> has <a href="http://blog.japaric.io/wd-4-enc28j60/">released</a> the fourth weekly driver for the <a href="https://crates.io/crates/enc28j60"><code>enc28j60</code></a>, an Ethernet controller with SPI interface.</li>
+<li><a href="https://github.com/dbrgn">dbrgn</a> has <a href="https://blog.dbrgn.ch/2018/3/13/rust-mcp3425-driver/">released</a> the fifth weekly driver for the <a href="https://crates.io/crates/mcp3425"><code>mcp3425</code></a>, a 16-bit ADC with I2C interface.</li>
+</ul>
+<h2 id="thanks">Thanks</h2>
+<ul>
+<li>Thanks to everyone who has been commenting on the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues">Embedded WG Issues</a>, especially for the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/56">Embedded Rust Book</a> tracking issue!</li>
+<li><a href="https://github.com/varkor">varkor</a> has fixed a <a href="https://github.com/rust-lang/rust/issues/41315">long standing LLVM bug</a>, that artificially increased the binary size of Rust programs, and backported the patch to rustc.</li>
+<li>LLD is now being shipped with the Rust toolchain. <a href="https://github.com/FenrirWolf">FenrirWolf</a> <a href="https://github.com/japaric/xargo/pull/200">patched Xargo</a> so that Xargo users can make use of it too.</li>
+</ul>
+<h2 id="help-wanted">Help Wanted</h2>
+<p>If you have an embedded project that could use contributors or maintainers, leave a comment for <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/65">the next newsletter</a>!</p>
+<ul>
+<li>We are <a href="https://github.com/japaric/cortex-m-rt/issues/53">pretty close</a> to being able to use LLD to link Rust programs compiled for ARM Cortex-M but there are some <a href="https://github.com/japaric/cortex-m-rt/issues/53#issuecomment-371972935">LLD bugs</a> that still need to be fixed. Help reporting these bugs upstream would be greatly appreciated!</li>
+<li>Incremental compilation is in the roadmap for this year but it doesn't work with <code>no_std</code> binaries due to an <a href="https://github.com/rust-lang/rust/issues/18807">old rustc bug</a> related to linking. Help us fix it! There's a proposed solution <a href="https://github.com/rust-lang/rust/issues/47074#issuecomment-354588718">here</a>.</li>
+<li>We want to explore stabilizing some assembly operations in core as an alternative to the unstable asm! macro. We would love some help identifying the assembly operations that need to be provided this way as some can be implemented in external assembly files without losing
+semantics. Details in issue <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/63">#63</a>.</li>
+</ul>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

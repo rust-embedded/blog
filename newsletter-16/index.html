@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 16" />
+  <meta name="twitter:description" content="This is the sixteenth newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+Discuss on users.rust-lang.org, on twitter, or on reddit!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 16</h1>
+  <span class="post-date">2019-03-06</span>
+  <p>This is the sixteenth newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>Discuss on <a href="https://users.rust-lang.org/t/the-embedded-working-group-newsletter-16/25987">users.rust-lang.org</a>, <a href="https://twitter.com/rustembedded/status/1103416332786302977">on twitter</a>, or <a href="https://www.reddit.com/r/rust/comments/ay4js3/embedded_wg_newsletter_16_not_yet_awesome/">on reddit</a>!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-embedded/blog/edit/master/content/2019-03-20-newsletter-17.md">the next newsletter</a>, send us a pull request!</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>Know of something that isn't awesome in embedded Rust yet? Let us know by adding it to the <a href="https://github.com/rust-embedded/not-yet-awesome-embedded-rust">Not <em>Yet</em> Awesome Embedded Rust List</a>!</li>
+</ul>
+<ul>
+<li>The Embedded WG continues to receive <a href="https://github.com/rust-embedded/showcase#submit-your-project">submissions</a> for <a href="https://github.com/rust-embedded/showcase">the embedded showcase</a>. We are looking for cool embedded Rust projects (applications, not libraries or tools) with visuals (pictures or videos) that can serve as examples of what can be done in Rust.</li>
+</ul>
+<ul>
+<li>
+<p><a href="https://www.42technology.com">42 Technology</a> <a href="https://twitter.com/42Technology/status/1099009843967471617">announced</a> that they have got Rust running on the new Cortex-M33 powered <a href="https://www.nordicsemi.com/Products/Low-power-cellular-IoT/nRF9160">Nordic nRF9160 LTE SiP</a>.</p>
+</li>
+<li>
+<p><a href="https://twitter.com/bitshiftmask">James Munns</a> has posted the <a href="https://www.youtube.com/watch?v=S0VI70nY6Vo">first video</a> of a <a href="https://www.youtube.com/playlist?list=PLX44HkctSkTewrL9frlUz0yeKLKecebT1">series of streams</a> developing a home wireless sensor node network. The stream focuses on teaching embedded, Rust, and IoT topics.</p>
+</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<ul>
+<li>
+<p><a href="https://github.com/hannobraun">@hannobraun</a> published <a href="https://crates.io/crates/dwm1001"><code>dwm1001</code></a>, a board support crate for the Decawave DWM1001 module, which features a Nordic nRF52832 microcontroller and a Decawave DW1000 radio transceiver.</p>
+</li>
+<li>
+<p>The RTFM (Real Time For the Masses) team has released <a href="https://crates.io/crates/cortex-m-rtfm"><code>cortex-m-rtfm</code></a> <a href="https://github.com/japaric/cortex-m-rtfm/blob/master/CHANGELOG.md#v042---2019-02-27">v0.4.2</a>; the most important new feature in this release are reproducible builds. They are also looking for user input on several open <a href="https://github.com/japaric/cortex-m-rtfm/issues?q=is%3Aissue+is%3Aopen+label%3ARFC">RFCs</a>.</p>
+</li>
+</ul>
+<ul>
+<li><a href="https://github.com/japaric/">@japaric</a> has <a href="https://mobile.twitter.com/japaricious/status/1102275637606338562">released</a> <a href="https://crates.io/crates/cargo-call-stack"><code>cargo-call-stack</code></a> <a href="https://github.com/japaric/cargo-call-stack/blob/master/CHANGELOG.md#v011---2019-03-03">v0.1.1</a>. <code>cargo-call-stack</code> is a static, whole program stack analysis tool; this version ships many new improvements: filtering, cleaner graphs, support for programs that use recursion, dynamic dispatch or function pointer calls, plus numerous bug fixes.</li>
+</ul>
+<ul>
+<li><a href="https://github.com/jamwaffles">@jamwaffles</a> has published version v0.4.7 of the <a href="https://crates.io/crates/embedded-graphics/0.4.7"><code>embedded-graphics</code></a> crate. This version ships with BMP support! For more details read <a href="https://wapl.es/rust/2019/03/04/embedded-graphics-0.4.7-bmp-support.html">the announcement blog post</a>.</li>
+</ul>
+<ul>
+<li><a href="https://github.com/tarcieri">@tarcieri</a> extracted the <a href="https://crates.io/crates/micromath"><code>micromath</code></a> crate out of the <a href="https://crates.io/crates/accelerometer"><code>accelerometer</code></a> crate. It provides a fast, embedded-friendly arithmetic library (utilizing approximations which trade precision for improved performance and reduced code size), 2D/3D vector types, and statistical analysis functions.</li>
+</ul>
+<ul>
+<li><a href="https://github.com/shella">@shella</a> created <a href="https://github.com/atsamd-rs/atsamd/pull/55"><code>pyportal</code></a>, a board support crate for the <a href="https://www.adafruit.com/product/4116">Adafruit PyPortal</a>, which features an ILI9341 LCD touchscreen and ESP32 Wifi controller.</li>
+</ul>
+<p>If you have an embedded project or blog post you would like to have featured in the next Embedded WG Newsletter, make sure to add it to <a href="https://github.com/rust-embedded/blog/edit/master/content/2019-03-20-newsletter-17.md">the next newsletter</a>, we would love to show it off!</p>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th><th align="left">Diff</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#peripheral-access-crates">Peripheral Access Crates</a></td><td align="left">released</td><td align="left">19</td><td align="left">+3</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">18</td><td align="left">+3</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates">Board Support Crates</a></td><td align="left">released</td><td align="left">13</td><td align="left">~</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">20</td><td align="left">+1</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">61</td><td align="left">+2</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#no-std-crates">no-std crates</a></td><td align="left">released</td><td align="left">24</td><td align="left">+1</td></tr>
+</tbody></table>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

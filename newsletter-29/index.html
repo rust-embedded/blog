@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 29" />
+  <meta name="twitter:description" content="Highlights
+
+
+Last Month in Flott, the monthly newsletter for Flott has been published. Flott is an open source toolkit for motion control software in Rust (designed to run everywhere, including microcontrollers).
+
+
+The microbit crate has released v0.9.0, moved under the nrf-rs organisational umbrella, and gained micro:bit v2 support. 🎉
+
+
+The switch-hal crate released v0.4.0, adding StatefulOutputSwitch for platforms that support StatefulOutputPin.
+
+
+The probe-rs project, which provides debugging and flash programming for a variety of embedded targets, released version v0.11.0, with a number of performance and functionality improvements.
+
+
+cortex-m released version 0.7.3, improving ease-of-use for the Delay implementation and fixing native builds on non-x86 hosts.
+
+
+cortex-m-rt released version 0.6.15, backporting various fixes to the linker script and helping prepare for a new 0.7 release soon.
+
+
+cross has posted a call for help looking for new maintainers: if you use cross and would like to help out, please check it out!
+
+
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 29</h1>
+  <span class="post-date">2021-07-27</span>
+  <h2 id="highlights">Highlights</h2>
+<ul>
+<li>
+<p><a href="https://flott-motion.org/news/last-month-in-flott-may-2021/">Last Month in Flott</a>, the monthly newsletter for Flott has been published. Flott is an open source toolkit for motion control software in Rust (designed to run everywhere, including microcontrollers).</p>
+</li>
+<li>
+<p>The <a href="https://crates.io/crates/microbit">microbit crate</a> has released v0.9.0, moved under the <a href="https://github.com/nrf-rs/microbit">nrf-rs</a> organisational umbrella, <strong>and</strong> gained <a href="https://github.com/nrf-rs/microbit/pull/44">micro:bit v2</a> support. 🎉</p>
+</li>
+<li>
+<p>The <a href="https://crates.io/crates/switch-hal">switch-hal crate</a> released v0.4.0, adding <a href="https://docs.rs/switch-hal/0.4.0/switch_hal/trait.StatefulOutputSwitch.html">StatefulOutputSwitch</a> for platforms that support <code>StatefulOutputPin</code>.</p>
+</li>
+<li>
+<p>The <a href="https://probe.rs">probe-rs</a> project, which provides debugging and flash programming for a variety of embedded targets, released version <a href="https://probe.rs/blog/release-0-11-0/">v0.11.0</a>, with a number of performance and functionality improvements.</p>
+</li>
+<li>
+<p><a href="https://crates.io/crates/cortex-m">cortex-m</a> released version 0.7.3, improving ease-of-use for the <code>Delay</code> implementation and fixing native builds on non-x86 hosts.</p>
+</li>
+<li>
+<p><a href="https://crates.io/crates/cortex-m-rt">cortex-m-rt</a> released version 0.6.15, backporting various fixes to the linker script and helping prepare for a new 0.7 release soon.</p>
+</li>
+<li>
+<p><a href="https://github.com/rust-embedded/cross">cross</a> has posted a <a href="https://github.com/rust-embedded/cross/issues/574">call for help</a> looking for new maintainers: if you use cross and would like to help out, please check it out!</p>
+</li>
+</ul>
+<span id="continue-reading"></span><h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to add it to <a href="https://github.com/rust-embedded/blog/edit/master/content/2021-08-24-newsletter-30.md">the next newsletter</a>, we would love to show it off!</p>
+<ul>
+<li><a href="https://windfis.ch">Windfisch</a> published their <a href="https://github.com/Windfisch/midikraken">Midikraken</a>, an extensible up-to-16-port MIDI-USB-Interface that also will support standalone operation (e.g. MIDI routing) soon. The project uses Rust's RTIC framework to drive a STM32F103 microcontroller board (a.k.a. &quot;Blue Pill&quot;) and is open-source and open-hardware. The firmware is in active development and lots of cool new features are down the way! Kits for self-assembly will likely be sold some day in the future.</li>
+</ul>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository.</p>
+<p>This is the 29th newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<h2 id="get-involved">Get Involved</h2>
+<p>If you want to mention something in <a href="https://github.com/rust-embedded/blog/edit/master/content/2021-08-24-newsletter-30.md">the next newsletter</a>, send us a pull request!</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

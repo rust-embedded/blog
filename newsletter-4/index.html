@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 4" />
+  <meta name="twitter:description" content="This is the fourth bi-weekly newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 4</h1>
+  <span class="post-date">2018-04-28</span>
+  <p>This is the fourth bi-weekly newsletter of the <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/93">the next newsletter</a>, make sure to leave a comment on the issue.</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>The <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a> IRC meetings are now explicitly public, and the agendas for the next meeting can be found in the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues">WG Issues</a>, like <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/91">this issue</a> for the next meeting</li>
+<li><a href="https://github.com/djmcgill">David</a> shared his utility <a href="https://github.com/djmcgill/form"><code>Form</code></a>, which takes a single <code>lib.rs</code> (like those created by <code>svd2rust</code> or <code>bindgen</code>), and splits it into structured modules. Check out the <a href="https://github.com/jamesmunns/nrf52/tree/master/src"><code>nrf52</code></a> Chip Support Crate as an example, and try it out for your generated projects!</li>
+<li><a href="https://github.com/astro">astro</a> shared <a href="https://crates.io/crates/managed"><code>managed</code></a>, A library that provides a way to logically own objects, whether or not heap allocation is available</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to mention it on the tracking issue for <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/93">the next newsletter</a>, we would love to show it off!</p>
+<ul>
+<li><a href="https://github.com/danielgallagher0">Daniel</a> started work on <a href="https://github.com/danielgallagher0/bluetooth-hci"><code>bluetooth-hci</code></a>, an abstraction layer for HCI based Bluetooth Controllers, and is using it in his <a href="https://github.com/danielgallagher0/bluenrg"><code>bluenrg</code></a> crate for STMicro's BlueNRG RF modules</li>
+<li><a href="https://github.com/cr1901">cr1901</a> shared his <a href="https://github.com/cr1901/AT2XT"><code>AT2XT</code></a> project, an adapter that allows use of low cost PS2 keyboards with older computers that expect (now very expensive) XT keyboards. The firmware for this project is based on <code>rtfm</code>, and runs on an <code>msp430</code> microcontroller. Check out the <a href="https://github.com/rust-lang-nursery/embedded-wg/pull/94#issuecomment-385172043">short blurb</a> by <a href="https://github.com/cr1901">cr1901</a> summarizing the project</li>
+<li><a href="https://github.com/hannobraun">hannobraun</a> released v0.3 of his <a href="https://crates.io/crates/lpc82x"><code>lpc82x</code></a> Chip Support Crate for NXP's LPC82x family of microcontrollers, as well as v0.1 of <a href="https://crates.io/crates/lpc82x-hal"><code>lpc82x-hal</code></a>. Check out the <a href="https://users.rust-lang.org/t/lpc82x-hal-0-1-hardware-abstraction-layer-for-nxp-lpc82x-mcus/17116">lpc82x-hal announcement</a> here!</li>
+<li><a href="https://github.com/japaric">japaric</a> released v0.3.1 of <a href="https://crates.io/crates/heapless"><code>heapless</code></a> which now contains fixed capacity implementations of <code>HashMap</code> and <code>HashSet</code> that work on <code>no_std</code>, do not require an allocator, and use <code>u32</code> hashes (instead of the default <code>u64</code>).</li>
+</ul>
+<h3 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h3>
+<p>As part of the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#device-crates">Device Crates</a></td><td align="left">released</td><td align="left">12</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">10</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates">Board Support Crates</a></td><td align="left">released</td><td align="left">6</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">7</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">27</td></tr>
+</tbody></table>
+<h2 id="help-wanted">Help Wanted</h2>
+<ul>
+<li>The <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a> is looking for contributors for the <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/90">Rustfest Impl Period</a>. If you will be attending RustFest in Paris, let us know!</li>
+<li>Progress is being made towards <a href="https://github.com/rust-lang-nursery/embedded-wg/issues/42#issuecomment-384524779">Stable Embedded Rust</a>, try out the current preview, and we would love some feedback!</li>
+</ul>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

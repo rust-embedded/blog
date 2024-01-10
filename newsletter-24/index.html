@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 24" />
+  <meta name="twitter:description" content="This is the 24th newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+We&#x27;ve been on an unscheduled hiatus for the past six months or so, but it&#x27;s time for us to return! Today we&#x27;re doing a quick fast-forward of all of the great things that have been released while we&#x27;ve been on break.
+For the next few weeks, we&#x27;ll be doing a special &amp;quot;catch-up&amp;quot; schedule, meaning we&#x27;ll be releasing articles weekly until we&#x27;ve caught up with all of the recent changes. Once we&#x27;ve wrapped that up, we&#x27;ll go back to a regular monthly cadence.
+We&#x27;ve also added a few new folks to the resources team say hello to @hargoniX, @eldruin and @kalkyl who will be helping out with the newsletter!
+Want to have your project mentioned? Make sure you let us know so we can include it!
+Discuss on #rust-embedded:matrix.org, users.rust-lang.org, on twitter, or on reddit!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 24</h1>
+  <span class="post-date">2020-08-17</span>
+  <p>This is the 24th newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>We've been on an unscheduled hiatus for the past six months or so, but it's time for us to return! Today we're doing a quick fast-forward of all of the great things that have been released while we've been on break.</p>
+<p>For the next few weeks, we'll be doing a special &quot;catch-up&quot; schedule, meaning we'll be releasing articles weekly until we've caught up with all of the recent changes. Once we've wrapped that up, we'll go back to a regular monthly cadence.</p>
+<p>We've also added a few new folks to the <a href="https://github.com/rust-embedded/wg#the-resources-team">resources team</a> say hello to <a href="https://github.com/hargonix/">@hargoniX</a>, <a href="https://github.com/eldruin">@eldruin</a> and <a href="https://github.com/kalkyl">@kalkyl</a> who will be helping out with the newsletter!</p>
+<p>Want to have your project mentioned? Make sure you <a href="https://github.com/rust-embedded/blog/edit/master/content/2020-08-24-newsletter-25.md">let us know</a> so we can include it!</p>
+<p>Discuss on <a href="https://matrix.to/#/#rust-embedded:matrix.org">#rust-embedded:matrix.org</a>, <a href="https://users.rust-lang.org/t/the-embedded-working-group-newsletter-24/47405">users.rust-lang.org</a>, <a href="https://twitter.com/rustembedded/status/1295330780688809986">on twitter</a>, or <a href="https://www.reddit.com/r/rust/comments/ibcvnz/the_embedded_working_group_newsletter_24/">on reddit</a>!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-embedded/blog/edit/master/content/2020-08-24-newsletter-25.md">the next newsletter</a>, send us a pull request!</p>
+<h2 id="the-great-catch-up">The Great Catch-Up!</h2>
+<p>Here's a whirlwind overview of some of the things that have been released and changed over the past six months or so!
+We'll cover some of these updates in more detail over the coming weeks!</p>
+<h3 id="renames">Renames</h3>
+<ul>
+<li>The RTFM framework has been renamed to RTIC - Real Time Interrupt-driven Concurrency!</li>
+</ul>
+<h3 id="resources">Resources</h3>
+<ul>
+<li>We've added <a href="https://os.phil-opp.com/">phil's OS blog</a> to our list of resources</li>
+<li><a href="https://github.com/hargonix">@hargoniX</a> has added a blog post on <a href="https://hboeving.dev/blog/rust-2c-driver-p1/">embedded driver writing</a></li>
+</ul>
+<h3 id="tooling">Tooling</h3>
+<ul>
+<li>the <a href="https://probe.rs">probe-rs organization</a> has added a lot of wonderful new tooling, including <a href="https://crates.io/crates/cargo-flash">cargo-flash</a> and <a href="https://crates.io/crates/cargo-embed">cargo-embed</a></li>
+<li><a href="https://crates.io/crates/cargo-hf2">cargo-hf2</a> for &quot;A small cargo subcommand to download cargo builds to Microsoft UF2 bootloaders via HID USB&quot;</li>
+<li>The <a href="https://github.com/knurling-rs/meta">Knurling-rs</a> project for embedded tooling has kicked off by releasing <a href="https://github.com/knurling-rs/probe-run">probe-run</a></li>
+</ul>
+<h3 id="bindings">Bindings</h3>
+<ul>
+<li><a href="https://crates.io/crates/freertos-rust">FreeRTOS-rust</a> as RTOS bindings (not to be confused with <a href="https://crates.io/crates/freertos_rs">FreeRTOS.rs</a> )</li>
+</ul>
+<h3 id="new-possibilities">New Possibilities</h3>
+<ul>
+<li>It is <a href="https://ferrous-systems.com/blog/stable-async-on-embedded/">now possible</a> to run <a href="https://blog.rust-lang.org/2020/06/04/Rust-1.44.0.html">async/await on embedded</a>!</li>
+<li>Applications can now be compiled for <a href="https://github.com/rust-lang/rust/issues/44052#issuecomment-663394401">AVR in mainline Rust nightly builds</a>!</li>
+</ul>
+<h3 id="pacs">PACs</h3>
+<ul>
+<li><a href="https://crates.io/crates/msp430fr2355">msp430fr2355 PAC</a> has been added</li>
+<li><a href="https://crates.io/crates/ambiq-apollo1-pac">ambiq-apollo1-pac</a>, <a href="https://crates.io/crates/ambiq-apollo2-pac">ambiq-apollo2-pac</a> and <a href="https://crates.io/crates/ambiq-apollo3p-pac">ambiq-apollo3p-pac</a> have been added</li>
+</ul>
+<h3 id="hals">HALs</h3>
+<ul>
+<li><a href="https://crates.io/crates/msp430fr2x5x-hal">msp430fr2x5x-hal</a> has been added</li>
+</ul>
+<h3 id="bsps">BSPs</h3>
+<ul>
+<li>a <a href="https://crates.io/crates/onebitsy">BSP for the onebitsy</a></li>
+<li>Several Adafruit BSPs:
+<ul>
+<li><a href="https://crates.io/crates/metro_m0">metro_m0</a></li>
+<li><a href="https://crates.io/crates/pygamer">pygamer</a></li>
+<li><a href="https://crates.io/crates/feather-f405">feather-f405</a></li>
+<li><a href="https://crates.io/crates/feather_m0">feather_m0</a></li>
+<li><a href="https://crates.io/crates/feather_m4">feather_m4</a></li>
+<li><a href="https://crates.io/crates/circuit_playground_express">circuit_playground_express</a></li>
+<li><a href="https://crates.io/crates/edgebadge">edgebadge</a></li>
+<li><a href="https://crates.io/crates/gemma_m0">gemma_m0</a></li>
+<li><a href="https://crates.io/crates/itsybitsy_m0">itsybitsy_m0</a></li>
+<li><a href="https://crates.io/crates/itsybitsy_m4">itsybitsy_m4</a></li>
+<li><a href="https://crates.io/crates/trinket_m0">trinket_m0</a></li>
+</ul>
+</li>
+<li>Several arduino BSPs:
+<ul>
+<li><a href="https://crates.io/crates/arduino_mkrvidor4000">arduino_mkrvidor4000</a></li>
+<li><a href="https://crates.io/crates/arduino_mkrzero">arduino_mkrzero</a></li>
+<li><a href="https://crates.io/crates/arduino_nano33iot">arduino_nano33iot</a></li>
+</ul>
+</li>
+<li>The <a href="https://crates.io/crates/samd21_mini">samd21_mini BSP</a></li>
+<li>The <a href="https://crates.io/crates/xiao_m0">xiao_m0 BSP</a></li>
+</ul>
+<h3 id="general-abstraction-crates">General abstraction crates</h3>
+<ul>
+<li>The <a href="https://github.com/BlackbirdHQ/atat">atat crate</a> for parsing AT commands</li>
+</ul>
+<h3 id="drivers">Drivers</h3>
+<ul>
+<li><a href="https://crates.io/crates/adxl313">ADXL313</a></li>
+<li><a href="https://crates.io/crates/anyleaf">AnyLeaf</a></li>
+<li><a href="https://crates.io/crates/dht-sensor">dht-sensor</a></li>
+<li><a href="https://crates.io/crates/max6955">MAX6955</a></li>
+<li><a href="https://crates.io/crates/microchip-eeprom-25lcxx">MCP25LCXX</a></li>
+<li><a href="https://crates.io/crates/microchip-tc72r-rs">TC72</a></li>
+<li><a href="http://crates.io/crates/st7789">ST7789</a></li>
+<li><a href="https://crates.io/crates/dw1000">DW1000</a></li>
+<li><a href="https://crates.io/crates/adafruit-7segment">Adafruit-7segment</a></li>
+</ul>
+<h3 id="wip-drivers">WIP Drivers</h3>
+<ul>
+<li><a href="https://crates.io/crates/bmi160">BMI160</a></li>
+<li><a href="https://crates.io/crates/epd-waveshare">epd-waveshare</a></li>
+<li><a href="https://crates.io/crates/hrs3300">HRS3300</a></li>
+<li><a href="https://crates.io/crates/hdc20xx">HDC20xx</a></li>
+<li><a href="https://crates.io/crates/isl29125">ISL29125</a></li>
+<li><a href="https://crates.io/crates/lsm9ds1">LSM9DS1</a></li>
+<li><a href="https://crates.io/crates/ltr-559">ltr-559</a></li>
+<li><a href="https://github.com/rafaelcaricio/lvgl-rs">lvgl</a></li>
+<li><a href="https://github.com/eldruin/max170xx-rs">MAX170xx</a></li>
+<li><a href="https://crates.io/crates/max3010x">MAX3010x</a></li>
+<li><a href="https://crates.io/crates/mcp4725">MCP4725</a></li>
+<li><a href="https://crates.io/crates/mlx9061x">MLX9061x</a></li>
+<li><a href="https://github.com/BlackbirdHQ/ublox-cellular-rs">ublox-cellular-rs</a></li>
+</ul>
+<h3 id="no-std-crates">no_std crates</h3>
+<ul>
+<li><a href="https://crates.io/crates/debouncr">debouncr</a></li>
+<li><a href="https://crates.io/crates/embedded-crc-macros">embedded-crc-macros</a></li>
+<li><a href="https://crates.io/crates/embedded-websocket">embedded-websocket</a></li>
+<li><a href="https://crates.io/crates/endian_codec">endian_codec</a></li>
+<li><a href="https://crates.io/crates/gdbstub">gdbstub</a></li>
+<li><a href="https://crates.io/crates/microfft">microfft</a></li>
+<li><a href="https://crates.io/crates/smbus-pec">smbus-pec</a></li>
+</ul>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th><th align="left">Diff</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#peripheral-access-crates">Peripheral Access Crates</a></td><td align="left">released</td><td align="left">46</td><td align="left">+4</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">33</td><td align="left">+1</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates">Board Support Crates</a></td><td align="left">released</td><td align="left">38</td><td align="left">+17</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">45</td><td align="left">+9</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">84</td><td align="left">+13</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#no-std-crates">no-std crates</a></td><td align="left">released</td><td align="left">41</td><td align="left">+7</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip-1">no-std crates WIP</a></td><td align="left">WIP</td><td align="left">3</td><td align="left">+0</td></tr>
+</tbody></table>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Path Towards Stable" />
+  <meta name="twitter:description" content="Cortex-M library development now possible on beta and the path towards stable embedded Rust
+
+TL;DR
+
+1.27 = embedded (Cortex-M) library development on stable
+1.28 or 1.29 = embedded (Cortex-M) application development on stable
+We are making breaking changes in the ecosystem in order to move towards development on the
+stable channel
+If you are a crate maintainer &#x2F; author, make sure you test your crates with the new versions of
+cortex-m (and similar) on the current beta release of Rust
+If the latest version of a dependency doesn&#x27;t compile on beta, file an issue and&#x2F;or ping us on
+the #rust-embedded IRC channel
+Thanks for your patience!
+
+
+We are happy to announce that library development for the Cortex-M targets is now possible on the
+beta channel! :tada:
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Path Towards Stable</h1>
+  <span class="post-date">2018-05-13</span>
+  <h2 id="cortex-m-library-development-now-possible-on-beta-and-the-path-towards-stable-embedded-rust">Cortex-M library development now possible on beta and the path towards stable embedded Rust</h2>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>1.27 = embedded (Cortex-M) <em>library</em> development on stable</li>
+<li>1.28 or 1.29 = embedded (Cortex-M) <em>application</em> development on stable</li>
+<li>We are making breaking changes in the ecosystem in order to move towards development on the
+stable channel</li>
+<li>If you are a crate maintainer / author, make sure you test your crates with the new versions of
+<code>cortex-m</code> (and similar) on the current <code>beta</code> release of Rust</li>
+<li>If the latest version of a dependency doesn't compile on <code>beta</code>, file an issue and/or ping us on
+the #rust-embedded IRC channel</li>
+<li>Thanks for your patience!</li>
+</ul>
+</blockquote>
+<p>We are happy to announce that <em>library</em> development for the Cortex-M targets is now possible on the
+beta channel! :tada:</p>
+<span id="continue-reading"></span>
+<p>For example, to cross compile a library crate for the Cortex-M3 you would run these commands:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-console" data-lang="console"><span style="color:#c0c5ce;">$ # switch to the beta channel
+$ rustup default beta
+
+$ # install the rust-std component (pre-compiled core) for the target
+$ rustup target add thumbv7m-none-eabi
+
+$ # get some source to build
+$ cargo clone cortex-m --vers 0.5.0 &amp;&amp; cd cortex-m
+
+$ # then It Just Works
+$ cargo build --target thumbv7m-none-eabi
+</span></code></pre>
+<p>What about embedded <em>application</em> development? There is just a single unstable feature that prevents
+us from building a <code>no_std</code> binary on stable: the <code>panic_fmt</code> lang item. This unstable feature will
+soon be removed in favor of the <code>#[panic_implementation]</code> feature (<a href="https://github.com/rust-lang/rust/pull/50338">implementation PR</a>), which is
+slated for stabilization in time for the edition release (we are hoping to stabilize it as early as
+1.28 but we'll see).</p>
+<h2 id="making-the-cortex-m-ecosystem-work-on-stable">Making the Cortex-M ecosystem work on stable</h2>
+<p>&quot;<code>no_std</code> binaries are <em>possible</em> on stable&quot; is very different from &quot;<em>my</em> embedded application
+builds on stable&quot;. The later requires all the dependencies to also compile on stable. So we are
+starting to migrate the Cortex-M ecosystem to work on stable. All the crates listed below are now
+compiling on the beta channel.</p>
+<p>Legend: <code>crate-name</code> - link to CHANGELOG - link to stabilization PR - ~removed unstable features~</p>
+<ul>
+<li><a href="https://docs.rs/cortex-m-quickstart/%7E0.3"><code>cortex-m-quickstart</code></a> - <a href="https://github.com/japaric/cortex-m-quickstart/blob/master/CHANGELOG.md#v030---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/cortex-m-quickstart/pull/29">PR</a></li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/cortex-m-rt/0.5.0"><code>cortex-m-rt</code></a> - <a href="https://github.com/japaric/cortex-m-rt/blob/master/CHANGELOG.md#v050---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/cortex-m-rt/pull/69">PR</a> - ~asm!~ ~core_intrinsics~ ~global_asm!~
+~lang_items~ ~linkage~ ~naked_functions~ ~used~</li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/cortex-m-semihosting/0.3.0"><code>cortex-m-semihosting</code></a> - <a href="https://github.com/japaric/cortex-m-semihosting/blob/master/CHANGELOG.md#v030---2018-05-10">CHANGELOG</a> - <a href="https://github.com/japaric/cortex-m-semihosting/pull/16">PR</a></li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/cortex-m/0.5.0"><code>cortex-m</code></a> - <a href="https://github.com/japaric/cortex-m/blob/master/CHANGELOG.md#v050---2018-05-11">CHANGELOG</a> - <a href="https://github.com/japaric/cortex-m/pull/88">PR</a> - ~asm!~ ~const_fn~</li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/embedded-hal/0.2.0"><code>embedded-hal</code></a> - <a href="https://github.com/japaric/embedded-hal/blob/master/CHANGELOG.md#v020---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/embedded-hal/pull/80">PR</a> - ~never_type~</li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/f3/0.6.0"><code>f3</code></a> - <a href="https://github.com/japaric/f3/blob/master/CHANGELOG.md#v060---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/f3/pull/93">PR</a></li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/l3gd20/0.2.0"><code>l3gd20</code></a> - <a href="https://github.com/japaric/l3gd20/blob/master/CHANGELOG.md#v020---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/l3gd20/pull/4">PR</a> - ~Unsized~</li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/lsm303dlhc/0.2.0"><code>lsm303dlhc</code></a> - <a href="https://github.com/japaric/lsm303dlhc/blob/master/CHANGELOG.md#v020---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/lsm303dlhc/pull/4">PR</a> - ~Unsized~</li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/stm32f103xx/0.10.0"><code>stm32f103xx</code></a> - <a href="https://github.com/japaric/stm32f103xx/blob/master/CHANGELOG.md#v0100---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/stm32f103xx/pull/24">PR</a> - ~const_fn~ ~global_asm!~ ~try_from~
+~use_extern_macros~ ~used~</li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/stm32f30x-hal/0.2.0"><code>stm32f30x-hal</code></a> - <a href="https://github.com/japaric/stm32f30x-hal/blob/master/CHANGELOG.md#v020---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/stm32f30x-hal/pull/25">PR</a> - ~never_type~</li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/stm32f30x/0.7.0"><code>stm32f30x</code></a> - <a href="https://github.com/japaric/stm32f30x/blob/master/CHANGELOG.md#v070---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/stm32f30x/pull/16">PR</a> - ~const_fn~ ~global_asm!~ ~try_from~
+~use_extern_macros~ ~used~</li>
+</ul>
+<ul>
+<li><a href="https://crates.io/crates/svd2rust/0.13.0"><code>svd2rust</code></a> (output of) - <a href="https://github.com/japaric/svd2rust/blob/master/CHANGELOG.md#v0130---2018-05-12">CHANGELOG</a> - <a href="https://github.com/japaric/svd2rust/pull/203">PR</a> - ~const_fn~ ~global_asm!~
+~try_from~ ~use_extern_macros~ ~used~</li>
+</ul>
+<p>There's a lot of breaking changes there but the most visible one is <code>cortex-m-rt</code> because it changes
+how applications are structured. Check the <a href="https://docs.rs/cortex-m-quickstart/%7E0.3"><code>cortex-m-quickstart</code></a> template for instructions on
+how to set up an embedded application using the latest versions of everything.</p>
+<p>There are still a lot of crates that will need to be updated to work on beta. Among the more general
+purpose ones we have <a href="https://crates.io/crates/heapless"><code>heapless</code></a> and <a href="https://crates.io/crates/cortex-m-rtfm"><code>cortex-m-rtfm</code></a>, which needs to be update to work with
+<code>cortex-m-rt</code> v0.5.0.</p>
+<h3 id="how-you-can-help-us">How you can help us</h3>
+<p>Try to compile your Cortex-M crate using the beta channel! If your crate is an application the build
+will certainly fail, but check if all the dependencies, excluding the <a href="https://crates.io/keywords/panic-impl">panic handler crate</a>,
+compile on beta. If any dependency doesn't compile on the beta channel let the author know, but
+first check if there's a new version of the crate that already compiles on the beta channel. And if
+you feel up to the task you could even send a PR to the dependency to make it compile on beta -- the
+list of stabilization PRs in the previous section may give you a clue on how to move the crate to
+beta.</p>
+<p>If you are the author of a Cortex-M device crate, a crate generated using <code>svd2rust</code>, moving it to
+stable only requires regenerating it using <code>svd2rust</code> v0.13.0. Do note that the generation process
+<a href="https://docs.rs/svd2rust/0.13.0/svd2rust/#usage">has changed</a> for the Cortex-M target; also make sure you bump the minor version when you publish a
+new version.</p>
+<p>If you are the author of a driver crate or a HAL implementation, please update your crate to use
+v0.2.0 of <code>embedded-hal</code> and test that it builds on beta. Make sure you bump the minor version when
+you publish a new version of your crate -- bumping the version of the <code>embedded-hal</code> dependency is a
+breaking change (drivers that depend on <code>embedded-hal</code> v0.1.0 can't be used with HAL implementation
+crates that depend on <code>embedded-hal</code> v0.2.0).</p>
+<p>If you are porting an application to the newest <code>cortex-m-*</code> crates you may hit these errors:</p>
+<ul>
+<li>&quot;error: requires <code>start</code> lang_item&quot; on binary crates. You need to switch from the standard <code>main</code>
+interface to <code>#![no_main]</code> + <code>entry!</code>. Use the <a href="https://docs.rs/cortex-m-quickstart/0.3.0/cortex_m_quickstart/examples/_0_minimal/index.html">examples</a> in the quickstart template as a
+reference.</li>
+</ul>
+<ul>
+<li>&quot;error[E0015]: calls in statics are limited to constant functions, tuple structs and tuple
+variants&quot;. <code>const fn</code> is not a stable feature so it's not used in the API by default. The
+<code>cortex-m</code> provides a <code>&quot;const-fn&quot;</code> feature to opt into this unstable feature and expose <code>const</code>
+functions in the API; other dependencies should / probably provide a similar feature.</li>
+</ul>
+<h2 id="what-does-this-all-mean-for-you">What does this all mean for you?</h2>
+<p>To those of you who have been doing embedded development on nightly: things will get <em>much easier</em>
+from now on. We have reduced the number of unstable features in core crates of the Cortex-M
+ecosystem to <strong>zero</strong>. Although you will have to continue to use nightly for application development
+you can expect zero breakage from these crates when updating the nightly compiler. There is one
+expected breakage coming soon though: <code>panic_fmt</code> will be removed as announced above. This will
+break the <a href="https://crates.io/keywords/panic-impl">panic handler crates</a>; however, the breakage will be isolated to those crates and
+the fix will consist of simply updating the dependency version.</p>
+<p>To those of you who have been meaning to dive into embedded Rust development: we'll soon be done
+with our &quot;embedded Rust on stable&quot; tasks and we'll move our focus to documenting the embedded
+development process, tooling and ecosystem. The <a href="https://github.com/rust-lang-nursery/embedded-wg/blob/master/books/embedded-rust-book/README.md">embedded Rust book</a> will become the resource
+to get started on embedded Rust, but it doesn't quite exist right now.</p>
+<h2 id="what-about-architectures-other-than-arm-cortex-m">What about architectures other than ARM Cortex-M?</h2>
+<p>The path carved for ARM Cortex-M can be followed by the other architectures (ARM Cortex-R, AVR,
+MSP430, RISCV, etc.). Each architecture presents its own extra set of challenges though:</p>
+<ul>
+<li>
+<p>MSP430 being the second oldest embedded / <code>no_std</code> target is the closest one to make it to stable
+(as a tier 2 target) by the edition release. The main blocker is that <code>extern &quot;msp430-interrupt&quot;</code>
+is not available on stable but I think that may be possible to work around using external C /
+assembly files + FFI.</p>
+</li>
+<li>
+<p>Both AVR and RISCV are blocked from being included in the Rust compiler due to either the
+immaturity of the LLVM backend or LLVM backend bugs. Not many (embedded) Rust developers can also
+hack LLVM backends so we are short handed on the AVR front; OTOH, the RISCV is being actively
+developed by third parties so it's probably just a matter of time before we add it to rustc.</p>
+</li>
+<li>
+<p>ARM Cortex-R LLVM backend is probably in good shape due to the similarities between its
+instruction set and the ARM Cortex-M instruction set, so adding the target to the compiler should
+be straightforward. However, the crate ecosystem is nonexistent at this point so there's a lot of
+work to be done on that front.</p>
+</li>
+</ul>
+<hr />
+<p>This work is part of the <a href="https://github.com/rust-lang-nursery/embedded-wg">embedded WG</a> effort towards <a href="https://github.com/rust-lang-nursery/embedded-wg">making embedded development possible on
+the stable channel</a>. (We are almost done! :tada:)</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

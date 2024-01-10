@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 14" />
+  <meta name="twitter:description" content="This is the fourteenth newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+This is a special &amp;quot;spotlight&amp;quot; edition of the newsletter, where we look at a few topics in a bit more detail. Let us know what you think of the new format, and if there is anything you&#x27;d like to see included in the next newsletter!
+Discuss on users.rust-lang.org, on twitter, or on reddit!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 14</h1>
+  <span class="post-date">2018-10-28</span>
+  <p>This is the fourteenth newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>This is a special &quot;spotlight&quot; edition of the newsletter, where we look at a few topics in a bit more detail. Let us know what you think of the new format, and if there is anything you'd like to see included in <a href="https://github.com/rust-embedded/blog/issues/22">the next newsletter</a>!</p>
+<p>Discuss on <a href="https://users.rust-lang.org/t/the-embedded-working-group-newsletter-14/21795">users.rust-lang.org</a>, <a href="https://twitter.com/rustembedded/status/1057222850787053568">on twitter</a>, or <a href="https://www.reddit.com/r/rust/comments/9smq6f/embedded_wg_newsletter_14_spotlight_edition/">on reddit</a>!</p>
+<span id="continue-reading"></span><h2 id="embedded-rust-applications-on-stable">Embedded Rust Applications on Stable!</h2>
+<hr>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Rust 1.30 is here! Proc macros, no_std binaries, and a progress bar for cargo! 🎊🎉🦀 <a href="https://t.co/IXm5xFYlhU">https://t.co/IXm5xFYlhU</a></p>&mdash; Rust Language (@rustlang) <a href="https://twitter.com/rustlang/status/1055499747056852993?ref_src=twsrc%5Etfw">October 25, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Now that <code>#[panic_handler]</code> is stabilized in <a href="https://blog.rust-lang.org/2018/10/25/Rust-1.30.0.html">1.30</a>, you can write Cortex-M bare-metal applications with the stable compiler. All our Rust Embedded crates, such as <code>cortex-m</code>, <code>cortex-m-rt</code> and <code>embedded-hal</code> should be ready to use on stable, but please note our two tutorial books <a href="https://rust-embedded.github.io/discovery/">Discovery</a> and <a href="https://rust-embedded.github.io/book/">The Embedded Rust Book</a> still require 1.30 beta or 1.31 beta as they use 2018 edition syntax (which isn't stabilized until the 1.31 release).</p>
+<p>If you are able to trial 1.31 beta, you can help us test:</p>
+<ul>
+<li>Minimal <code>const</code> functions (useful for initializing static variables)</li>
+<li>2018 edition syntax (including changes to <code>use</code> and <code>extern crate</code>)</li>
+</ul>
+<h2 id="the-newest-embedded-wg-team-cortex-a">The Newest Embedded WG Team: Cortex-A!</h2>
+<hr>
+<p><img src="../screenshot-cortex-a.png" alt="Screenshot of Cortex-A RFC" /></p>
+<p>The Embedded Working Group has launched a Cortex-A team, to focus on supporting developers working on bare-metal, micro kernel, and other low-level tasks using ARM's Cortex-A series of microprocessors.</p>
+<p>The team kicked off with four members: <a href="https://github.com/andre-richter">@andre-richter</a>, <a href="https://github.com/parched">@parched</a>, <a href="https://github.com/raw-bin">@raw-bin</a>, and <a href="https://github.com/wizofe">@wizofe</a>, and have already started assembling initial <a href="https://github.com/rust-embedded/wg/milestone/5">goals for their team</a>.</p>
+<h2 id="the-monotron-visits-rust-belt-rust">The Monotron Visits Rust Belt Rust</h2>
+<hr>
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Astonishing. Smashed my high score! <a href="https://t.co/WG9FXc8Kao">pic.twitter.com/WG9FXc8Kao</a></p>&mdash; Jonathan Pallant (@therealjpster) <a href="https://twitter.com/therealjpster/status/1053698944360951813?ref_src=twsrc%5Etfw">October 20, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p><a href="https://github.com/thejpster">@thejpster</a>'s project, the <a href="https://github.com/thejpster/monotron">monotron</a>, travelled to Ann Arbor Michigan for <a href="https://rust-belt-rust.com/">Rust Belt Rust 2018</a>. Since its <a href="https://www.youtube.com/watch?v=pTEYqpcQ6lg">last conference appearance</a>, it has gained a whole new <a href="https://twitter.com/therealjpster/status/1055187256091332608">list of features</a>, including a serial application loader, a 3 channel wave table synthesizer, Atari Joystick support, and more!</p>
+<p>Check out the video above for a demo of Snake on the monotron hardware.</p>
+<h2 id="peripheral-ownership-woes-not-with-shared-bus">Peripheral Ownership Woes? Not With <code>shared-bus</code>!</h2>
+<hr>
+<pre style="background-color:#2b303b;">
+<code class="language-rust" data-lang="rust"><span style="color:#b48ead;">extern crate</span><span style="color:#c0c5ce;"> shared_bus;
+
+</span><span style="color:#65737e;">// Create your bus peripheral as usual:
+// let i2c = I2c::i2c1(dp.I2C1, (scl, sda), 90.khz(), clocks, &amp;mut rcc.apb1);
+
+</span><span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> manager = shared_bus::CortexMBusManager::new(i2c);
+
+</span><span style="color:#65737e;">// You can now acquire bus handles:
+</span><span style="color:#b48ead;">let mut</span><span style="color:#c0c5ce;"> handle = manager.</span><span style="color:#96b5b4;">acquire</span><span style="color:#c0c5ce;">();
+</span><span style="color:#65737e;">// handle implements `i2c::{Read, Write, WriteRead}`, depending on the
+// implementations of the underlying peripheral
+
+// Now, this works! :+1:
+</span><span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> port_a = Pcf8574(manager.</span><span style="color:#96b5b4;">acquire</span><span style="color:#c0c5ce;">(), </span><span style="color:#d08770;">0x39</span><span style="color:#c0c5ce;">).</span><span style="color:#96b5b4;">unwrap</span><span style="color:#c0c5ce;">();
+</span><span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> port_b = Pcf8574(manager.</span><span style="color:#96b5b4;">acquire</span><span style="color:#c0c5ce;">(), </span><span style="color:#d08770;">0x38</span><span style="color:#c0c5ce;">).</span><span style="color:#96b5b4;">unwrap</span><span style="color:#c0c5ce;">();
+</span></code></pre>
+<p>In most <code>embedded-hal</code> compatible drivers, the driver takes either ownership or a mutable reference to the peripheral used to interact with a component, such as I2C or SPI. For some protocols, such as I2C, which might have multiple devices connected to the same peripheral, managing ownership can be difficult (see <a href="https://github.com/rust-embedded/embedded-hal/issues/35">embedded-hal/35</a> for discussion).</p>
+<p>To address this, <a href="https://github.com/Rahix">@Rahix</a> developed <a href="https://github.com/Rahix/shared-bus">shared-bus</a>, a crate which provides safe shared access to these peripherals through the use of a mutex. This allows for access of the underlying peripheral in as many drivers as you need! Check out the <a href="https://blog.rahix.de/001-shared-bus/">release blog post</a> for more details, and for examples on how to use this for your projects.</p>
+<h2 id="the-embedded-rust-community-is-growing">The Embedded Rust Community is Growing!</h2>
+<hr>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Happy Tuesday! Quick poll: What are you using <a href="https://twitter.com/hashtag/embedded?src=hash&amp;ref_src=twsrc%5Etfw">#embedded</a> <a href="https://twitter.com/rustlang?ref_src=twsrc%5Etfw">@rustlang</a> for right now?<br><br>RTs appreciated!</p>&mdash; Rust Embedded Working Group (@rustembedded) <a href="https://twitter.com/rustembedded/status/1052189142065405952?ref_src=twsrc%5Etfw">October 16, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>As we get closer to our goal of stable embedded development with Rust for the 2018 edition launch, the embedded community is ramping up. We did a quick twitter poll which received hundreds of responses, and heard from developers using or evaluating embedded rust for personal and work projects.</p>
+<p>The <a href="https://github.com/rust-embedded/wg">Embedded WG</a> has also grown, starting off this year with 8 developers on a single team, to a group of <strong>27 developers</strong> across <strong>11 teams</strong>, each with their own area of focus within the embedded rust space.</p>
+<p>Now is a great time to start working with Embedded Rust, and we can't wait to see what the next year brings!</p>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<hr>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th><th align="left">Diff</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#device-crates">Device Crates</a></td><td align="left">released</td><td align="left">16</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">13</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates">Board Support Crates</a></td><td align="left">released</td><td align="left">11</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">16</td><td align="left">+1</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">46</td><td align="left">+6</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#no-std-crates">no-std crates</a></td><td align="left">released</td><td align="left">17</td><td align="left">+3</td></tr>
+</tbody></table>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

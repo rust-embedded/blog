@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="PSA: Cortex-M Breakage (LLD as the default linker)" />
+  <meta name="twitter:description" content="The default linker for the 4 ARM Cortex-M targets listed below has changed from
+arm-none-eabi-gcc to rust-lld in the latest nightly.
+
+thumbv6m-none-eabi
+thumbv7m-none-eabi
+thumbv7em-none-eabi
+thumbv7em-none-eabihf
+
+This will break the builds of binaries and cdylibs that were using the
+old default linker (arm-none-eabi-gcc) and additionally pass extra flags to
+the linker using any of these rustc flags: -C link-arg, -C link-args, -Z pre-link-arg or -Z pre-link-args. Building libraries (rlibs and
+staticlibs) is not affected by this change.
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">PSA: Cortex-M Breakage (LLD as the default linker)</h1>
+  <span class="post-date">2018-08-28</span>
+  <p>The default linker for the 4 ARM Cortex-M targets listed below has changed from
+<code>arm-none-eabi-gcc</code> to <code>rust-lld</code> in the latest nightly.</p>
+<ul>
+<li><code>thumbv6m-none-eabi</code></li>
+<li><code>thumbv7m-none-eabi</code></li>
+<li><code>thumbv7em-none-eabi</code></li>
+<li><code>thumbv7em-none-eabihf</code></li>
+</ul>
+<p>This will break the builds of <em>binaries</em> and <em>cdylibs</em> that were using the
+old default linker (<code>arm-none-eabi-gcc</code>) <em>and</em> additionally pass extra flags to
+the linker using any of these rustc flags: <code>-C link-arg</code>, <code>-C link-args</code>, <code>-Z pre-link-arg</code> or <code>-Z pre-link-args</code>. Building libraries (<code>rlib</code>s and
+<code>staticlib</code>s) is not affected by this change.</p>
+<span id="continue-reading"></span>
+<p>This change won't affect stable users when it reaches the 1.30 release because,
+as of 1.28, it's not possible to build binaries or cdylibs for those targets on
+the stable channel. Building libraries for those targets is possible on stable
+but it's not affected by this change.</p>
+<h3 id="rationale">Rationale</h3>
+<p>This breaking change was intentional.</p>
+<p>We, the <a href="https://github.com/rust-embedded/wg">embedded WG</a>, wanted to reduce the number of external tools required to
+build embedded programs for the ARM Cortex-M architecture. By switching the
+default linker to the LLD linker that's shipped with the Rust toolchain the user
+no longer needs to install an ARM linker (like <code>arm-none-eabi-gcc</code> or
+<code>arm-none-eabi-ld</code>) to build Rust programs.</p>
+<p>Before landing this change we first <a href="https://github.com/rust-embedded/wg/issues/160">consulted</a> with the community if they
+thought this breaking change was worth it. We received over 20 positive responses
+representing the Cortex-M team (part of the embedded WG), the Tock OS project,
+the embed-rs organization and independent developers.</p>
+<p>The consensus was that it was worth to make the default configuration more self
+contained and that if we were to make the change it had to be made before it
+became possible to build binaries on stable otherwise it wouldn't be possible
+to make this change without breaking stable builds.</p>
+<h3 id="how-to-fix-your-build">How to fix your build</h3>
+<p>If you are affected by this change you'll observe a linker error with a message
+similar to one shown below:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-console" data-lang="console"><span style="color:#c0c5ce;">$ # these are the custom linker flags of the project
+$ cat .cargo/config
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-toml" data-lang="toml"><span style="color:#c0c5ce;">[target.thumbv7m-none-eabi]
+</span><span style="color:#bf616a;">runner </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">arm-none-eabi-gdb</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">rustflags </span><span style="color:#c0c5ce;">= [
+  &quot;</span><span style="color:#a3be8c;">-C</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">link-arg=-Wl,-Tlink.x</span><span style="color:#c0c5ce;">&quot;,
+  &quot;</span><span style="color:#a3be8c;">-C</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">link-arg=-nostartfiles</span><span style="color:#c0c5ce;">&quot;,
+]
+
+[build]
+</span><span style="color:#bf616a;">target </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">thumbv7m-none-eabi</span><span style="color:#c0c5ce;">&quot;
+</span></code></pre><pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">$ cargo build
+error: linking with `rust-lld` failed: exit code: 1
+  |
+  = note: &quot;rust-lld&quot; &quot;-flavor&quot; &quot;gnu&quot; (..)
+  = note: rust-lld: error: unknown argument: -Wl,-Tlink.x
+          rust-lld: error: unknown argument: -nostartfiles
+</span></code></pre>
+<p>There are two ways to fix the problem.</p>
+<h4 id="option-a-switch-back-to-gcc">Option A: switch back to GCC</h4>
+<p>The easiest way is to switch back to using <code>arm-none-eabi-gcc</code> as the linker. To
+do so pass the flag <code>-C linker=arm-none-eabi-gcc</code> to rustc. In the above example
+you can do that in the <code>.cargo/config</code> file.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-console" data-lang="console"><span style="color:#c0c5ce;">$ # these are the custom linker flags of the project
+$ cat .cargo/config
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-toml" data-lang="toml"><span style="color:#c0c5ce;">[target.thumbv7m-none-eabi]
+</span><span style="color:#bf616a;">runner </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">arm-none-eabi-gdb</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">rustflags </span><span style="color:#c0c5ce;">= [
+  &quot;</span><span style="color:#a3be8c;">-C</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">linker=arm-none-eabi-gcc</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#65737e;"># ADDED
+  </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">-C</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">link-arg=-Wl,-Tlink.x</span><span style="color:#c0c5ce;">&quot;,
+  &quot;</span><span style="color:#a3be8c;">-C</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">link-arg=-nostartfiles</span><span style="color:#c0c5ce;">&quot;,
+]
+
+[build]
+</span><span style="color:#bf616a;">target </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">thumbv7m-none-eabi</span><span style="color:#c0c5ce;">&quot;
+</span></code></pre><pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">$ cargo build &amp;&amp; echo It works now
+It works now
+</span></code></pre><h4 id="option-b-tweak-the-additional-linker-arguments">Option B: tweak the additional linker arguments</h4>
+<p>The other option is to tweak the additional linker arguments so they'll be
+accepted by LLD. In the above example the <code>-nostartfiles</code> flag can be dropped
+because that's the default behavior of LLD, and the flags prefixed by <code>-Wl,</code>
+will have to lose their prefix.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-console" data-lang="console"><span style="color:#c0c5ce;">$ # these are the custom linker flags of the project
+$ cat .cargo/config
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-toml" data-lang="toml"><span style="color:#c0c5ce;">[target.thumbv7m-none-eabi]
+</span><span style="color:#bf616a;">runner </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">arm-none-eabi-gdb</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">rustflags </span><span style="color:#c0c5ce;">= [
+  &quot;</span><span style="color:#a3be8c;">-C</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">link-arg=-Tlink.x</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#65737e;"># CHANGED
+# &quot;-C&quot;, &quot;link-arg=-nostartfiles&quot;, # REMOVED
+</span><span style="color:#c0c5ce;">]
+
+[build]
+</span><span style="color:#bf616a;">target </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">thumbv7m-none-eabi</span><span style="color:#c0c5ce;">&quot;
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-console" data-lang="console"><span style="color:#c0c5ce;">$ cargo build &amp;&amp; echo It works now
+It works now
+</span></code></pre>
+<p>With this approach your build will no longer depend on an external linker.</p>
+<h4 id="should-i-prefer-option-a-or-b">Should I prefer option A or B?</h4>
+<p>If you are linking to a system installed C library like <code>newlib-arm-none-eabi</code>
+then you should continue to use GCC. The default library search path of
+<code>arm-none-eabi-gcc</code> includes the path to those libraries.</p>
+<p>If you are not linking to any C code then you should prefer LLD then you won't
+need to install the <code>arm-none-eabi</code> toolchain.</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

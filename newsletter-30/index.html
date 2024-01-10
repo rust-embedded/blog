@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 30" />
+  <meta name="twitter:description" content="
+Highlights
+
+@dkhayes117 joined the embedded working group&#x27;s RISC-V team
+Rust std support added for the ESP32
+Rust on Espressif chips update
+State of LoRaWAN support
+
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 30</h1>
+  <span class="post-date">2021-11-16</span>
+  <!-- TODO before release set `draft` to `false` and `in_search_index` to `true` -->
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li><a href="https://github.com/dkhayes117">@dkhayes117</a> joined the embedded working group's RISC-V team</li>
+<li>Rust std support <a href="https://github.com/rust-lang/rust/pull/87666">added for the ESP32</a></li>
+<li><a href="https://mabez.dev/blog/posts/esp-rust-18-10-2021/">Rust on Espressif chips update</a></li>
+<li><a href="https://blog.drogue.io/lorawan-update/">State of LoRaWAN support</a></li>
+</ul>
+<span id="continue-reading"></span><h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to add it to <a href="https://github.com/rust-embedded/blog/edit/master/content/newsletter-next.md">the next newsletter</a>, we would love to show it off!</p>
+<ul>
+<li><a href="https://crates.io/crates/cortex-m-rt">cortex-m-rt</a> v0.7.0 was released, with a number of bug fixes.</li>
+<li><a href="https://crates.io/crates/embedded-hal">embedded-hal</a> 0.2.6 released with some backports from the upcoming 1.0
+release: the new Transactional SPI and I2C interface, 10-bit I2C addressing
+mode, <code>set_state</code> method for <code>OutputPin</code>, and new <code>IoPin</code> trait.</li>
+<li><a href="https://crates.io/crates/embedded-hal">embedded-hal</a> 1.0.0-alpha.5 released, with a number of new features and
+changes as we work towards the final 1.0 release.</li>
+<li><a href="https://crates.io/crates/linux-embedded-hal">linux-embedded-hal</a> 0.3.1 and 0.3.2 released with some backports and updates including
+an implementation of the Transactional SPI and I2C interface and a bugfix
+for active-low output pins.</li>
+<li><a href="https://crates.io/crates/linux-embedded-hal">linux-embedded-hal</a> 0.4.0-alpha.1 released adapted to the <code>embedded-hal</code> 1.0.0-alpha.5
+release and a bugfix for active-low output pins.</li>
+<li><a href="https://crates.io/crates/gpio-cdev">gpio-cdev</a> 0.5.0 released with some updates, including updating to <code>tokio</code> 1.0.</li>
+<li><a href="https://crates.io/crates/sysfs-gpio">sysfs-gpio</a> 0.6.0 released with some updates, including updating to <code>tokio</code> 1.0.</li>
+<li><a href="https://crates.io/crates/i2cdev">i2cdev</a> 0.5.0 released with some updates.</li>
+<li><a href="https://crates.io/crates/spidev">spidev</a> 0.5.0 released with some updates.</li>
+<li><a href="https://crates.io/crates/drogue-tls">drogue-tls</a> 0.3.0 released with some updates.</li>
+</ul>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository.</p>
+<h2 id="get-involved">Get Involved</h2>
+<p>This <a href="https://github.com/rust-embedded/wg">Embedded WG</a> blog is where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>Discuss on <a href="https://matrix.to/#/#rust-embedded:matrix.org">#rust-embedded:matrix.org</a>!</p>
+<p>If you want to mention something in <a href="https://github.com/rust-embedded/blog/edit/master/content/newsletter-next.md">the next newsletter</a>, send us a pull request!</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

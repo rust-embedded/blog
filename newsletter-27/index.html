@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 27" />
+  <meta name="twitter:description" content="Highlights
+
+
+@hannobraun published Last Month in Flott - March 2021, the monthly newsletter for Flott. Flott is an open source toolkit for motion control software in Rust (designed to run everywhere, including microcontrollers).
+
+
+The cortex-m crate has been
+updated to 0.7, including a recent release of 0.7.2, please update your
+dependencies and let us know if you encounter any issues!
+
+
+The Embedded Rust documentation and books have moved URLs, and are now all
+available from https:&#x2F;&#x2F;docs.rust-embedded.org.
+
+
+This blog has also moved URLs, and is now available at
+https:&#x2F;&#x2F;blog.rust-embedded.org
+
+
+Our weekly meetings continue at 8PM Berlin Time on our Matrix channel,
+#rust-embedded:matrix.org. Join us to catch up on the latest developments
+in the Embedded Rust ecosystem!
+
+
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 27</h1>
+  <span class="post-date">2021-03-16</span>
+  <h2 id="highlights">Highlights</h2>
+<ul>
+<li>
+<p><a href="https://github.com/hannobraun">@hannobraun</a> published <a href="https://flott-motion.org/news/last-month-in-flott-march-2021/">Last Month in Flott - March 2021</a>, the monthly newsletter for Flott. Flott is an open source toolkit for motion control software in Rust (designed to run everywhere, including microcontrollers).</p>
+</li>
+<li>
+<p>The <a href="https://github.com/rust-embedded/cortex-m">cortex-m crate</a> has been
+updated to 0.7, including a recent release of 0.7.2, please update your
+dependencies and let us know if you encounter any issues!</p>
+</li>
+<li>
+<p>The Embedded Rust documentation and books have moved URLs, and are now all
+available from https://docs.rust-embedded.org.</p>
+</li>
+<li>
+<p>This blog has also moved URLs, and is now available at
+https://blog.rust-embedded.org</p>
+</li>
+<li>
+<p>Our weekly meetings continue at 8PM Berlin Time on our Matrix channel,
+<a href="https://matrix.to/#/#rust-embedded:matrix.org">#rust-embedded:matrix.org</a>. Join us to catch up on the latest developments
+in the Embedded Rust ecosystem!</p>
+</li>
+</ul>
+<span id="continue-reading"></span><h2 id="embedded-projects">Embedded Projects</h2>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to add it to <a href="https://github.com/rust-embedded/blog/edit/master/content/2021-04-16-newsletter-28.md">the next newsletter</a>, we would love to show it off!</p>
+<ul>
+<li><a href="https://github.com/hannobraun">@hannobraun</a> released <a href="https://flott-motion.org/news/ramp-maker-0-2/">RampMaker 0.2</a>, a library for generating stepper motor acceleration profiles, and <a href="https://flott-motion.org/news/stepper-0-5/">Stepper 0.5</a>, the universal stepper motor interface. Both libraries are part of the <a href="https://flott-motion.org/">Flott</a> motion control toolkit.</li>
+<li><a href="https://github.com/embassy-rs/embassy">embassy</a>, an async/await executor
+designed for embedded usage and currently supporting nRF and STM32F4 devices,
+is nearing its first crates.io release. Feedback and testing would be welcome!</li>
+</ul>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository.</p>
+<h2 id="get-involved">Get Involved</h2>
+<p>This is the 27th newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<!-- TODO uncomment -->
+<!-- Discuss on [#rust-embedded:matrix.org], [users.rust-lang.org], [on twitter], or [on reddit]! -->
+<!-- [#rust-embedded:matrix.org]: https://matrix.to/#/#rust-embedded:matrix.org -->
+<!-- [users.rust-lang.org]: https://example.org/#TODO -->
+<!-- [on twitter]: https://example.org/#TODO -->
+<!-- [on reddit]: https://example.org/#TODO -->
+<p>If you want to mention something in <a href="https://github.com/rust-embedded/blog/edit/master/content/2021-04-16-newsletter-28.md">the next newsletter</a>, send us a pull request!</p>
+<!-- TODO before release add the next template! -->
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

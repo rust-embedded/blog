@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="The Embedded Working Group Newsletter - 25" />
+  <meta name="twitter:description" content="This is the 25th newsletter of the Embedded WG where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!
+As a note, some of these stories have happened over the past months. We&#x27;re still working on catching up, but wanted to share them with you!
+Discuss on #rust-embedded:matrix.org, users.rust-lang.org, on twitter, or on reddit!
+" />
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Embedded Working Group Newsletter - 25</h1>
+  <span class="post-date">2020-08-24</span>
+  <p>This is the 25th newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>As a note, some of these stories have happened over the past months. We're still working on catching up, but wanted to share them with you!</p>
+<p>Discuss on <a href="https://matrix.to/#/#rust-embedded:matrix.org">#rust-embedded:matrix.org</a>, <a href="https://users.rust-lang.org/t/the-embedded-working-group-newsletter-25/47744">users.rust-lang.org</a>, <a href="https://twitter.com/rustembedded/status/1298004492475150338">on twitter</a>, or <a href="https://www.reddit.com/r/rust/comments/ifxv2h/the_embedded_working_group_newsletter_25/">on reddit</a>!</p>
+<span id="continue-reading"></span>
+<p>If you want to mention something in <a href="https://github.com/rust-embedded/blog/edit/master/content/2020-08-31-newsletter-26.md">the next newsletter</a>, send us a pull request!</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li><a href="http://github.com/braun-embedded">@hannobraun</a> wrote an <a href="https://braun-embedded.com/dw1000/">article about his DW1000 driver</a>.</li>
+<li><a href="https://github.com/andre-richter">@andre-richter</a> added a new tutorial to the <a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials">Operating System development tutorials in Rust on the Raspberry Pi</a> series:
+<ul>
+<li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/14_exceptions_part2_peripheral_IRQs">Tutorial 14: Exceptions Part 2: Peripheral IRQs</a> - Including drivers for the BCM and GICv2 interrupt controllers.</li>
+</ul>
+</li>
+<li>In recent nightlies,<code>rust-std</code> support for the two <code>bare-metal</code> <code>aarch64</code> targets <a href="https://github.com/rust-lang/rust/pull/68334">has landed</a>.
+<ul>
+<li>Add them using <code>rustup target add aarch64-unknown-none-softfloat</code> or <code>rustup target add aarch64-unknown-none</code>.</li>
+<li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/commit/c4f9432e131f6aa6dd58b9ba795d67ec3bfd3c7f">See it in action here</a> for building a kernel without the need for third-party tools like <code>xbuild</code> or <code>xargo</code>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/therealprof">@therealprof</a> wrote an <a href="https://therealprof.github.io/blog/usb-c-pill-part1/">introduction article about the &quot;USB-C pill&quot;</a>.</li>
+<li><a href="https://github.com/bobmcwhirter">@bobmcwhirter</a> wrote an article about using an <a href="https://blog.drogue.io/wifi-offload/">ESP8266 as a WiFi offload with an STM32F401RE</a></li>
+<li><a href="https://ferrous-systems.com">Ferrous Systems</a> released <a href="https://ferrous-systems.com/blog/defmt/">defmt</a>, a highly efficient Rust logging framework for embedded devices</li>
+</ul>
+<h2 id="embedded-projects">Embedded Projects</h2>
+<ul>
+<li><a href="https://twitter.com/Rubberduck203">@rubberduck203</a> released the experimental <a href="https://crates.io/crates/switch-hal">switch-hal crate</a>, which provides a zero-cost abstraction over Active High/Active Low GPIO, allowing application developers to more clearly express their intent and for drivers to avoid making runtime decisions about driving a line high or low based on the pin's active level.</li>
+<li><a href="https://twitter.com/Rubberduck203">@rubberduck203</a> has also released the <a href="https://crates.io/crates/stm32f3-discovery">stm32f3-discovery board support crate</a> as an alternative to the unmaintained <code>f3</code> crate.</li>
+<li>The <a href="https://github.com/rubberduck203/stm32f3-discovery-quickstart/">stm32f3-discovery-quickstart</a> template has been updated to utilize both the <a href="https://crates.io/crates/stm32f3-discovery">stm32f3-discovery board support crate</a> and the <a href="https://crates.io/crates/switch-hal">switch-hal crate</a>. It also now includes VS Code tasks for cleaning, building examples, and building in release mode.</li>
+<li><a href="https://github.com/proman21">@proman21</a> has released a beta version of <a href="https://github.com/proman21/samd-timer/">samd-timer</a>, an abstraction for the Timer peripherals present on Atmel SAM microcontrollers. This library provides lower-level control over these timers than <a href="https://github.com/atsamd-rs/atsamd/">atsamd-hal</a>, while remaining compatible with the HAL clock system.</li>
+<li><a href="https://github.com/dbrgn">@dbrgn</a> and <a href="https://github.com/rnestler">@rnestler</a> released a first version of the <a href="https://docs.rs/shtcx/">shtcx</a> embedded-hal driver for Sensirion SHTCx series humidity/temperature sensors. The driver is feature-complete, but currently supports only a blocking API. The crate will be updated with an alternative non-blocking API soon.</li>
+<li><a href="https://github.com/ra-kete">@ra-kete</a> released the <a href="https://crates.io/crates/microfft">microfft crate</a>, a library for computing fast fourier transforms on embedded devices.</li>
+<li><a href="https://github.com/dajamante">@dajamante</a> added an <a href="https://github.com/Dajamante/avr-car">obstacle avoiding robot</a> with more <a href="https://github.com/Dajamante/avr-car/blob/master/article.md">details in this article</a>.</li>
+<li><a href="https://github.com/therealprof">@therealprof</a> released the <a href="https://crates.io/crates/display-interface">display-interface crate</a>, an abstraction over the different possibilities to drive a display.</li>
+<li><a href="https://github.com/bugadani">@bugadani</a> released the <a href="https://github.com/bugadani/embedded-text">embedded-text crate</a>, a text rendering library built on top of <a href="https://github.com/jamwaffles/embedded-graphics">embedded-graphics</a>.</li>
+<li><a href="https://github.com/bobmcwhirter">@bobmcwhirter</a> released the <a href="https://crates.io/crates/drogue-esp8266">drogue-esp8266</a>, a WiFi-offload embedded-nal implementation crate.</li>
+</ul>
+<p>If you have an embedded project or blog post you would like to have featured in the Embedded WG Newsletter, make sure to add it to <a href="https://github.com/rust-embedded/blog/edit/master/content/2020-08-31-newsletter-26.md">the next newsletter</a>, we would love to show it off!</p>
+<h2 id="embedded-hal-ecosystem-crates"><code>embedded-hal</code> Ecosystem Crates</h2>
+<p>As part of the <a href="https://github.com/rust-embedded/wg/issues/39">Weekly Driver Initiative</a>, crates that are part of the <code>embedded-hal</code> ecosystem are now tracked in the <a href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> repository. Here is a current snapshot of what is available there:</p>
+<table><thead><tr><th align="left">Type</th><th align="left">Status</th><th align="left">Count</th><th align="left">Diff</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#peripheral-access-crates">Peripheral Access Crates</a></td><td align="left">released</td><td align="left">47</td><td align="left">+1</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#hal-implementation-crates">HAL Impl Crates</a></td><td align="left">released</td><td align="left">33</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#board-support-crates">Board Support Crates</a></td><td align="left">released</td><td align="left">38</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#driver-crates">Driver Crates Released</a></td><td align="left">released</td><td align="left">52</td><td align="left">+7</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip">Driver Crates WIP</a></td><td align="left">WIP</td><td align="left">85</td><td align="left">+1</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#no-std-crates">no-std crates</a></td><td align="left">released</td><td align="left">41</td><td align="left">0</td></tr>
+<tr><td align="left"><a href="https://github.com/rust-embedded/awesome-embedded-rust#wip-1">no-std crates WIP</a></td><td align="left">WIP</td><td align="left">3</td><td align="left">0</td></tr>
+</tbody></table>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>
