@@ -26,6 +26,7 @@ So, what's new in `embedded-hal` 1.0?
 <!-- more -->
 
 ![Ferris soldering embedded stuff](../embedded-ferris-soldering.png)
+*Ferris with a soldering iron by [Barnaby Walters](https://waterpigs.co.uk/notes/5UrMgn/).*
 
 ## Focus on drivers
 
