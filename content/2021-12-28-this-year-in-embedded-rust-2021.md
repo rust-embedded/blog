@@ -14,7 +14,7 @@ larger community.
 
 ## Meetings
 
-We continued our weekly Rust Embedded Working Group meetings on [our Matrix channel](#rust-embedded:matrix.org). They take place at 8pm Berlin time every Tuesday, and are open to the public. You can find all the [minutes on Github].
+We continued our weekly Rust Embedded Working Group meetings on [our Matrix channel][#rust-embedded:matrix.org]. They take place at 8pm Berlin time every Tuesday, and are open to the public. You can find all the [minutes on Github].
 
 [#rust-embedded:matrix.org]: https://matrix.to/#/#rust-embedded:matrix.org
 [minutes on Github]: https://github.com/rust-embedded/wg/tree/master/minutes
