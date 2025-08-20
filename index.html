@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@rustembedded" />
+        <meta name="twitter:title" content="Rust Embedded" />
+        <meta name="twitter:description" content="The Rust Embedded Working Group" />
+        <meta name="twitter:image" content="https://blog.rust-embedded.org/ewg-logo-blue-white-on-transparent-256x256.png" />
+      
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/poole.css">
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https://blog.rust-embedded.org/ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+                <div class="posts">
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;heapless-091&#x2F;">
+                            Heapless v0.9.1 has been released!
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2025-08-20</span>
+                        <p>Almost 2 years after the last release, the <a href="https://github.com/rust-embedded/heapless">heapless</a> crate has a new release. The first attempt at a <code>0.9.0</code> release was yanked due to including more breaking changes than intended.  This has been fixed, and <code>0.9.1</code>  has been released today.</p>
+<p>Compared to <code>0.8.0</code>, the <code>0.9.1</code> release contains a bunch of small everyday improvements and bugfixes. Most users of the library should be able to adapt with minimal changes. For more information, you can check out <a href="https://github.com/rust-embedded/heapless/blob/main/CHANGELOG.md">the changelog</a>. Here are some of the major changes that can improve your usage of the library.</p>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;heapless-091&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;embedded-hal-v1&#x2F;">
+                            embedded-hal v1.0 now released!
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2024-01-09</span>
+                        <p>The Rust Embedded Working Group is proud to announce the release of <code>embedded-hal</code> version 1.0 together with the
+companion crates <code>embedded-hal-bus</code>, <code>embedded-hal-async</code> and <code>embedded-hal-nb</code>.</p>
+<p>Check out the <a href="https://github.com/rust-embedded/embedded-hal">repository</a>, the <a href="https://github.com/rust-embedded/embedded-hal#crates">API documentation</a> and the <a href="https://github.com/rust-embedded/embedded-hal/blob/master/docs/migrating-from-0.2-to-1.0.md">migration guide</a>.</p>
+<p>The <code>embedded-hal</code> crates provide traits (interfaces) for using peripherals commonly available in microcontrollers
+such as GPIO, UART, SPI or I2C. They allow writing drivers (for sensors, displays, actuators, network adapters, etc.) in
+a generic way, so they work on any microcontroller with an <code>embedded-hal</code> implementation without
+modifying them. It's a central piece of the Embedded Rust ecosystem, ensuring interoperability throughout.</p>
+<p>The 1.0 release has been in the works since 2020. Now that it's out, we consider all
+traits in it to be <em>stable</em>. The plan is to extend <code>embedded-hal</code> with more traits in future 1.x releases,
+not doing more breaking changes (i.e. there are no plans for a 2.0 release). This will provide a stable
+base for building HALs and drivers.</p>
+<p>So, what's new in <code>embedded-hal</code> 1.0?</p>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;embedded-hal-v1&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-31&#x2F;">
+                            The Embedded Working Group Newsletter - 31
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2022-03-22</span>
+                        <h2 id="highlights">Highlights</h2>
+<ul>
+<li>AdaCore and Ferrous Systems have joined forces to support Rust in safety- and mission-critical environments.
+<ul>
+<li><a href="https://blog.adacore.com/adacore-and-ferrous-systems-joining-forces-to-support-rust">Announcement from AdaCore</a></li>
+<li><a href="https://ferrous-systems.com/blog/ferrous-systems-adacore-joining-forces/">Announcement from Ferrous Systems</a></li>
+</ul>
+</li>
+<li>AUTOSAR announces <a href="https://www.autosar.org/news-events/details/autosar-announces-new-working-group-for-programming-language-rust-in-automotive-software-context-202/">new Working Group for Programming Language Rust in Automotive Software context</a>.</li>
+</ul>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-31&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;this-year-in-embedded-rust-2021&#x2F;">
+                            This Year in Embedded Rust: 2021
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2021-12-28</span>
+                        <p>As 2021 draws to a close, we thought we'd take a look back at what's happened
+over the last year in Embedded Rust, both within the working group and in the
+larger community.</p>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;this-year-in-embedded-rust-2021&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-30&#x2F;">
+                            The Embedded Working Group Newsletter - 30
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2021-11-16</span>
+                        <!-- TODO before release set `draft` to `false` and `in_search_index` to `true` -->
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li><a href="https://github.com/dkhayes117">@dkhayes117</a> joined the embedded working group's RISC-V team</li>
+<li>Rust std support <a href="https://github.com/rust-lang/rust/pull/87666">added for the ESP32</a></li>
+<li><a href="https://mabez.dev/blog/posts/esp-rust-18-10-2021/">Rust on Espressif chips update</a></li>
+<li><a href="https://blog.drogue.io/lorawan-update/">State of LoRaWAN support</a></li>
+</ul>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-30&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                
+                
+                <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;page&#x2F;2&#x2F;"><b>Next > ></b>
+                </div>
+            
+        </div>
+
+    </body>
+
+</html>

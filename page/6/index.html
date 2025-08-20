@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@rustembedded" />
+        <meta name="twitter:title" content="Rust Embedded" />
+        <meta name="twitter:description" content="The Rust Embedded Working Group" />
+        <meta name="twitter:image" content="https://blog.rust-embedded.org/ewg-logo-blue-white-on-transparent-256x256.png" />
+      
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/poole.css">
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https://blog.rust-embedded.org/ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+                <div class="posts">
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-11&#x2F;">
+                            The Embedded Working Group Newsletter - 11
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2018-09-09</span>
+                        <p>This is the eleventh newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>Discuss on <a href="https://internals.rust-lang.org/t/the-embedded-working-group-newsletter-11/8377">internals.rust-lang.org</a>, <a href="https://twitter.com/rustembedded/status/1039055481946492928">on twitter</a>, or <a href="https://www.reddit.com/r/rust/comments/9eku70/rust_embedded_working_group_newsletter_11_cortexr/">on reddit</a>!</p>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-11&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;2018-08-2x-psa-cortex-m-breakage&#x2F;">
+                            PSA: Cortex-M Breakage (LLD as the default linker)
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2018-08-28</span>
+                        <p>The default linker for the 4 ARM Cortex-M targets listed below has changed from
+<code>arm-none-eabi-gcc</code> to <code>rust-lld</code> in the latest nightly.</p>
+<ul>
+<li><code>thumbv6m-none-eabi</code></li>
+<li><code>thumbv7m-none-eabi</code></li>
+<li><code>thumbv7em-none-eabi</code></li>
+<li><code>thumbv7em-none-eabihf</code></li>
+</ul>
+<p>This will break the builds of <em>binaries</em> and <em>cdylibs</em> that were using the
+old default linker (<code>arm-none-eabi-gcc</code>) <em>and</em> additionally pass extra flags to
+the linker using any of these rustc flags: <code>-C link-arg</code>, <code>-C link-args</code>, <code>-Z pre-link-arg</code> or <code>-Z pre-link-args</code>. Building libraries (<code>rlib</code>s and
+<code>staticlib</code>s) is not affected by this change.</p>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;2018-08-2x-psa-cortex-m-breakage&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-10&#x2F;">
+                            The Embedded Working Group Newsletter - 10
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2018-08-28</span>
+                        <p>This is the tenth newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+<p>Discuss on <a href="https://internals.rust-lang.org/t/the-10th-embedded-wg-newsletter-and-a-new-blog/8326">internals.rust-lang.org</a>, <a href="https://twitter.com/rustembedded/status/1034765727423717376">on twitter</a>, or <a href="https://www.reddit.com/r/rust/comments/9b8gry/the_10th_embedded_wg_newsletter_and_a_new_blog/">on reddit</a>!</p>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-10&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-9&#x2F;">
+                            The Embedded Working Group Newsletter - 9
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2018-08-12</span>
+                        <p>This is the ninth newsletter of the <a href="https://github.com/rust-embedded/wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-9&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-8&#x2F;">
+                            The Embedded Working Group Newsletter - 8
+                          </a>
+                        </h1>
+
+                        <span class="post-date">2018-07-29</span>
+                        <p>This is the eighth newsletter of the <a href="https://github.com/rust-lang-nursery/embedded-wg">Embedded WG</a> where we highlight new progress, celebrate cool projects, thank the community, and advertise projects that need help!</p>
+
+                        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;newsletter-8&#x2F;">
+                          <i>Read More</i>
+                        </a>
+                      </div>
+                    
+                <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;page&#x2F;5&#x2F;"><b>< < Back</b>
+                |
+                <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;page&#x2F;7&#x2F;"><b>Next > ></b>
+                </div>
+            
+        </div>
+
+    </body>
+
+</html>
