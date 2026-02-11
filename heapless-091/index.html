@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="Heapless v0.9.1 has been released!" />
+  <meta name="twitter:description" content="Almost 2 years after the last release, the heapless crate has a new release. The first attempt at a 0.9.0 release was yanked due to including more breaking changes than intended.  This has been fixed, and 0.9.1  has been released today.
+Compared to 0.8.0, the 0.9.1 release contains a bunch of small everyday improvements and bugfixes. Most users of the library should be able to adapt with minimal changes. For more information, you can check out the changelog. Here are some of the major changes that can improve your usage of the library." />
+  <meta name="twitter:image" content="https://blog.rust-embedded.org/ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/poole.css">
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https://blog.rust-embedded.org/ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Heapless v0.9.1 has been released!</h1>
+  <span class="post-date">2025-08-20</span>
+  <p>Almost 2 years after the last release, the <a href="https://github.com/rust-embedded/heapless">heapless</a> crate has a new release. The first attempt at a <code>0.9.0</code> release was yanked due to including more breaking changes than intended.  This has been fixed, and <code>0.9.1</code>  has been released today.</p>
+<p>Compared to <code>0.8.0</code>, the <code>0.9.1</code> release contains a bunch of small everyday improvements and bugfixes. Most users of the library should be able to adapt with minimal changes. For more information, you can check out <a href="https://github.com/rust-embedded/heapless/blob/main/CHANGELOG.md">the changelog</a>. Here are some of the major changes that can improve your usage of the library.</p>
+<span id="continue-reading"></span><h1 id="the-view-types">The <code>View</code> types</h1>
+<p>One of the main constraints when working with <code>heapless</code> types is that they all have a <code>const generic</code>. In a lot of situations, these can now be removed thanks to the <code>View</code> types.</p>
+<p>A lot of embedded firmware will allocate a couple of buffers and pass them around to save on memory.
+To make it easy to change the size of the buffers, functions will carry along these <code>const generics</code>:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>heapless::Vec;
+</span><span style="color:#b48ead;">struct </span><span>App{
+</span><span>    …
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">impl </span><span>App {
+</span><span>     </span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">handle_request</span><span>&lt;</span><span style="color:#b48ead;">const</span><span> N: </span><span style="color:#b48ead;">usize</span><span>, </span><span style="color:#b48ead;">const</span><span> M: </span><span style="color:#b48ead;">usize</span><span>&gt;(</span><span style="color:#bf616a;">input</span><span>: &amp;</span><span style="color:#b48ead;">mut </span><span>Vec&lt;</span><span style="color:#b48ead;">u8</span><span>, N&gt;, </span><span style="color:#bf616a;">output</span><span>: &amp;</span><span style="color:#b48ead;">mut </span><span>Vec&lt;</span><span style="color:#b48ead;">u8</span><span>, M&gt;) -&gt; Result&lt;(), Error&gt; {
+</span><span>	     …
+</span><span>     }
+</span><span>}
+</span></code></pre>
+<p>The new <code>View</code> variants of the types enable you to remove the <code>const generics</code> while still keeping the same functionality:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>heapless::VecView;
+</span><span style="color:#b48ead;">struct </span><span>App{
+</span><span>    …
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">impl </span><span>App {
+</span><span>     </span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">handle_request</span><span>(</span><span style="color:#bf616a;">input</span><span>: &amp;</span><span style="color:#b48ead;">mut </span><span>VecView&lt;</span><span style="color:#b48ead;">u8</span><span>&gt;, </span><span style="color:#bf616a;">output</span><span>: &amp;</span><span style="color:#b48ead;">mut </span><span>VecView&lt;</span><span style="color:#b48ead;">u8</span><span>&gt;) -&gt; Result&lt;(), Error&gt; {
+</span><span>	     …
+</span><span>     }
+</span><span>}
+</span></code></pre>
+<p>Call sites of <code>handle_request</code> will be able to stay the same. The function will continue to accept <code>&amp;mut Vec&lt;u8, N&gt;</code>.</p>
+<p>So what's the difference between <code>VecView</code> and <code>Vec</code>?</p>
+<p>There are almost none, both are aliases of the same underlying type <code>VecInner</code>. The only limitation of  <code>VecView</code> compared to <code>Vec</code> is that <code>VecView</code> is <code>!Sized</code>. This means that you cannot perform anything that would require the compiler to know the size of the <code>VecView</code> at compile-time. You will always need to manipulate <code>VecView</code> through pointer indirection (generally a reference). This means you can't just create a <code>VecView</code> out of thin air. The <code>VecView</code> is always a runtime "View" of an existing <code>Vec</code>.</p>
+<p>So how can we obtain a <code>VecView</code> ? It's pretty simple: <code>Vec</code> can be <em>coerced</em> into a <code>VecView</code>. Coercion (in this case <a href="https://doc.rust-lang.org/reference/type-coercions.html#r-coerce.unsize"><code>Unsized</code> coercion</a>), is a way the compiler can transform one type into another implicitly. In this case, the compiler is capable of converting pointers to a <code>Vec</code> (<code>&amp;Vec&lt;T, N&gt;</code>, <code>&amp;mut Vec&lt;T, N&gt;</code>, <code>Box&lt;Vec&lt;T, N&gt;&gt;</code> etc...) to pointers to a <code>VecView</code> (<code>&amp;VecView&lt;T&gt;</code>, <code>&amp;mut VecView&lt;T&gt;</code>, <code>Box&lt;VecView&lt;T&gt;&gt;</code> etc...), so you can use a reference to a <code>Vec</code> when a reference to a <code>VecView</code> is expected:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>heapless::{VecView, Vec};
+</span><span style="color:#b48ead;">struct </span><span>App{
+</span><span>    …
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">impl </span><span>App {
+</span><span>     </span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">handle_request</span><span>(</span><span style="color:#bf616a;">input</span><span>: &amp;</span><span style="color:#b48ead;">mut </span><span>VecView&lt;</span><span style="color:#b48ead;">u8</span><span>&gt;, </span><span style="color:#bf616a;">output</span><span>: &amp;</span><span style="color:#b48ead;">mut </span><span>Vec&lt;</span><span style="color:#b48ead;">u8</span><span>&gt;) -&gt; Result&lt;(), Error&gt; {
+</span><span>	     …
+</span><span>     }
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let mut</span><span> request: Vec&lt;</span><span style="color:#b48ead;">u8</span><span>, 256&gt; = Vec::new();
+</span><span style="color:#b48ead;">let mut</span><span> reply: Vec&lt;</span><span style="color:#b48ead;">u8</span><span>, 256&gt; = Vec::new();
+</span><span>
+</span><span>app.</span><span style="color:#96b5b4;">handle_request</span><span>(&amp;</span><span style="color:#b48ead;">mut</span><span> request, &amp;</span><span style="color:#b48ead;">mut</span><span> reply).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span></code></pre>
+<p>If you prefer things to be explicit, the <code>View</code> variants of types (<code>Vec</code> is not the only data structure having <code>View</code> variants) can be obtained through <code>vec.as_view()</code> or through <code>vec.as_mut_view()</code>.</p>
+<p>The pointer to the <code>VecView</code> is the size of 2 <code>usize</code>: one for the address of the underlying <code>Vec</code>, and one for the capacity of the underlying <code>Vec</code>. This is exactly like slices. <code>VecView&lt;T&gt;</code> is to <code>Vec&lt;T, N&gt;</code> what a slice <code>[T]</code> is to an array <code>[T; N]</code>.
+Unless you need to store data on the stack, most often you will pass around <code>&amp;mut [T]</code> rather than <code>&amp;mut [T; N]</code>, because it's simpler. The same applies to <code>VecView</code>. Wherever you use <code>&amp;mut Vec&lt;T, N&gt;</code>, you can instead use <code>&amp;mut VecView&lt;T&gt;</code>.</p>
+<p>The <code>View</code> types are not available just for <code>Vec</code>. There are <code>View</code> versions of a lot of heapless types:</p>
+<ul>
+<li><code>Vec</code> has <code>VecView</code></li>
+<li><code>String</code> has <code>StringView</code></li>
+<li><code>Deque</code> has <code>DequeView</code></li>
+<li><code>LinearMap</code> has <code>LinearMapView</code></li>
+<li><code>HistoryBuf</code> has <code>HistoryBufView</code></li>
+<li><code>BinaryHeap</code> has <code>BinaryHeapView</code></li>
+<li><code>mpmc::Queue</code> has <code>mpmc::QueueView</code></li>
+<li><code>spsc::Queue</code> has <code>spsc::QueueView</code>
+(and now, the producer and consumer structs don't carry the const-generic)</li>
+<li><code>SortedLinkedList</code> has <code>SortedLinkedListView</code></li>
+</ul>
+<p><code>IndexMap</code> and <code>IndexSet</code> are the two remaining structures that don't have a <code>View</code> type available.
+We hope to be able to use it in the future.</p>
+<h2 id="benefits-of-the-view-types">Benefits of the view types</h2>
+<p>The benefits are multiple:</p>
+<h3 id="better-compatibility-with-dyn-traits">Better compatibility with <code>dyn Traits</code></h3>
+<p>If a trait has a function that takes a generic, it is not <code>dyn</code> compatible. By removing the const generic, the <code>View</code> types can make <code>dyn Trait</code> pass around data structures without having to hard-code a single size of buffer in the trait definition.</p>
+<h3 id="better-binary-size-and-compile-times">Better binary size and compile times</h3>
+<p>When you use const-generics, the compiler needs to compile a new version of the function for each value of the const-generic.
+Removing the const generic means cutting down on duplicated functions that are all almost the same, which improves both compile time and the size of the resulting binary.</p>
+<h3 id="better-ergonomics">Better ergonomics</h3>
+<p>The View types can remove a ton of excess noise from the generics.</p>
+<h1 id="the-lentype-optimization">The <code>LenType</code> optimization</h1>
+<p>Most often, buffers in embedded applications will not contain a huge number of items.
+Until <code>0.9.1</code> the capacity of a <code>heapless</code> data structure was almost always stored as a <code>usize</code>, which can often encode much more values than necessary.</p>
+<p>In 0.9.1, data structures now have a new optional generic parameter called <code>LenT</code>. This type accepts <code>u8</code>, <code>u16</code>, <code>u32</code>, and <code>usize</code>, and defaults to <code>usize</code> to keep typical uses of the library, simple.</p>
+<p>If you are seriously constrained by memory, a <code>Vec&lt;T, 28&gt;</code> (equivalent to <code>Vec&lt;T, 28, usize&gt;</code>) can become a <code>Vec&lt;T, 28, u8&gt;</code>, saving up to 7 bytes per <code>Vec</code>. This is not much, but in very small microcontrollers, it can make the difference between a program that uses all the memory available and one that just fits.</p>
+<h1 id="contributors">Contributors</h1>
+<p>This release was made possible by <a href="https://github.com/zeenix">@Zeenix</a> joining the embedded working group as part of the libs team to help maintain <code>heapless</code> and convincing <a href="https://github.com/sgued">@sgued</a> to do the same.</p>
+<p>The <code>View</code> types were a contributions from <a href="https://github.com/sgued">@sgued</a>, and the <code>LenType</code> were contributed by <a href="https://github.com/GnomedDev">@GnomedDev</a>.
+In total 38 contributors participated in all the other improvements to the crate and helped with maintainance.</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

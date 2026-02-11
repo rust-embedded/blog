@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <!-- Twitter Card Support -->
+      
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@rustembedded" />
+  <meta name="twitter:title" content="embedded-hal v1.0 now released!" />
+  <meta name="twitter:description" content="The Rust Embedded Working Group is proud to announce the release of embedded-hal version 1.0 together with the
+companion crates embedded-hal-bus, embedded-hal-async and embedded-hal-nb.
+Check out the repository, the API documentation and the migration guide.
+The embedded-hal crates provide traits (interfaces) for using peripherals commonly available in microcontrollers
+such as GPIO, UART, SPI or I2C. They allow writing drivers (for sensors, displays, actuators, network adapters, etc.) in
+a generic way, so they work on any microcontroller with an embedded-hal implementation without
+modifying them. It&#x27;s a central piece of the Embedded Rust ecosystem, ensuring interoperability throughout.
+The 1.0 release has been in the works since 2020. Now that it&#x27;s out, we consider all
+traits in it to be stable. The plan is to extend embedded-hal with more traits in future 1.x releases,
+not doing more breaking changes (i.e. there are no plans for a 2.0 release). This will provide a stable
+base for building HALs and drivers.
+So, what&#x27;s new in embedded-hal 1.0?" />
+  <meta name="twitter:image" content="https://blog.rust-embedded.org/ewg-logo-blue-white-on-transparent-256x256.png" />
+
+
+      <title>Rust Embedded Working Group</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/poole.css">
+      <link rel="stylesheet" href="https://blog.rust-embedded.org/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.rust-embedded.org">
+                              <img src="https://blog.rust-embedded.org/ewg-logo-blue-white-on-transparent.svg">
+                            </a>
+                            
+                            <p class="lead">Blog of the Embedded Rust Working Group
+</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li><a href="https:&#x2F;&#x2F;rust-lang.org">The Rust Language</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;wg">Embedded WG</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded&#x2F;blog">The Blog on GitHub</a></li>
+                        
+                        <li><a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;rss.xml">RSS Feed</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">embedded-hal v1.0 now released!</h1>
+  <span class="post-date">2024-01-09</span>
+  <p>The Rust Embedded Working Group is proud to announce the release of <code>embedded-hal</code> version 1.0 together with the
+companion crates <code>embedded-hal-bus</code>, <code>embedded-hal-async</code> and <code>embedded-hal-nb</code>.</p>
+<p>Check out the <a href="https://github.com/rust-embedded/embedded-hal">repository</a>, the <a href="https://github.com/rust-embedded/embedded-hal#crates">API documentation</a> and the <a href="https://github.com/rust-embedded/embedded-hal/blob/master/docs/migrating-from-0.2-to-1.0.md">migration guide</a>.</p>
+<p>The <code>embedded-hal</code> crates provide traits (interfaces) for using peripherals commonly available in microcontrollers
+such as GPIO, UART, SPI or I2C. They allow writing drivers (for sensors, displays, actuators, network adapters, etc.) in
+a generic way, so they work on any microcontroller with an <code>embedded-hal</code> implementation without
+modifying them. It's a central piece of the Embedded Rust ecosystem, ensuring interoperability throughout.</p>
+<p>The 1.0 release has been in the works since 2020. Now that it's out, we consider all
+traits in it to be <em>stable</em>. The plan is to extend <code>embedded-hal</code> with more traits in future 1.x releases,
+not doing more breaking changes (i.e. there are no plans for a 2.0 release). This will provide a stable
+base for building HALs and drivers.</p>
+<p>So, what's new in <code>embedded-hal</code> 1.0?</p>
+<span id="continue-reading"></span>
+<p><img src="../embedded-ferris-soldering.png" alt="Ferris soldering embedded stuff" />
+<em>Ferris with a soldering iron by <a href="https://waterpigs.co.uk/notes/5UrMgn/">Barnaby Walters</a>.</em></p>
+<h2 id="focus-on-drivers">Focus on drivers</h2>
+<p>Previous versions of <code>embedded-hal</code> had a dual goal of standardizing HAL APIs for end users, and allowing writing generic drivers.
+Experience has shown that these goals sometimes conflict with each other. As the latter brings much more value, 1.0 focuses on that.</p>
+<p>We've simplified some traits and merged others to remove interoperability gotchas.</p>
+<p>We've removed traits that were found to not be usable for generic drivers (most notably timers). The plan is to add
+them back in the future, with a better design. See the <a href="https://github.com/rust-embedded/embedded-hal/blob/master/docs/migrating-from-0.2-to-1.0.md">migration guide</a> for details and links to the tracking issues.</p>
+<h2 id="async">Async</h2>
+<p>A new addition is the <code>embedded-hal-async</code> crate, containing async versions of the traits. With the Rust 1.75 release,
+async traits are available on Rust stable. They can be used without heap allocations or dynamic
+dispatch (unlike previous macro-based polyfills like the <code>async-trait</code> crate), so they are a great fit for bare-metal embedded usage.</p>
+<p>Most <code>embedded-hal-async</code> traits are async versions of their blocking counterparts.</p>
+<p>However, one highlight is the <a href="https://docs.rs/embedded-hal-async/1.0.0/embedded_hal_async/digital/trait.Wait.html"><code>digital::Wait</code></a> trait, with methods like <code>wait_for_high()</code> and <code>wait_for_low()</code>. This trait adds support for using "IRQ" GPIO pins typically used by SPI and I2C devices to send an interrupt to the microcontroller. This frequently-requested feature turned out to be hard to abstract with traits, but is now feasible in an ergonomic way with async.</p>
+<h2 id="spi-bus-sharing">SPI bus sharing</h2>
+<p><img src="../spi-shared-bus.svg" alt="SPI bus/device diagram" /></p>
+<p>The <a href="https://docs.rs/embedded-hal/1.0.0/embedded_hal/spi/index.html"><code>SpiDevice</code></a> trait now allows sharing a SPI bus between multiple devices, each selected with its own CS pin. The design allows for unrelated drivers to talk to different devices in the same bus without conflicts and without being aware of each other.</p>
+<p>The trait is agnostic about the kind of mutex/locking mechanism. The <a href="https://docs.rs/embedded-hal-bus/0.1.0/embedded_hal_bus/spi/index.html"><code>embedded-hal-bus</code></a> crate provides implementations for commonly used mutexes, but it is possible to write your own for e.g. the mutex of your favourite RTOS.</p>
+<h2 id="error-handling">Error handling</h2>
+<p>Generic drivers can now inspect errors, thanks to them being required to implement an <code>Error</code> trait
+that allows querying the error "kind" out of a pre-selected set. HAL implementations can still use custom error types,
+and map errors that don't fit in these categories to the <code>Other</code> kind.</p>
+<p>All error types are also required to implement <code>Debug</code>, so <code>.unwrap()</code> and similar are now always available in generic drivers.</p>
+<h2 id="embedded-io">embedded-io</h2>
+<p>The <code>embedded-hal</code> project also hosts the <code>embedded-io</code> crates. They provide traits for byte-oriented I/O streams. Since serial
+ports (UART) are essentially byte streams, the serial-specific traits in <code>embedded-hal</code> have been removed in favor of <code>embedded-io</code>.</p>
+<p><code>embedded-io</code> has not reached 1.0 yet, but we expect that to happen in 2024.</p>
+<h2 id="thanks">Thanks</h2>
+<p>Thanks to the HAL team (<a href="https://github.com/therealprof">@therealprof</a>, <a href="https://github.com/ryankurte">@ryankurte</a>, <a href="https://github.com/eldruin">@eldruin</a>, <a href="https://github.com/Dirbaio">@dirbaio</a>, <a href="https://github.com/MabezDev">@MabezDev</a>), and to everyone who helped with testing, feedback and contributions for making <code>embedded-hal</code> 1.0 possible.</p>
+<p>Thanks to the Rust Foundation for sponsoring Dario Nieuwenhuis (<a href="https://github.com/Dirbaio">@dirbaio</a>)'s work on <code>embedded-hal</code> through the <a href="https://foundation.rust-lang.org/news/announcing-the-rust-foundation-s-2023-fellows/">Fellowship grants program</a>.</p>
+<p>And lastly, thanks to all the people releasing and maintaining HAL implementations and drivers using <code>embedded-hal</code>. <em>You</em> are the ones who make <code>embedded-hal</code> actually useful in the real world!</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>
